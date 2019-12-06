@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fff;
+    font-size: 14px;
+  }
+
+  a {
+    text-decoration: none;
+    :hover {
+      color: ${({ theme }) => theme.colors.orange};
+    }
+  }
+
+  img {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+  }
+`
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <GlobalStyle />
+      <header>
+        <a href="https://reactjs.org">Learn React</a>
       </header>
-    </div>
-  );
+    </>
+  )
 }
 
-export default App;
+export default App
