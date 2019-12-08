@@ -5,7 +5,11 @@ interface HeadingProps {
 }
 
 const Heading = styled.h1<HeadingProps>`
+  color: ${({ theme }) => theme.colors.blackLight};
   font-size: 2.5rem; /* 36px */
+  line-height: 1;
+  margin-top: 15px;
+  margin-bottom: 27px;
 
   ${props =>
     props.as === `h2` &&
