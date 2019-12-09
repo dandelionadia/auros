@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
-const Heading = styled.h1`
+interface HeadingProps {
+  as?: string
+}
+
+const Heading = styled.h1<HeadingProps>`
   color: ${({ theme }) => theme.colors.blackLight};
   font-size: 2.5rem; /* 36px */
   line-height: 1;
