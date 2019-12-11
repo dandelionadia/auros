@@ -2,6 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Product } from './molecules/Product'
 import Layout, { Box } from 'atomic-layout'
+import theme from './theme'
 
 Layout.configure({
   defaultUnit: 'rem'
@@ -18,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
+    color: ${({ theme }) => theme.colors.blackLight};
     text-decoration: none;
     :hover {
       color: ${({ theme }) => theme.colors.orange};
@@ -38,10 +40,12 @@ const App: React.FC = () => {
       <header>
         <a href="https://reactjs.org">Learn React</a>
         <Box flex paddingHorizontal={3.4}>
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          <Product
+            image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg"
+            secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
+            price="$166.26"
+            productName="Mega Table Lamp"
+          />
         </Box>
       </header>
     </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 import { Text } from '../atoms/Text'
@@ -14,21 +14,42 @@ const StyledContainerImage = styled.div`
 `
 const StyledProductImage = styled.img``
 
-const Product: React.FC = () => {
+interface ProductProps {
+  image: string
+  secondImage: string
+  price: string
+  productName: string
+}
+
+const Product: React.FC<ProductProps> = ({
+  image,
+  secondImage,
+  price,
+  productName
+}) => {
+  const [isHover, setIsHover] = useState(false)
+
   return (
-    <Box as={StyledContainerProduct} margin="0 20px 30px 20px">
+    <Box
+      as={StyledContainerProduct}
+      margin="0 20px 30px 20px"
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
       <Box as={StyledContainerImage}>
         <a href="#">
           <Box
             as={StyledProductImage}
-            src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-22-620x698.jpg"
+            src={isHover ? image : secondImage}
             alt="img"
           />
         </a>
       </Box>
       <Box as={StyledProductDescription}>
-        <Text big>Mega Table Lamp</Text>
-        <p>$166.26</p>
+        <Text big>
+          <a href="#">{productName}</a>
+        </Text>
+        <p>{price}</p>
       </Box>
     </Box>
   )
