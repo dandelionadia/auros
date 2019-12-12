@@ -20,7 +20,7 @@ const StyledContainerImage = styled.div`
 interface ProductProps {
   image: string
   secondImage: string
-  price: string
+  price: number
   productName: string
   buttonText: string
 }
@@ -47,8 +47,7 @@ const Product: React.FC<ProductProps> = ({
         </a>
         {isHover && (
           <ProductButton>
-            <p>+ </p>
-            <p>{buttonText}</p>
+            <p>+ {buttonText}</p>
           </ProductButton>
         )}
       </Box>
@@ -56,7 +55,7 @@ const Product: React.FC<ProductProps> = ({
         <Text big>
           <a href="#">{productName}</a>
         </Text>
-        <p>{price}</p>
+        <p>${price}</p>
       </Box>
     </Box>
   )
