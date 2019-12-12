@@ -2,7 +2,6 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Product } from './molecules/Product'
 import Layout, { Box } from 'atomic-layout'
-import theme from './theme'
 
 Layout.configure({
   defaultUnit: 'rem'
@@ -41,10 +40,19 @@ const App: React.FC = () => {
         <a href="https://reactjs.org">Learn React</a>
         <Box flex paddingHorizontal={3.4}>
           <Product
-            image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg"
-            secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
-            price="$166.26"
-            productName="Mega Table Lamp"
+            image="
+            https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg"
+            secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg"
+            productName="Mega 2 Seater Sofa"
+            price="$160.71"
+            buttonText="add to card"
+          />
+          <Product
+            image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
+            secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg"
+            productName="Sentei Pruning Shears"
+            price="$141.36"
+            buttonText="add to card"
           />
         </Box>
       </header>

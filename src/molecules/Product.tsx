@@ -2,48 +2,55 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 import { Text } from '../atoms/Text'
+import { ProductButton } from '../atoms/Button'
 
-const StyledContainerProduct = styled.div``
+const StyledContainerProduct = styled.div`
+  max-width: 500px;
+  height: auto;
+`
 const StyledProductDescription = styled.div`
   text-align: center;
   padding: 25px 0;
 `
 const StyledContainerImage = styled.div`
-  max-width: 500px;
-  height: auto;
+  position: relative;
+  z-index: 0;
 `
-const StyledProductImage = styled.img``
 
 interface ProductProps {
   image: string
   secondImage: string
   price: string
   productName: string
+  buttonText: string
 }
 
 const Product: React.FC<ProductProps> = ({
   image,
   secondImage,
   price,
-  productName
+  productName,
+  buttonText
 }) => {
   const [isHover, setIsHover] = useState(false)
 
   return (
     <Box
       as={StyledContainerProduct}
-      margin="0 20px 30px 20px"
+      padding="0 20px 30px 20px"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       <Box as={StyledContainerImage}>
         <a href="#">
-          <Box
-            as={StyledProductImage}
-            src={isHover ? image : secondImage}
-            alt="img"
-          />
+          <img src={isHover ? secondImage : image} alt="img" />
         </a>
+        {isHover && (
+          <ProductButton>
+            <p>+ </p>
+            <p>{buttonText}</p>
+          </ProductButton>
+        )}
       </Box>
       <Box as={StyledProductDescription}>
         <Text big>
