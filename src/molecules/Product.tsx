@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 import { Text } from '../atoms/Text'
-import { ProductButton } from '../atoms/Button'
+import { Button } from '../atoms/Button'
 
 const StyledContainerProduct = styled.div`
   max-width: 500px;
@@ -10,11 +10,26 @@ const StyledContainerProduct = styled.div`
 `
 const StyledProductDescription = styled.div`
   text-align: center;
-  padding: 25px 0;
 `
 const StyledContainerImage = styled.div`
   position: relative;
-  z-index: 0;
+`
+
+const ProductButton = styled(Button)`
+  font-size: 13px;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.black};
+  }
 `
 
 interface ProductProps {
@@ -51,7 +66,7 @@ const Product: React.FC<ProductProps> = ({
           </ProductButton>
         )}
       </Box>
-      <Box as={StyledProductDescription}>
+      <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
           <a href="#">{productName}</a>
         </Text>

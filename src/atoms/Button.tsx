@@ -10,27 +10,9 @@ const Button = styled.button`
   border: 0;
   width: 100%;
 
-  hover {
+  :hover {
     background-color: ${({ theme }) => theme.colors.orangeLight};
   }
 `
 
-const ProductButton = styled(Button)`
-  font-size: 13px;
-  font-weight: 600;
-  padding: 1rem;
-  margin: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
-
-  hover {
-    background-color: ${({ theme }) => theme.colors.black};
-  }
-`
-
-export { Button, ProductButton }
+export { Button }
