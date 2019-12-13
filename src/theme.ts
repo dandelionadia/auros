@@ -6,6 +6,7 @@ export default {
     black: '#000',
     blackLight: '#222',
     orange: '#eb7025',
-    orangeLight: '#ffb14b'
+    orangeLight: '#ffb14b',
+    white: '#fff'
   }
 }

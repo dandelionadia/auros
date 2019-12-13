@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
 interface TextProps {
-  big?: string
-  small?: string
+  big?: boolean
+  small?: boolean
 }
 
 const Text = styled.p<TextProps>`
@@ -13,6 +13,8 @@ const Text = styled.p<TextProps>`
     css`
       color: ${({ theme }) => theme.colors.blackLight};
       font-size: 16px;
+      font-weight: 600;
+      margin: 0;
     `}
 
   ${props =>
