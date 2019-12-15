@@ -2,6 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Product } from './molecules/Product'
 import Layout, { Box } from 'atomic-layout'
+import { Tabs } from './molecules/Tabs'
 
 Layout.configure({
   defaultUnit: 'rem'
@@ -38,6 +39,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <header>
         <a href="https://reactjs.org">Learn React</a>
+        <Tabs />
         <Box flex paddingHorizontal={3.4}>
           <Product
             image="
