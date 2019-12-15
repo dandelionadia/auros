@@ -5,10 +5,10 @@ import { Tabs } from '../../molecules/Tabs'
 
 const ProductPage: React.FC = () => {
   return (
-    <header>
+    <Box padding={1.4} paddingMd={2.8} marginHorizontalMd={4.2}>
       <a href="https://reactjs.org">Learn React</a>
       <Tabs />
-      <Box flex paddingHorizontal={3.4}>
+      <Box flex>
         <Product
           image="
             https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg"
@@ -25,7 +25,7 @@ const ProductPage: React.FC = () => {
           buttonText="add to card"
         />
       </Box>
-    </header>
+    </Box>
   )
 }
 
