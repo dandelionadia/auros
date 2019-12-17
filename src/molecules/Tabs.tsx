@@ -47,7 +47,7 @@ const StyledLI = styled.li`
 
 const Tabs: React.FC = () => {
   return (
-    <Box marginBottom="42px">
+    <Box marginBottom={3}>
       <StyldUl>
         <StyledLI>
           <StyledLink exact to="/product/">
