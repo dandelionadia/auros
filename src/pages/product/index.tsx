@@ -13,14 +13,14 @@ const ProductPage: React.FC = () => {
           image="
             https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg"
           secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg"
-          productName="Mega 2 Seater Sofa"
+          product="Mega 2 Seater Sofa"
           price={160.71}
           buttonText="add to card"
         />
         <Product
           image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
           secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg"
-          productName="Sentei Pruning Shears"
+          product="Sentei Pruning Shears"
           price={141.36}
           buttonText="add to card"
         />
