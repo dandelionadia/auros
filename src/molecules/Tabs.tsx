@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Switch, Route } from 'react-router-dom'
+import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 
@@ -45,25 +45,26 @@ const StyledLI = styled.li`
   }
 `
 
-const Tabs: React.FC = () => {
+const Tabs = withRouter(({ match }) => {
+  console.log(match )
   return (
     <Box marginBottom={3}>
       <StyldUl>
         <StyledLI>
-          <StyledLink exact to="/product/">
+          <StyledLink exact to={`${match.url}`}>
             Description
           </StyledLink>
         </StyledLI>
         <StyledLI>
-          <StyledLink to="/product/info">Info</StyledLink>
+          <StyledLink to={`${match.url}/info`}>Info</StyledLink>
         </StyledLI>
         <StyledLI>
-          <StyledLink to="/product/review">Review</StyledLink>
+          <StyledLink to={`${match.url}/review`}>Review</StyledLink>
         </StyledLI>
       </StyldUl>
       <Switch>
         <Route
-          path="/product/"
+          path={`${match.url}/`}
           exact
           render={() => (
             <p>
@@ -75,7 +76,7 @@ const Tabs: React.FC = () => {
           )}
         />
         <Route
-          path="/product/info"
+          path={`${match.url}/info`}
           render={() => (
             <p>
               I'm info Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -86,7 +87,7 @@ const Tabs: React.FC = () => {
           )}
         />
         <Route
-          path="/product/review"
+          path={`${match.url}/review`}
           render={() => (
             <p>
               I'm review Lorem ipsum dolor, sit amet consectetur adipisicing
@@ -99,6 +100,6 @@ const Tabs: React.FC = () => {
       </Switch>
     </Box>
   )
-}
+})
 
 export { Tabs }
