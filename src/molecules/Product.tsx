@@ -36,7 +36,7 @@ interface ProductProps {
   image: string
   secondImage: string
   price: number
-  product: string
+  name: string
   buttonText: string
 }
 
@@ -44,7 +44,7 @@ const Product: React.FC<ProductProps> = ({
   image,
   secondImage,
   price,
-  product,
+  name,
   buttonText
 }) => {
   const [isHover, setIsHover] = useState(false)
@@ -68,7 +68,7 @@ const Product: React.FC<ProductProps> = ({
       </Box>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
-          <a href="#">{product}</a>
+          <a href="#">{name}</a>
         </Text>
         <p>${price}</p>
       </Box>
