@@ -46,7 +46,6 @@ const StyledLI = styled.li`
 `
 
 const Tabs = withRouter(({ match }) => {
-  console.log(match)
   return (
     <Box marginBottom={3}>
       <StyldUl>
