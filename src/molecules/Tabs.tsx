@@ -51,7 +51,7 @@ const Tabs = withRouter(({ match }) => {
     <Box marginBottom={3}>
       <StyldUl>
         <StyledLI>
-          <StyledLink exact to={`${match.url}`}>
+          <StyledLink exact to={match.url}>
             Description
           </StyledLink>
         </StyledLI>
