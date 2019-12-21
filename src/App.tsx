@@ -7,7 +7,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
-import { ProductPage } from './pages/product'
+import { ProductPage } from './pages/product/ProductPage'
 
 Layout.configure({
   defaultUnit: 'rem'

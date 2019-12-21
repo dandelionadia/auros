@@ -40,7 +40,7 @@ interface ProductProps {
   buttonText: string
 }
 
-const Product: React.FC<ProductProps> = ({
+const ProductItem: React.FC<ProductProps> = ({
   image,
   secondImage,
   price,
@@ -52,13 +52,14 @@ const Product: React.FC<ProductProps> = ({
   return (
     <Box
       as={StyledContainerProduct}
-      padding="0 20px 30px 20px"
+      paddingHorizontal="20px"
+      paddingBottom="30px"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       <Box as={StyledContainerImage}>
         <a href="#">
-          <img src={isHover ? secondImage : image} alt="img" />
+          <img src={isHover ? secondImage : image} alt={name} />
         </a>
         {isHover && (
           <ProductButton>
@@ -76,4 +77,4 @@ const Product: React.FC<ProductProps> = ({
   )
 }
 
-export { Product }
+export { ProductItem }
