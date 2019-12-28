@@ -1,18 +1,20 @@
 import React from 'react'
 import { Composition } from 'atomic-layout'
 
-const areasMobile = `
+const templateMobile = `
 	gallery
 	summary
+	1fr 
 `
 
-const areasDesktop = `
+const templateDesktop = `
 	gallery summary
+	/ 1fr 1fr
 `
 
 const ProductSummary: React.FC = () => {
   return (
-    <Composition areas={areasMobile} areasMd={areasDesktop}>
+    <Composition template={templateMobile} templateMd={templateDesktop}>
       {({ Gallery, Summary }) => (
         <>
           <Gallery>
