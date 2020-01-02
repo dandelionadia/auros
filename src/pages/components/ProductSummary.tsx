@@ -1,10 +1,11 @@
 import React from 'react'
 import { Composition } from 'atomic-layout'
+import { Image } from '../../atoms/Image'
+import { Heading } from '../../atoms/Heading'
 
 const templateMobile = `
 	gallery
 	summary
-	1fr 
 `
 
 const templateDesktop = `
@@ -14,14 +15,23 @@ const templateDesktop = `
 
 const ProductSummary: React.FC = () => {
   return (
-    <Composition template={templateMobile} templateMd={templateDesktop}>
+    <Composition
+      template={templateMobile}
+      templateSm={templateDesktop}
+      gap={3}
+      marginVertical={4}
+    >
       {({ Gallery, Summary }) => (
         <>
           <Gallery>
-            <p>gallaty</p>
+            <Image
+              src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-32.jpg"
+              alt="image"
+            />
           </Gallery>
           <Summary>
-            <p>summary</p>
+            <Heading>h1</Heading>
+            <Heading as="h2">h2</Heading>
           </Summary>
         </>
       )}
