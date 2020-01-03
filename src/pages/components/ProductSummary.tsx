@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box, Composition } from 'atomic-layout'
+import styled from 'styled-components'
 import { Image } from '../../atoms/Image'
 import { Heading } from '../../atoms/Heading'
-import styled from 'styled-components'
+import { Button } from '../../atoms/Button'
 
 const templateMobile = `
 	gallery
@@ -26,6 +27,19 @@ const StyledProdactPrice = styled.span`
 
 const StyledP = styled.p`
   margin: 0 0 40px;
+`
+
+const StyledInput = styled.input`
+  color: ${({ theme }) => theme.colors.greyLight};
+  margin: 15px 0;
+  width: 60px;
+  text-align: center;
+  font-size: 1.5rem;
+
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    opacity: 1;
+  }
 `
 
 const ProductSummary: React.FC = () => {
@@ -69,6 +83,17 @@ const ProductSummary: React.FC = () => {
               veritatis. Ratione aperiam quaerat veniam at placeat laudantium
               non.
             </StyledDescription>
+            <Composition gap={1} templateCols="auto 1fr">
+              <StyledInput
+                type="number"
+                id="number"
+                name="tentacles"
+                min="1"
+                max="10"
+                defaultValue="1"
+              ></StyledInput>
+              <Button>≙ add to card</Button>
+            </Composition>
           </Summary>
         </>
       )}

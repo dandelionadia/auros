@@ -5,6 +5,7 @@ const Button = styled.button`
   color: ${({ theme }) => theme.colors.white};
   font-weight: 400;
   font-size: 16px;
+  text-transform: capitalize;
   padding: 16px;
   margin: 15px;
   border: 0;
