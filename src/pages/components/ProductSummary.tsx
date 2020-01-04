@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { Image } from '../../atoms/Image'
 import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
+import { FaFacebookF } from 'react-icons/fa'
+import { FaTwitter } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
 
 const templateMobile = `
 	gallery
@@ -40,6 +43,11 @@ const StyledInput = styled.input`
   ::-webkit-outer-spin-button {
     opacity: 1;
   }
+`
+
+const StyledLink = styled.a`
+  color: #888;
+  margin: 0 5px;
 `
 
 const ProductSummary: React.FC = () => {
@@ -94,6 +102,18 @@ const ProductSummary: React.FC = () => {
               ></StyledInput>
               <Button>≙ add to card</Button>
             </Composition>
+            <Box flex marginTop={1.5}>
+              <span>Share on: </span>
+              <StyledLink href="#">
+                <FaFacebookF />
+              </StyledLink>
+              <StyledLink href="#">
+                <FaTwitter />
+              </StyledLink>
+              <StyledLink href="#">
+                <FaInstagram />
+              </StyledLink>
+            </Box>
           </Summary>
         </>
       )}
