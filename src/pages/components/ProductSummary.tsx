@@ -44,10 +44,18 @@ const StyledInput = styled.input`
     opacity: 1;
   }
 `
+const StyledProductMeta = styled.div`
+  color: #888;
+  border-bottom: 1px solid #eee;
+`
 
 const StyledLink = styled.a`
   color: #888;
   margin: 0 5px;
+`
+
+const Name = styled.span`
+  color: #222;
 `
 
 const ProductSummary: React.FC = () => {
@@ -102,6 +110,16 @@ const ProductSummary: React.FC = () => {
               ></StyledInput>
               <Button>≙ add to card</Button>
             </Composition>
+            <Box as={StyledProductMeta} paddingVertical={2}>
+              <Box marginVertical={0.5}>
+                <Name>SKU:</Name>
+                <span> foo</span>
+              </Box>
+              <Box marginVertical={0.5}>
+                <Name>SKU:</Name>
+                <span> foo</span>
+              </Box>
+            </Box>
             <Box flex marginTop={1.5}>
               <span>Share on: </span>
               <StyledLink href="#">
