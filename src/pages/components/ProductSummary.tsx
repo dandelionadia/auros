@@ -58,6 +58,17 @@ const Name = styled.span`
   color: #222;
 `
 
+const StyledAddToWishList = styled.div`
+  color: #222;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  text-transform: capitalize;
+`
+
+const StyledLinkAddToWish = styled.a`
+  border-bottom: 1px solid #222;
+`
+
 const ProductSummary: React.FC = () => {
   return (
     <Composition
@@ -110,13 +121,20 @@ const ProductSummary: React.FC = () => {
               ></StyledInput>
               <Button>≙ add to card</Button>
             </Composition>
+            <Box as={StyledAddToWishList}>
+              <span>
+                <StyledLinkAddToWish href="#">
+                  + Add to wish list
+                </StyledLinkAddToWish>
+              </span>
+            </Box>
             <Box as={StyledProductMeta} paddingVertical={2}>
               <Box marginVertical={0.5}>
                 <Name>SKU:</Name>
                 <span> foo</span>
               </Box>
               <Box marginVertical={0.5}>
-                <Name>SKU:</Name>
+                <Name>Foo:</Name>
                 <span> foo</span>
               </Box>
             </Box>
