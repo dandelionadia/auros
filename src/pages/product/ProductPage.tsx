@@ -2,13 +2,18 @@ import React from 'react'
 import { Box } from 'atomic-layout'
 import { ProductItem } from '../../molecules/ProductItem'
 import { Tabs } from '../../molecules/Tabs'
-import {ProductSummary} from '../components/ProductSummary'
+import { ProductSummary } from '../components/ProductSummary'
 
 const ProductPage: React.FC = () => {
   return (
-    <Box padding={1.4} paddingMd={2.8} marginHorizontalMd={4.2}>
+    <Box
+      padding={1.4}
+      paddingMd={2.8}
+      marginHorizontalMd={2}
+      marginHorizontalLg={4.2}
+    >
       <a href="https://reactjs.org">Learn React</a>
-      <ProductSummary/>
+      <ProductSummary />
       <Tabs />
       <Box flex>
         <ProductItem

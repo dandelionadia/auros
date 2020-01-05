@@ -73,13 +73,13 @@ const ProductSummary: React.FC = () => {
   return (
     <Composition
       template={templateMobile}
-      templateSm={templateDesktop}
-      gap={3}
+      templateMd={templateDesktop}
+      gap={2}
       marginVertical={4}
     >
       {({ Gallery, Summary }) => (
         <>
-          <Gallery>
+          <Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
             <Image
               src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-32.jpg"
               alt="image"
@@ -88,7 +88,7 @@ const ProductSummary: React.FC = () => {
           <Summary>
             <Heading>UNA Chair</Heading>
             <Box flex marginBottom={1.1}>
-              <Box marginRight={1}>⋆ ✢ ✥ ✦ ✧ ❂ ❉ ✯</Box>
+              <Box marginRight={1}>✥ ✦ ✧ ❉ ✯</Box>
               <a href="#">(5 customer reviews)</a>
             </Box>
             <StyledP>
