@@ -4,9 +4,8 @@ import styled from 'styled-components'
 import { Image } from '../../atoms/Image'
 import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
-import { FaFacebookF } from 'react-icons/fa'
-import { FaTwitter } from 'react-icons/fa'
-import { FaInstagram } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { Rating } from '../../molecules/Rating'
 
 const templateMobile = `
 	gallery
@@ -88,7 +87,9 @@ const ProductSummary: React.FC = () => {
           <Summary>
             <Heading>UNA Chair</Heading>
             <Box flex marginBottom={1.1}>
-              <Box marginRight={1}>✥ ✦ ✧ ❉ ✯</Box>
+              <Box marginRight={1}>
+                <Rating stars={3} />
+              </Box>
               <a href="#">(5 customer reviews)</a>
             </Box>
             <StyledP>
