@@ -13,7 +13,7 @@ const ProductPage: React.FC = () => {
       marginHorizontalLg={4.2}
     >
       <a href="https://reactjs.org">Learn React</a>
-      <ProductSummary />
+      <ProductSummary customerReviews={3} />
       <Tabs />
       <Box flex>
         <ProductItem

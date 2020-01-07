@@ -68,7 +68,11 @@ const StyledLinkAddToWish = styled.a`
   border-bottom: 1px solid #222;
 `
 
-const ProductSummary: React.FC = () => {
+interface ProductSummaryProps {
+  customerReviews: number
+}
+
+const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
   return (
     <Composition
       template={templateMobile}
@@ -90,7 +94,7 @@ const ProductSummary: React.FC = () => {
               <Box marginRight={1}>
                 <Rating stars={3} />
               </Box>
-              <a href="#">(5 customer reviews)</a>
+              <a href="#">({customerReviews} customer reviews)</a>
             </Box>
             <StyledP>
               <StyledProdactPrice>$102.84</StyledProdactPrice>
