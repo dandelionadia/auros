@@ -80,15 +80,16 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
       gap={2}
       marginVertical={4}
     >
-      {({ Gallery, Summary }) => (
+      {Areas => (
         <>
-          <Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
+          <Areas.Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
             <Image
               src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-32.jpg"
               alt="image"
             />
-          </Gallery>
-          <Summary>
+            {/* //..// */}
+          </Areas.Gallery>
+          <Areas.Summary>
             <Heading>UNA Chair</Heading>
             <Box flex marginBottom={1.1}>
               <Box marginRight={1}>
@@ -155,7 +156,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
                 <FaInstagram />
               </StyledLink>
             </Box>
-          </Summary>
+          </Areas.Summary>
         </>
       )}
     </Composition>
