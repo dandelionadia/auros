@@ -86,27 +86,27 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
             <Carousel
               images={[
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/1',
+                  thumbnailImage: 'http://satyr.io/100x100/1',
                   fullImage: 'http://satyr.io/540x540/1'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/2',
+                  thumbnailImage: 'http://satyr.io/100x100/2',
                   fullImage: 'http://satyr.io/540x540/2'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/3',
+                  thumbnailImage: 'http://satyr.io/100x100/3',
                   fullImage: 'http://satyr.io/540x540/3'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/4',
+                  thumbnailImage: 'http://satyr.io/100x100/4',
                   fullImage: 'http://satyr.io/540x540/4'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/5',
+                  thumbnailImage: 'http://satyr.io/100x100/5',
                   fullImage: 'http://satyr.io/540x540/5'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/78x78/6',
+                  thumbnailImage: 'http://satyr.io/100x100/6',
                   fullImage: 'http://satyr.io/540x540/6'
                 }
               ]}
