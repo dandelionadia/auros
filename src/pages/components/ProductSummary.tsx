@@ -1,11 +1,11 @@
 import React from 'react'
 import { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
-import { Image } from '../../atoms/Image'
 import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { Rating } from '../../molecules/Rating'
+import { Carousel } from '../../molecules/Carousel'
 
 const templateMobile = `
 	gallery
@@ -83,11 +83,34 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
       {Areas => (
         <>
           <Areas.Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
-            <Image
-              src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-32.jpg"
-              alt="image"
+            <Carousel
+              images={[
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/1',
+                  fullImage: 'http://satyr.io/540x540/1'
+                },
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/2',
+                  fullImage: 'http://satyr.io/540x540/2'
+                },
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/3',
+                  fullImage: 'http://satyr.io/540x540/3'
+                },
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/4',
+                  fullImage: 'http://satyr.io/540x540/4'
+                },
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/5',
+                  fullImage: 'http://satyr.io/540x540/5'
+                },
+                {
+                  thumbnailImage: 'http://satyr.io/78x78/6',
+                  fullImage: 'http://satyr.io/540x540/6'
+                }
+              ]}
             />
-            {/* //..// */}
           </Areas.Gallery>
           <Areas.Summary>
             <Heading>UNA Chair</Heading>
