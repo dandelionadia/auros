@@ -19,7 +19,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
   }
 
   return (
-    <Box marginHorizontal={1.4}>
+    <Box marginHorizontalMd="1.4">
       <Image src={primaryImage.fullImage} />
       <Composition gap="3px" marginVertical="3px" templateCols="repeat(6, 1fr)">
         {images.map((image, index) => (
