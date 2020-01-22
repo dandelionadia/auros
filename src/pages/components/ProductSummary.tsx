@@ -78,6 +78,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
       template={templateMobile}
       templateMd={templateDesktop}
       gap={2}
+      gapMd={4}
       marginVertical={4}
     >
       {Areas => (
@@ -86,28 +87,28 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
             <Carousel
               images={[
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/1',
-                  fullImage: 'http://satyr.io/540x540/1'
+                  thumbnailImage: 'http://satyr.io/150x150/1',
+                  fullImage: 'http://satyr.io/750x750/1'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/2',
-                  fullImage: 'http://satyr.io/540x540/2'
+                  thumbnailImage: 'http://satyr.io/150x150/2',
+                  fullImage: 'http://satyr.io/750x750/2'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/3',
-                  fullImage: 'http://satyr.io/540x540/3'
+                  thumbnailImage: 'http://satyr.io/150x150/3',
+                  fullImage: 'http://satyr.io/750x750/3'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/4',
-                  fullImage: 'http://satyr.io/540x540/4'
+                  thumbnailImage: 'http://satyr.io/150x150/4',
+                  fullImage: 'http://satyr.io/750x750/4'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/5',
-                  fullImage: 'http://satyr.io/540x540/5'
+                  thumbnailImage: 'http://satyr.io/150x150/5',
+                  fullImage: 'http://satyr.io/750x750/5'
                 },
                 {
-                  thumbnailImage: 'http://satyr.io/100x100/6',
-                  fullImage: 'http://satyr.io/540x540/6'
+                  thumbnailImage: 'http://satyr.io/150x150/6',
+                  fullImage: 'http://satyr.io/750x750/6'
                 }
               ]}
             />
