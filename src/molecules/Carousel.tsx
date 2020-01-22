@@ -19,9 +19,13 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
   }
 
   return (
-    <Box marginHorizontalMd="1.4">
+    <Box>
       <Image src={primaryImage.fullImage} />
-      <Composition gap="3px" marginVertical="3px" templateCols="repeat(6, 1fr)">
+      <Composition
+        gap="3px"
+        marginVertical="3px"
+        templateCols="repeat(auto-fill, minmax(80px, 1fr))"
+      >
         {images.map((image, index) => (
           <img
             key={index}
