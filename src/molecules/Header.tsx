@@ -2,6 +2,7 @@ import React from 'react'
 import { Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { Burger } from '../atoms/Burger'
+import { NavMenu } from './NavMenu'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -29,7 +30,7 @@ export const Header: React.FC = () => {
       template={templateMobile}
       templateMd={templateDesktop}
       templateLg={templateLg}
-      gap={2}
+      gap={0.5}
       marginHorizontal="20px"
       marginHorizontalMd="40px"
       marginVertical="20px"
@@ -44,7 +45,32 @@ export const Header: React.FC = () => {
             <Burger />
           </Areas.Burger>
           <Areas.Menu>
-            <p>menu</p>
+            <NavMenu
+              data={[
+                {
+                  name: 'home',
+                  subMenu: [
+                    {
+                      name: '1'
+                    },
+                    {
+                      name: '2'
+                    }
+                  ]
+                },
+                {
+                  name: 'shop',
+                  subMenu: [
+                    {
+                      name: '1'
+                    },
+                    {
+                      name: '2'
+                    }
+                  ]
+                }
+              ]}
+            />
           </Areas.Menu>
           <Areas.Bar>
             <p>bar</p>
