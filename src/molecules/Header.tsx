@@ -62,10 +62,32 @@ export const Header: React.FC = () => {
                   name: 'shop',
                   subMenu: [
                     {
-                      name: '1'
+                      name: '3'
                     },
                     {
-                      name: '2'
+                      name: '4'
+                    }
+                  ]
+                },
+                {
+                  name: 'shop',
+                  subMenu: [
+                    {
+                      name: '3'
+                    },
+                    {
+                      name: '4'
+                    }
+                  ]
+                },
+                {
+                  name: 'shop',
+                  subMenu: [
+                    {
+                      name: '3'
+                    },
+                    {
+                      name: '4'
                     }
                   ]
                 }

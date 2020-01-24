@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const StyledList = styled.ul`
   display: flex;
+  justify-content: space-evenly;
   list-style: none;
-  border: 1px solid red;
   margin: 0;
   padding: 0;
+`
+
+const StyledContainerLi = styled.div`
+  display: flex;
+  align-items: flex-end;
+`
+
+const StyledUlSubMenu = styled.ul`
+  box-shadow: 0px 5px 19px 1px rgba(0, 0, 0, 0.09);
+  background-color: yellow;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  z-index: 4;
+  display: none;
 `
 
 const StyledLi = styled.li`
@@ -15,8 +31,12 @@ const StyledLi = styled.li`
   font-weight: 600;
   text-transform: capitalize;
   padding: 8px 10px;
-  display: flex;
-  align-items: center;
+
+  :hover {
+    ${StyledUlSubMenu} {
+      display: block;
+    }
+  }
 `
 
 interface HeaderProps {
@@ -37,8 +57,19 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
     <StyledList>
       {data.map(item => (
         <StyledLi>
-          <span>{item.name}</span>
-          <IoIosArrowDown />
+          <StyledContainerLi>
+            <span>{item.name}</span>
+            <IoIosArrowDown />
+          </StyledContainerLi>
+          {item.subMenu && (
+            <StyledUlSubMenu>
+              {item.subMenu.map(subMenuItem => (
+                <li>
+                  <a href="#">{subMenuItem.name}</a>
+                </li>
+              ))}
+            </StyledUlSubMenu>
+          )}
         </StyledLi>
       ))}
     </StyledList>
