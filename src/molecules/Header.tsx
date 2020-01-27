@@ -3,6 +3,7 @@ import { Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { Burger } from '../atoms/Burger'
 import { NavMenu } from './NavMenu'
+import { Logo } from '../atoms/Logo'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -16,11 +17,13 @@ const templateMobile = `
 
 const templateDesktop = `
 	logo logo
-	menu bar
+  menu bar
+  / 1fr auto
 `
 
 const templateLg = `
-	logo menu bar
+  logo menu bar
+  / 130px 1fr auto
 `
 
 export const Header: React.FC = () => {
@@ -35,26 +38,29 @@ export const Header: React.FC = () => {
       marginHorizontalMd="40px"
       marginVertical="20px"
       marginVerticalLg="40px"
+      alignItems="center"
     >
       {Areas => (
         <>
-          <Areas.Logo>
-            <p>logo</p>
+          <Areas.Logo justifyMdOnly="center">
+            <a href="#">
+              <Logo src="https://demo2.wpopal.com/auros/wp-content/uploads/2019/02/Logo.svg" />
+            </a>
           </Areas.Logo>
           <Areas.Burger>
             <Burger />
           </Areas.Burger>
-          <Areas.Menu>
+          <Areas.Menu justifyLg="center">
             <NavMenu
               data={[
                 {
                   name: 'home',
                   subMenu: [
                     {
-                      name: '1'
+                      name: 'lorem lorem'
                     },
                     {
-                      name: '2'
+                      name: 'lorem'
                     }
                   ]
                 },
@@ -62,10 +68,10 @@ export const Header: React.FC = () => {
                   name: 'shop',
                   subMenu: [
                     {
-                      name: '3'
+                      name: 'fooo'
                     },
                     {
-                      name: '4'
+                      name: 'foo'
                     }
                   ]
                 },
@@ -73,10 +79,10 @@ export const Header: React.FC = () => {
                   name: 'shop',
                   subMenu: [
                     {
-                      name: '3'
+                      name: ' lorem 3'
                     },
                     {
-                      name: '4'
+                      name: 'lorem 4'
                     }
                   ]
                 },
@@ -84,10 +90,10 @@ export const Header: React.FC = () => {
                   name: 'shop',
                   subMenu: [
                     {
-                      name: '3'
+                      name: 'lorem lorem'
                     },
                     {
-                      name: '4'
+                      name: ' lorem 4'
                     }
                   ]
                 }
@@ -95,7 +101,7 @@ export const Header: React.FC = () => {
             />
           </Areas.Menu>
           <Areas.Bar>
-            <p>bar</p>
+            <span>bar</span>
           </Areas.Bar>
         </>
       )}
