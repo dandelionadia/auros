@@ -17,13 +17,14 @@ const StyledContainerLi = styled.div`
 
 const StyledUlSubMenu = styled.ul`
   box-shadow: 0px 5px 19px 1px rgba(0, 0, 0, 0.09);
-  background-color: yellow;
+  background-color: #fff;
   list-style: none;
-  margin: 0;
-  padding: 10px;
+  margin: 15px 0 0 0;
+  padding: 0;
   position: absolute;
   z-index: 4;
   display: none;
+  width: 250px;
 `
 
 const StyledLi = styled.li`
@@ -31,11 +32,38 @@ const StyledLi = styled.li`
   font-weight: 600;
   text-transform: capitalize;
   padding: 8px 10px;
+  position: relative;
 
   :hover {
     ${StyledUlSubMenu} {
       display: block;
     }
+  }
+
+  ::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: pink;
+    transition: height 0.2s ease-in-out;
+  }
+
+  :hover::after {
+    height: 5px;
+  }
+`
+
+const StyledSubMenuLi = styled.li`
+  color: ${({ theme }) => theme.colors.grey};
+  padding: 10px;
+  margin: 0;
+  font-weight: initial;
+
+  :hover {
+    background-color: #d8d8d8;
   }
 `
 
@@ -64,9 +92,9 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
           {item.subMenu && (
             <StyledUlSubMenu>
               {item.subMenu.map(subMenuItem => (
-                <li>
+                <StyledSubMenuLi>
                   <a href="#">{subMenuItem.name}</a>
-                </li>
+                </StyledSubMenuLi>
               ))}
             </StyledUlSubMenu>
           )}
