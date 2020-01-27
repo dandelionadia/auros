@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { Box } from 'atomic-layout'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const StyledList = styled.ul`
   display: flex;
-  justify-content: space-evenly;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -31,7 +31,7 @@ const StyledLi = styled.li`
   color: #222;
   font-weight: 600;
   text-transform: capitalize;
-  padding: 8px 10px;
+  padding: 8px 15px;
   position: relative;
 
   :hover {
@@ -67,6 +67,10 @@ const StyledSubMenuLi = styled.li`
   }
 `
 
+const ContentLi = styled.span`
+  margin-right: 5px;
+`
+
 interface HeaderProps {
   data: HeaderMenu[]
 }
@@ -86,7 +90,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
       {data.map(item => (
         <StyledLi>
           <StyledContainerLi>
-            <span>{item.name}</span>
+            <Box as={ContentLi}>{item.name}</Box>
             <IoIosArrowDown />
           </StyledContainerLi>
           {item.subMenu && (

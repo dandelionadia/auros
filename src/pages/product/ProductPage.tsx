@@ -10,10 +10,10 @@ const ProductPage: React.FC = () => {
     <>
       <Header />
       <Box
-        padding={1.4}
-        paddingMd={2.8}
+        padding={1.3}
+        paddingMd={2.6}
         marginHorizontalMd={2}
-        marginHorizontalLg={4.2}
+        marginHorizontalLg={0}
       >
         <a href="https://reactjs.org">Learn React</a>
         <ProductSummary customerReviews={3} />
