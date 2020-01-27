@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Burger } from '../atoms/Burger'
 import { NavMenu } from './NavMenu'
 import { Logo } from '../atoms/Logo'
+import { Bar } from './Bar'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -54,7 +55,7 @@ export const Header: React.FC = () => {
             <NavMenu
               data={[
                 {
-                  name: 'home',
+                  name: 'Home',
                   subMenu: [
                     {
                       name: 'lorem lorem'
@@ -65,7 +66,7 @@ export const Header: React.FC = () => {
                   ]
                 },
                 {
-                  name: 'shop',
+                  name: 'Shop',
                   subMenu: [
                     {
                       name: 'fooo'
@@ -76,7 +77,7 @@ export const Header: React.FC = () => {
                   ]
                 },
                 {
-                  name: 'shop',
+                  name: 'Shop',
                   subMenu: [
                     {
                       name: ' lorem 3'
@@ -87,7 +88,7 @@ export const Header: React.FC = () => {
                   ]
                 },
                 {
-                  name: 'shop',
+                  name: 'Shop',
                   subMenu: [
                     {
                       name: 'lorem lorem'
@@ -100,8 +101,8 @@ export const Header: React.FC = () => {
               ]}
             />
           </Areas.Menu>
-          <Areas.Bar>
-            <span>bar</span>
+          <Areas.Bar flex>
+            <Bar />
           </Areas.Bar>
         </>
       )}

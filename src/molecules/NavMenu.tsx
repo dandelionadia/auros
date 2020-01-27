@@ -30,7 +30,6 @@ const StyledUlSubMenu = styled.ul`
 const StyledLi = styled.li`
   color: #222;
   font-weight: 600;
-  text-transform: capitalize;
   padding: 8px 15px;
   position: relative;
 
