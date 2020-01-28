@@ -16,7 +16,6 @@ const StyledContainerLi = styled.div`
 `
 
 const StyledUlSubMenu = styled.ul`
-  box-shadow: 0px 5px 19px 1px rgba(0, 0, 0, 0.09);
   background-color: #fff;
   list-style: none;
   margin: 15px 0 0 0;
