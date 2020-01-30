@@ -15,14 +15,19 @@ const StyledLine = styled.div`
   margin-bottom: 5px;
 `
 
+const StyledBtn = styled.button`
+  border: none;
+  background-color: #fff;
+`
+
 export const Burger: React.FC = () => {
   return (
     <Box as={StyledContainerBurger}>
-      <button>
+      <StyledBtn>
         <StyledLine />
         <StyledLine />
         <StyledLine />
-      </button>
+      </StyledBtn>
     </Box>
   )
 }
