@@ -18,11 +18,11 @@ const StyledLine = styled.div`
 export const Burger: React.FC = () => {
   return (
     <Box as={StyledContainerBurger}>
-      <a href="#">
-        <StyledLine></StyledLine>
-        <StyledLine></StyledLine>
-        <StyledLine></StyledLine>
-      </a>
+      <button>
+        <StyledLine />
+        <StyledLine />
+        <StyledLine />
+      </button>
     </Box>
   )
 }
