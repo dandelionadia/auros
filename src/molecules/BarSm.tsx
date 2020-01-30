@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   background-color: #262626;
-  justify-content: space-around;
 `
 
 const templateSm = `
@@ -14,7 +13,12 @@ const templateSm = `
 
 export const BarSm: React.FC = () => {
   return (
-    <Composition template={templateSm} as={Container} padding="10px">
+    <Composition
+      template={templateSm}
+      as={Container}
+      padding="10px"
+      justifyContent="space-around"
+    >
       {Areas => (
         <>
           <Areas.MyAccount>
