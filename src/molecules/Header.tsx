@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Composition, Only, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { Burger } from '../atoms/Burger'
@@ -53,9 +54,9 @@ export const Header: React.FC = () => {
       {Areas => (
         <>
           <Areas.Logo justifyMdOnly="center">
-            <a href="#">
+            <Link to="/">
               <Logo src="https://demo2.wpopal.com/auros/wp-content/uploads/2019/02/Logo.svg" />
-            </a>
+            </Link>
           </Areas.Logo>
           <Areas.Burger>
             <Burger />
