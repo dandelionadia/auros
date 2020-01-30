@@ -9,8 +9,8 @@ const StyledContainerBurger = styled.div`
   right: 0;
 `
 const StyledLine = styled.div`
-  background-color: red;
-  width: 25px;
+  background-color: #000;
+  width: 20px;
   height: 1px;
   margin-bottom: 5px;
 `
