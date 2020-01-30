@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
 

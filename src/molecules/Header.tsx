@@ -68,10 +68,12 @@ export const Header: React.FC = () => {
                   name: 'Home',
                   subMenu: [
                     {
-                      name: 'lorem lorem'
+                      name: 'lorem lorem',
+                      link: '#'
                     },
                     {
-                      name: 'lorem'
+                      name: 'lorem',
+                      link: '#'
                     }
                   ]
                 },
@@ -79,10 +81,12 @@ export const Header: React.FC = () => {
                   name: 'Shop',
                   subMenu: [
                     {
-                      name: 'fooo'
+                      name: 'fooo',
+                      link: '#'
                     },
                     {
-                      name: 'foo'
+                      name: 'foo',
+                      link: '#'
                     }
                   ]
                 },
@@ -90,10 +94,12 @@ export const Header: React.FC = () => {
                   name: 'Shop',
                   subMenu: [
                     {
-                      name: ' lorem 3'
+                      name: ' lorem 3',
+                      link: '#'
                     },
                     {
-                      name: 'lorem 4'
+                      name: 'lorem 4',
+                      link: '#'
                     }
                   ]
                 },
@@ -101,10 +107,12 @@ export const Header: React.FC = () => {
                   name: 'Shop',
                   subMenu: [
                     {
-                      name: 'lorem lorem'
+                      name: 'lorem lorem',
+                      link: '#'
                     },
                     {
-                      name: ' lorem 4'
+                      name: ' lorem 4',
+                      link: '#'
                     }
                   ]
                 }

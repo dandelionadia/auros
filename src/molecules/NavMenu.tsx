@@ -80,6 +80,7 @@ interface HeaderMenu {
 
 interface HeaderSubMenu {
   name: string
+  link: string
 }
 
 export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
@@ -95,7 +96,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
             <StyledUlSubMenu>
               {item.subMenu.map(subMenuItem => (
                 <StyledSubMenuLi>
-                  <a href="#">{subMenuItem.name}</a>
+                  <a href={subMenuItem.link}>{subMenuItem.name}</a>
                 </StyledSubMenuLi>
               ))}
             </StyledUlSubMenu>
