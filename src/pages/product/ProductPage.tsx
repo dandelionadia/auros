@@ -15,7 +15,6 @@ const ProductPage: React.FC = () => {
         marginHorizontalMd={2}
         marginHorizontalLg={0}
       >
-        <a href="https://reactjs.org">Learn React</a>
         <ProductSummary customerReviews={3} />
         <Tabs />
         <Box flex>

@@ -1,24 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Composition, Only, Box } from 'atomic-layout'
+import { Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { Burger } from '../atoms/Burger'
 import { NavMenu } from './NavMenu'
 import { Logo } from '../atoms/Logo'
 import { Bar } from './Bar'
-import { BarSm } from './BarSm'
 
 const ContainerHeader = styled.div`
   position: relative;
   z-index: 2;
-`
-
-const StyledBarSm = styled.div`
-  width: 100%;
-  position: fixed;
-  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.09);
-  bottom: 0;
-  left: 0;
 `
 
 const templateMobile = `
@@ -120,14 +111,7 @@ export const Header: React.FC = () => {
             />
           </Areas.Menu>
           <Areas.Bar>
-            <Only from="md">
-              <Bar />
-            </Only>
-            <Only to="md">
-              <Box as={StyledBarSm}>
-                <BarSm />
-              </Box>
-            </Only>
+            <Bar />
           </Areas.Bar>
         </>
       )}
