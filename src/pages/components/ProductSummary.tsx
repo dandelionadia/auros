@@ -6,6 +6,8 @@ import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../../store/store'
 
 const templateMobile = `
 	gallery
@@ -73,6 +75,9 @@ interface ProductSummaryProps {
 }
 
 const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
+  const dispatch = useDispatch()
+  const cartItems = useSelector(state => (state as any).items)
+
   return (
     <Composition
       template={templateMobile}
@@ -149,7 +154,10 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
                 max="10"
                 defaultValue="1"
               ></StyledInput>
-              <Button>≙ add to card</Button>
+              <Button onClick={() => dispatch(addToCart(1))}>
+                ≙ add to card
+              </Button>
+              <p>You have {cartItems.length} items</p>
             </Composition>
             <Box as={StyledAddToWishList}>
               <span>
