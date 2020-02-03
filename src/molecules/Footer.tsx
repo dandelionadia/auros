@@ -27,7 +27,15 @@ const StyledFooter = styled.div`
 `
 
 const StyledContainerCopyright = styled.div`
-  border-top: 1px solid red;
+  border-top: 1px solid #ddd;
+`
+
+const StyledImage = styled.img`
+  height: auto;
+  max-width: 100%;
+  margin: 14px 0;
+  display: flex;
+  justify-self: end;
 `
 
 export const Footer: React.FC = () => {
@@ -59,7 +67,28 @@ export const Footer: React.FC = () => {
             <p>Newsletter</p>
           </Areas.Newsletter>
           <Areas.Legal>
-            <p>legal</p>
+            <Composition
+              flex
+              justifyContent="space-between"
+              as={StyledContainerCopyright}
+              marginTop={4.2}
+              marginTopMd={7.1}
+              paddingTop={2.16}
+              paddingTopMd={2.2}
+              templateCols="1fr"
+              templateColsMd="repeat(2, 1fr)"
+            >
+              <Box>
+                <p>
+                  Copyright © 2019
+                  <a href="#">
+                    <strong> Auros</strong>
+                  </a>
+                  . All rights reserved.
+                </p>
+              </Box>
+              <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/09/paypal.png"></StyledImage>
+            </Composition>
           </Areas.Legal>
         </>
       )}
