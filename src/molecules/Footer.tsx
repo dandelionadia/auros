@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Composition } from 'atomic-layout'
+import Layout, { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 
 const templateMobile = `
@@ -35,7 +35,11 @@ const StyledImage = styled.img`
   max-width: 100%;
   margin: 14px 0;
   display: flex;
-  justify-self: end;
+  justify-self: center;
+
+  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+    justify-self: end;
+  }
 `
 
 export const Footer: React.FC = () => {
@@ -78,7 +82,7 @@ export const Footer: React.FC = () => {
               templateCols="1fr"
               templateColsMd="repeat(2, 1fr)"
             >
-              <Box>
+              <Box flex justifyContentSmDown="center">
                 <p>
                   Copyright © 2019
                   <a href="#">
