@@ -4,6 +4,7 @@ import { ProductItem } from '../../molecules/ProductItem'
 import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
 import { Header } from '../../molecules/Header'
+import { Footer } from '../../molecules/Footer'
 
 const ProductPage: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ const ProductPage: React.FC = () => {
           />
         </Box>
       </Box>
+      <Footer />
     </>
   )
 }
