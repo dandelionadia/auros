@@ -24,7 +24,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
       <Composition
         gap="3px"
         marginVertical="3px"
-        templateCols="repeat(auto-fill, minmax(80px, 1fr))"
+        templateCols="repeat(auto-fit, minmax(80px, 1fr))"
       >
         {images.map((image, index) => (
           <img
