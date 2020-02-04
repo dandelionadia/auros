@@ -3,6 +3,12 @@ import Layout, { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { Logo } from '../atoms/Logo'
 import { Text } from '../atoms/Text'
+import {
+  IoLogoFacebook,
+  IoLogoTwitter,
+  IoLogoInstagram,
+  IoLogoVk
+} from 'react-icons/io'
 
 const templateMobile = `
 	contacts
@@ -88,6 +94,55 @@ const StyledContainer = styled.div`
   }
 `
 
+const StyledInput = styled.input`
+  background-color: rgba(255, 255, 255, 0.01);
+  border-style: solid;
+  border-width: 0 0 2px;
+  border-color: #ddd;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+    text-align: left;
+  }
+`
+
+const StyledBtnSubmit = styled.button`
+  background-color: rgba(0, 0, 0, 0);
+  color: #222;
+  padding: 15px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-style: solid;
+  border-width: 0 0 2px;
+  border-color: #ddd;
+  text-align: center;
+
+  :hover {
+    color: ${({ theme }) => theme.colors.orange};
+    border-color: ${({ theme }) => theme.colors.orange};
+  }
+
+  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+    min-width: 130px;
+  }
+`
+
+const StyledContainerNewsletter = styled.div`
+  @media (min-width: ${Layout.breakpoints.md.minWidth}) and (max-width: ${Layout
+      .breakpoints.md.maxWidth}) {
+    text-align: center;
+  }
+`
+
+const StyledLinkSocial = styled.a`
+  color: #888;
+  padding-right: 15px;
+`
+
 export const Footer: React.FC = () => {
   return (
     <Composition
@@ -98,7 +153,7 @@ export const Footer: React.FC = () => {
       paddingHorizontalMd="40px"
       paddingTop="60px"
       paddingToplg="100px"
-      paddingBottom="35px"
+      paddingBottom="25px"
       as={StyledFooter}
       gap={2}
       flex
@@ -150,17 +205,52 @@ export const Footer: React.FC = () => {
             </StyledUl>
           </Areas.Links>
           <Areas.Newsletter>
-            <p>Newsletter</p>
+            <Box as={StyledContainerNewsletter}>
+              <StyledContainer>
+                <Text big>Newsletter</Text>
+              </StyledContainer>
+              <p>Stay Updated on all that’s new add noteworthy</p>
+            </Box>
+            <Composition
+              gap={1}
+              templateCols="1fr"
+              templateColsMd="1fr auto"
+              marginVertical={2}
+            >
+              <StyledInput
+                type="email"
+                name="email"
+                placeholder="Enter your e-mail..."
+                required
+              ></StyledInput>
+              <StyledBtnSubmit type="submit" value="Submit">
+                Subcribe
+              </StyledBtnSubmit>
+            </Composition>
+            <Box as={StyledContainerNewsletter}>
+              <StyledLinkSocial href="#">
+                <IoLogoFacebook size="25" />
+              </StyledLinkSocial>
+              <StyledLinkSocial href="#">
+                <IoLogoTwitter size="25" />
+              </StyledLinkSocial>
+              <StyledLinkSocial href="#">
+                <IoLogoInstagram size="25" />
+              </StyledLinkSocial>
+              <StyledLinkSocial href="#">
+                <IoLogoVk size="25" />
+              </StyledLinkSocial>
+            </Box>
           </Areas.Newsletter>
           <Areas.Legal>
             <Composition
               flex
               justifyContent="space-between"
               as={StyledContainerCopyright}
-              marginTop={4.2}
-              marginTopMd={7.1}
+              marginTop={1}
+              marginTopMd={2}
               paddingTop={2.16}
-              paddingTopMd={2.2}
+              paddingTopMd="25px"
               templateCols="1fr"
               templateColsMd="repeat(2, 1fr)"
             >
