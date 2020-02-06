@@ -2,7 +2,7 @@ import React from 'react'
 import Layout, { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { Logo } from '../atoms/Logo'
-import { Text } from '../atoms/Text'
+import { Heading } from '../atoms/Heading'
 import {
   IoLogoFacebook,
   IoLogoTwitter,
@@ -76,10 +76,6 @@ const StyledList = styled.li`
   margin-bottom: 10px;
 `
 
-const StyledNumber = styled.p`
-  margin-top: 0;
-`
-
 const StyledEmail = styled.span`
   border-bottom: 2px solid #f9d4bd;
 `
@@ -148,11 +144,11 @@ export const Footer: React.FC = () => {
     <Composition
       template={templateMobile}
       templateMd={templateMd}
-      templatelg={templateDesktop}
+      templateLg={templateDesktop}
       paddingHorizontal="20px"
       paddingHorizontalMd="40px"
       paddingTop="60px"
-      paddingToplg="100px"
+      paddingTopLg="80px"
       paddingBottom="25px"
       as={StyledFooter}
       gap={2}
@@ -173,7 +169,9 @@ export const Footer: React.FC = () => {
                 <StyledP>United State</StyledP>
               </div>
               <div>
-                <StyledNumber>(+91)0-000-1111</StyledNumber>
+                <Box as="p" marginTop={0}>
+                  (+91)0-000-1111
+                </Box>
                 <a href="#">
                   <StyledEmail>Aurosfurniture@domain.vn</StyledEmail>
                 </a>
@@ -182,7 +180,7 @@ export const Footer: React.FC = () => {
           </Areas.Contacts>
           <Areas.Products>
             <StyledContainer>
-              <Text big>Our Products</Text>
+              <Heading as="h4">Our Products</Heading>
             </StyledContainer>
             <StyledLink href="#">
               <StyledP>Checkout</StyledP>
@@ -190,7 +188,7 @@ export const Footer: React.FC = () => {
           </Areas.Products>
           <Areas.Links>
             <StyledContainer>
-              <Text big>Useful Links</Text>
+              <Heading as="h4">Useful Links</Heading>
             </StyledContainer>
             <StyledUl>
               <StyledList>
@@ -207,7 +205,7 @@ export const Footer: React.FC = () => {
           <Areas.Newsletter>
             <Box as={StyledContainerNewsletter}>
               <StyledContainer>
-                <Text big>Newsletter</Text>
+                <Heading as="h4">Newsletter</Heading>
               </StyledContainer>
               <p>Stay Updated on all that’s new add noteworthy</p>
             </Box>
@@ -222,10 +220,8 @@ export const Footer: React.FC = () => {
                 name="email"
                 placeholder="Enter your e-mail..."
                 required
-              ></StyledInput>
-              <StyledBtnSubmit type="submit" value="Submit">
-                Subcribe
-              </StyledBtnSubmit>
+              />
+              <StyledBtnSubmit type="submit">Subscribe</StyledBtnSubmit>
             </Composition>
             <Box as={StyledContainerNewsletter}>
               <StyledLinkSocial href="#">
@@ -263,7 +259,7 @@ export const Footer: React.FC = () => {
                   . All rights reserved.
                 </p>
               </Box>
-              <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/09/paypal.png"></StyledImage>
+              <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/09/paypal.png" />
             </Composition>
           </Areas.Legal>
         </>
