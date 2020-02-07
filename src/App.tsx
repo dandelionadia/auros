@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import { Only } from 'atomic-layout'
+import { Bar } from './molecules/Bar'
 
 import Layout from 'atomic-layout'
 import {
@@ -77,6 +79,9 @@ const App: React.FC = () => {
           </Switch>
         </StyledContent>
         <BurgerMenu isOpen={isMenuOpen}>foooo</BurgerMenu>
+        <Only to="md">
+          <Bar />
+        </Only>
       </Router>
     </MenuContext.Provider>
   )

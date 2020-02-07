@@ -14,7 +14,6 @@ const ContainerHeader = styled.div`
 
 const templateMobile = `
 	logo burger
-	bar bar
 `
 
 const templateDesktop = `
