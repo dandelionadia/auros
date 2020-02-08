@@ -13,22 +13,23 @@ import {
 import { ProductPage } from './pages/product/ProductPage'
 import { MenuContext } from './MenuContext'
 import { Header } from './molecules/Header'
+import { NavMenuMob } from './molecules/NavMenuMob'
 
 const BurgerMenu = styled.div<{ isOpen: boolean }>`
-  background-color: yellow;
+  background-color: #353535;
   width: 300px;
   height: 100%;
   top: 0;
-  right: 0;
+  left: 0;
   margin: 0;
   position: fixed;
   z-index: 0;
-  transform: translateX(${({ isOpen }) => (isOpen ? 0 : '100%')});
+  transform: translateX(${({ isOpen }) => (isOpen ? 0 : '-100%')});
   transition: transform 1s;
 `
 
 const StyledContent = styled.div<{ isMenuOpen: boolean }>`
-  transform: translateX(${({ isMenuOpen }) => (isMenuOpen ? -300 : 0)}px);
+  transform: translateX(${({ isMenuOpen }) => (isMenuOpen ? 300 : 0)}px);
   transition: transform 1s;
 `
 
@@ -64,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App: React.FC = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setMenuOpen] = useState(true)
 
   return (
     <MenuContext.Provider value={{ isMenuOpen, setMenuOpen }}>
@@ -78,7 +79,64 @@ const App: React.FC = () => {
             <Redirect exact from="/" to="/product" />
           </Switch>
         </StyledContent>
-        <BurgerMenu isOpen={isMenuOpen}>foooo</BurgerMenu>
+        <BurgerMenu isOpen={isMenuOpen}>
+          <NavMenuMob
+            data={[
+              {
+                name: 'Home',
+                subMenu: [
+                  {
+                    name: 'lorem lorem',
+                    link: '#'
+                  },
+                  {
+                    name: 'lorem',
+                    link: '#'
+                  }
+                ]
+              },
+              {
+                name: 'Shop',
+                subMenu: [
+                  {
+                    name: 'fooo',
+                    link: '#'
+                  },
+                  {
+                    name: 'foo',
+                    link: '#'
+                  }
+                ]
+              },
+              {
+                name: 'Shop',
+                subMenu: [
+                  {
+                    name: ' lorem 3',
+                    link: '#'
+                  },
+                  {
+                    name: 'lorem 4',
+                    link: '#'
+                  }
+                ]
+              },
+              {
+                name: 'Shop',
+                subMenu: [
+                  {
+                    name: 'lorem lorem',
+                    link: '#'
+                  },
+                  {
+                    name: ' lorem 4',
+                    link: '#'
+                  }
+                ]
+              }
+            ]}
+          />
+        </BurgerMenu>
         <Only to="md">
           <Bar />
         </Only>
