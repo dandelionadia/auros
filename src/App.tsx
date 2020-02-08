@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Only } from 'atomic-layout'
 import { Bar } from './molecules/Bar'
-
 import Layout from 'atomic-layout'
 import {
   BrowserRouter as Router,
@@ -13,6 +12,7 @@ import {
 import { ProductPage } from './pages/product/ProductPage'
 import { MenuContext } from './MenuContext'
 import { Header } from './molecules/Header'
+import { Footer } from './molecules/Footer'
 import { NavMenuMob } from './molecules/NavMenuMob'
 
 const BurgerMenu = styled.div<{ isOpen: boolean }>`
@@ -38,10 +38,14 @@ Layout.configure({
 })
 
 const GlobalStyle = createGlobalStyle`
+  html {
+
+    font-size: 14px;
+  }
+
   body {
     background-color: #fff;
     color: ${({ theme }) => theme.colors.greyLight};
-    font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -78,6 +82,7 @@ const App: React.FC = () => {
 
             <Redirect exact from="/" to="/product" />
           </Switch>
+          <Footer />
         </StyledContent>
         <BurgerMenu isOpen={isMenuOpen}>
           <NavMenuMob
