@@ -91,11 +91,11 @@ const App: React.FC = () => {
                 name: 'Home',
                 subMenu: [
                   {
-                    name: 'lorem lorem',
+                    name: 'Lorem Home',
                     link: '#'
                   },
                   {
-                    name: 'lorem',
+                    name: 'Morem',
                     link: '#'
                   }
                 ]
@@ -104,11 +104,11 @@ const App: React.FC = () => {
                 name: 'Shop',
                 subMenu: [
                   {
-                    name: 'fooo',
+                    name: 'Shop Full Width',
                     link: '#'
                   },
                   {
-                    name: 'foo',
+                    name: 'Poo',
                     link: '#'
                   }
                 ]
@@ -117,11 +117,11 @@ const App: React.FC = () => {
                 name: 'Shop',
                 subMenu: [
                   {
-                    name: ' lorem 3',
+                    name: ' Morem 3',
                     link: '#'
                   },
                   {
-                    name: 'lorem 4',
+                    name: 'Torem 4',
                     link: '#'
                   }
                 ]
@@ -130,11 +130,11 @@ const App: React.FC = () => {
                 name: 'Shop',
                 subMenu: [
                   {
-                    name: 'lorem lorem',
+                    name: 'Morem Dorem',
                     link: '#'
                   },
                   {
-                    name: ' lorem 4',
+                    name: ' Aorem 4',
                     link: '#'
                   }
                 ]
