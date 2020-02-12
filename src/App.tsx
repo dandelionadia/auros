@@ -23,7 +23,7 @@ const BurgerMenu = styled.div<{ isOpen: boolean }>`
   left: 0;
   margin: 0;
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   transform: translateX(${({ isOpen }) => (isOpen ? 0 : '-100%')});
   transition: transform 1s;
 `
@@ -31,6 +31,16 @@ const BurgerMenu = styled.div<{ isOpen: boolean }>`
 const StyledContent = styled.div<{ isMenuOpen: boolean }>`
   transform: translateX(${({ isMenuOpen }) => (isMenuOpen ? 300 : 0)}px);
   transition: transform 1s;
+`
+
+const StyledMaskContent = styled.div`
+  width: 100vh;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.4);
 `
 
 Layout.configure({
@@ -69,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App: React.FC = () => {
-  const [isMenuOpen, setMenuOpen] = useState(true)
+  const [isMenuOpen, setMenuOpen] = useState(false)
 
   return (
     <MenuContext.Provider value={{ isMenuOpen, setMenuOpen }}>
@@ -142,6 +152,7 @@ const App: React.FC = () => {
             ]}
           />
         </BurgerMenu>
+        {isMenuOpen && <StyledMaskContent onClick={() => setMenuOpen(false)} />}
         <Only to="md">
           <Bar />
         </Only>

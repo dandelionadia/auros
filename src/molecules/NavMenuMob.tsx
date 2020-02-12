@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { SubMenu } from './SubMenu'
