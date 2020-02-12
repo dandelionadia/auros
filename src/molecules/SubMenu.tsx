@@ -91,8 +91,8 @@ export const SubMenu: React.FC<Menu> = ({ name, subMenu }) => {
       {isOpenSubMenu === true
         ? subMenu && (
             <Ul>
-              {subMenu.map(itemSubMenu => (
-                <StyledSubMenuLi>
+              {subMenu.map((itemSubMenu, index) => (
+                <StyledSubMenuLi key={index}>
                   <Link href="#">{itemSubMenu.name}</Link>
                 </StyledSubMenuLi>
               ))}
