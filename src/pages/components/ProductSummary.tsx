@@ -79,7 +79,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
       templateMd={templateDesktop}
       gap={2}
       gapMd={4}
-      marginVertical={4}
+      marginBottom={4}
     >
       {Areas => (
         <>
