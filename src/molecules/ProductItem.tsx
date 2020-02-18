@@ -5,7 +5,6 @@ import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
 
 const StyledContainerProduct = styled.div`
-  max-width: 500px;
   height: auto;
 `
 const StyledProductDescription = styled.div`
@@ -13,6 +12,10 @@ const StyledProductDescription = styled.div`
 `
 const StyledContainerImage = styled.div`
   position: relative;
+`
+
+const StyledImage = styled.img`
+  margin: 0 auto;
 `
 
 const ProductButton = styled(Button)`
@@ -59,7 +62,7 @@ const ProductItem: React.FC<ProductProps> = ({
     >
       <Box as={StyledContainerImage}>
         <a href="#">
-          <img src={isHover ? secondImage : image} alt={name} />
+          <StyledImage src={isHover ? secondImage : image} alt={name} />
         </a>
         {isHover && (
           <ProductButton>
