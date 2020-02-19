@@ -2,6 +2,28 @@ import React from 'react'
 import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
+import { TabsReview } from './TabsReview'
+
+const dataReviews = [
+  {
+    name: 'Duck Lord',
+    data: '22.03.1990',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+  },
+  {
+    name: 'Cat Lord',
+    data: '22.03.1992',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
+  },
+  {
+    name: 'Dog Lord',
+    data: '22.03.1994',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
+  }
+]
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -88,7 +110,7 @@ const Tabs = withRouter(({ match }) => {
               I'm info Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Inventore dolorum similique officia ipsa magni, expedita
               consequuntur pariatur perferendis ipsam at reprehenderit,
-              voluptate id, debitis amet facilis voluptatibus qui illo commodi.{' '}
+              voluptate id, debitis amet facilis voluptatibus qui illo commodi.
             </StyledP>
           )}
         />
@@ -96,10 +118,13 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/review`}
           render={() => (
             <StyledP>
-              I'm review Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Quia inventore accusamus in suscipit minus praesentium
-              voluptate laboriosam exercitationem fugiat, perferendis illum. Et
-              ad dolore beatae consequuntur soluta animi amet ullam.
+              {dataReviews.map(review => (
+                <TabsReview
+                  name={review.name}
+                  data={review.data}
+                  reviewText={review.reviewText}
+                />
+              ))}
             </StyledP>
           )}
         />
