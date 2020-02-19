@@ -23,6 +23,14 @@ const Heading = styled.h1<HeadingProps>`
       font-size: 16px;
       margin: 0;
     `}
+
+    ${props =>
+      props.as === `h3` &&
+      css`
+        font-size: 18px;
+        /* padding: 10px 0; */
+        margin: 0;
+      `}
 `
 
 export { Heading }
