@@ -88,17 +88,15 @@ export const SubMenu: React.FC<Menu> = ({ name, subMenu }) => {
           <IoIosArrowDown />
         </Icon>
       </Box>
-      {isOpenSubMenu === true
-        ? subMenu && (
-            <Ul>
-              {subMenu.map((itemSubMenu, index) => (
-                <StyledSubMenuLi key={index}>
-                  <Link href="#">{itemSubMenu.name}</Link>
-                </StyledSubMenuLi>
-              ))}
-            </Ul>
-          )
-        : null}
+      {isOpenSubMenu && subMenu && (
+        <Ul>
+          {subMenu.map((itemSubMenu, index) => (
+            <StyledSubMenuLi key={index}>
+              <Link href="#">{itemSubMenu.name}</Link>
+            </StyledSubMenuLi>
+          ))}
+        </Ul>
+      )}
     </StyledLi>
   )
 }
