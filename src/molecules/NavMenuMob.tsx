@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { SubMenu } from './SubMenu'
+import { Menu } from './SubMenu'
 
 const StyledUl = styled.ul`
   padding: 0;
@@ -11,16 +12,6 @@ const StyledUl = styled.ul`
 
 interface Props {
   data: Menu[]
-}
-
-interface Menu {
-  name: string
-  subMenu: SubMenu[]
-}
-
-interface SubMenu {
-  name: string
-  link: string
 }
 
 export const NavMenuMob: React.FC<Props> = ({ data }) => {

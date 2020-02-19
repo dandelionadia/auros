@@ -63,12 +63,12 @@ const StyledSubMenuLi = styled.li`
   }
 `
 
-interface Menu {
+export interface Menu {
   name: string
-  subMenu: SubMenu[]
+  subMenu: SubMenuProps[]
 }
 
-interface SubMenu {
+export interface SubMenuProps {
   name: string
   link: string
 }
