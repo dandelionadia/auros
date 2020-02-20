@@ -96,7 +96,10 @@ const StyledLI = styled.li`
 `
 
 const StyledP = styled.p`
+  color: ${({ theme }) => theme.colors.greyLight}
   margin: 0 20px;
+  line-height: 28px;
+
   @media (min-width: ${Layout.breakpoints.lg.minWidth}) {
     margin-left: 120px;
     margin-right: 120px;
@@ -134,7 +137,10 @@ const Tabs = withRouter(({ match }) => {
               I'm description Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Quo sapiente tenetur cum, quis, quia veniam quod fugit
               eligendi cupiditate vero, sequi asperiores cumque eos ipsum
-              pariatur alias dolore saepe unde.
+              pariatur alias dolore saepe unde. I'm description Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Quo sapiente tenetur
+              cum, quis, quia veniam quod fugit eligendi cupiditate vero, sequi
+              asperiores cumque eos ipsum pariatur alias dolore saepe unde.
             </StyledP>
           )}
         />
