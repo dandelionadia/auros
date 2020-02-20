@@ -3,6 +3,34 @@ import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
 import { TabsReview } from './TabsReview'
+import { Table } from './Table'
+
+const dataInfo = [
+  {
+    title: 'Foo 1',
+    data: 'Lorem'
+  },
+  {
+    title: ' Foo 2',
+    data: 'Lorem lorem'
+  },
+  {
+    title: ' Foo 3 Lorem Lorem Lorem',
+    data: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
+  },
+  {
+    title: 'Foo 1',
+    data: 'Lorem'
+  },
+  {
+    title: ' Foo 2',
+    data: 'Lorem lorem'
+  },
+  {
+    title: ' Foo 3',
+    data: 'Lorem Lorem Lorem'
+  }
+]
 
 const dataReviews = [
   {
@@ -68,10 +96,17 @@ const StyledLI = styled.li`
 `
 
 const StyledP = styled.p`
+  margin: 0 20px;
   @media (min-width: ${Layout.breakpoints.lg.minWidth}) {
     margin-left: 120px;
     margin-right: 120px;
   }
+`
+
+const StyledTable = styled.table`
+  background-color: #dedfe0;
+  border: 1px solid #eee;
+  width: 100%;
 `
 
 const Tabs = withRouter(({ match }) => {
@@ -107,10 +142,11 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/info`}
           render={() => (
             <StyledP>
-              I'm info Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Inventore dolorum similique officia ipsa magni, expedita
-              consequuntur pariatur perferendis ipsam at reprehenderit,
-              voluptate id, debitis amet facilis voluptatibus qui illo commodi.
+              <StyledTable>
+                {dataInfo.map(item => (
+                  <Table title={item.title} data={item.data} />
+                ))}
+              </StyledTable>
             </StyledP>
           )}
         />
