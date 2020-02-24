@@ -1,8 +1,7 @@
 import React from 'react'
 import { Box } from 'atomic-layout'
 import styled from 'styled-components'
-import { SubMenu } from './SubMenu'
-import { Menu } from './SubMenu'
+import { SubMenu, Menu } from './SubMenu'
 
 const StyledUl = styled.ul`
   padding: 0;
