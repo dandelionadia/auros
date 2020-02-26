@@ -28,7 +28,7 @@ interface ReviewProps {
 
 export const Review: React.FC<ReviewProps> = ({ name, data, reviewText }) => {
   return (
-    <Composition as={Container} gap={0.8} paddingVertical="20px">
+    <Composition as={Container} gap={1} paddingVertical="20px">
       <Heading as="h3">{name}</Heading>
       <StyledData>{data}</StyledData>
       <div>
