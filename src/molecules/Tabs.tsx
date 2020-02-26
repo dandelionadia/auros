@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
-import { Table } from './Table'
+import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
 
 const dataInfo = [
@@ -106,12 +106,6 @@ const StyledP = styled.p`
   }
 `
 
-const StyledTable = styled.table`
-  background-color: #dedfe0;
-  border: 1px solid #eee;
-  width: 100%;
-`
-
 const Tabs = withRouter(({ match }) => {
   return (
     <Box marginBottom={3}>
@@ -148,11 +142,7 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/info`}
           render={() => (
             <StyledP>
-              <StyledTable>
-                {dataInfo.map(item => (
-                  <Table title={item.title} data={item.data} />
-                ))}
-              </StyledTable>
+              <ProductTable data={dataInfo} />
             </StyledP>
           )}
         />
