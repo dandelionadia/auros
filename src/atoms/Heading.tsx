@@ -28,7 +28,6 @@ const Heading = styled.h1<HeadingProps>`
       props.as === `h3` &&
       css`
         font-size: 18px;
-        /* padding: 10px 0; */
         margin: 0;
       `}
 `

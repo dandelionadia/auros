@@ -2,8 +2,8 @@ import React from 'react'
 import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
-import { TabsReview } from './TabsReview'
 import { Table } from './Table'
+import { ProductReviews } from '../pages/product/ProductReviews'
 
 const dataInfo = [
   {
@@ -96,7 +96,7 @@ const StyledLI = styled.li`
 `
 
 const StyledP = styled.p`
-  color: ${({ theme }) => theme.colors.greyLight}
+  color: ${({ theme }) => theme.colors.greyLight};
   margin: 0 20px;
   line-height: 28px;
 
@@ -160,13 +160,7 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/review`}
           render={() => (
             <StyledP>
-              {dataReviews.map(review => (
-                <TabsReview
-                  name={review.name}
-                  data={review.data}
-                  reviewText={review.reviewText}
-                />
-              ))}
+              <ProductReviews reviews={dataReviews} />
             </StyledP>
           )}
         />

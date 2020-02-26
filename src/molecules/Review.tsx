@@ -20,17 +20,13 @@ const StyledReview = styled.p`
   line-height: 2;
 `
 
-interface TabsReviewProps {
+interface ReviewProps {
   name: string
   data: string
   reviewText: string
 }
 
-export const TabsReview: React.FC<TabsReviewProps> = ({
-  name,
-  data,
-  reviewText
-}) => {
+export const Review: React.FC<ReviewProps> = ({ name, data, reviewText }) => {
   return (
     <Composition as={Container} gap={0.8} paddingVertical="20px">
       <Heading as="h3">{name}</Heading>
