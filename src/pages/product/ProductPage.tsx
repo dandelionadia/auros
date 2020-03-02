@@ -3,8 +3,6 @@ import { Box, Composition } from 'atomic-layout'
 import { ProductItem } from '../../molecules/ProductItem'
 import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
-import { Header } from '../../molecules/Header'
-import { Footer } from '../../molecules/Footer'
 
 const data = [
   {
@@ -48,7 +46,6 @@ const data = [
 const ProductPage: React.FC = () => {
   return (
     <>
-      <Header />
       <Box
         padding={1.3}
         paddingMd={2.6}
@@ -74,7 +71,6 @@ const ProductPage: React.FC = () => {
           ))}
         </Composition>
       </Box>
-      <Footer />
     </>
   )
 }

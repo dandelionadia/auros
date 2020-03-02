@@ -9,6 +9,7 @@ const StyledBar = styled.div`
     color: #f3f3f3;
     width: 100%;
     position: fixed;
+    z-index: 2;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.09);
     bottom: 0;
     left: 0;

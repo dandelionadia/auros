@@ -14,7 +14,6 @@ const ContainerHeader = styled.div`
 
 const templateMobile = `
 	logo burger
-	bar bar
 `
 
 const templateDesktop = `
@@ -36,10 +35,10 @@ export const Header: React.FC = () => {
       templateMd={templateDesktop}
       templateLg={templateLg}
       gap={0.5}
-      marginHorizontal="20px"
-      marginHorizontalMd="40px"
-      marginVertical="20px"
-      marginVerticalLg="40px"
+      paddingHorizontal="20px"
+      paddingHorizontalMd="40px"
+      paddingVertical="20px"
+      paddingVerticalLg="40px"
       alignItems="center"
     >
       {Areas => (
@@ -49,7 +48,7 @@ export const Header: React.FC = () => {
               <Logo src="https://demo2.wpopal.com/auros/wp-content/uploads/2019/02/Logo.svg" />
             </Link>
           </Areas.Logo>
-          <Areas.Burger>
+          <Areas.Burger justify="flex-end">
             <Burger />
           </Areas.Burger>
           <Areas.Menu justifyLg="center">
