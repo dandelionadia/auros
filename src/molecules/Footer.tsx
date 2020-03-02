@@ -149,7 +149,8 @@ export const Footer: React.FC = () => {
       paddingHorizontalMd="40px"
       paddingTop="60px"
       paddingTopLg="80px"
-      paddingBottom="25px"
+      paddingBottom="85px"
+      paddingBottomMd="25px"
       as={StyledFooter}
       gap={2}
       flex

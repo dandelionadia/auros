@@ -33,7 +33,7 @@ const StyledP = styled.p`
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.greyLight};
-  margin: 15px 0;
+  /* margin: 15px 0; */
   width: 60px;
   text-align: center;
   font-size: 1.5rem;
