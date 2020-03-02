@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { RouteComponentProps } from 'react-router'
 import { Box, Composition } from 'atomic-layout'
 import { ProductItem } from '../../molecules/ProductItem'
 import { Tabs } from '../../molecules/Tabs'
@@ -52,12 +53,14 @@ interface ProductData {
   relatedProducts: string[]
 }
 
-const ProductPage: React.FC = () => {
+const ProductPage: React.FC<RouteComponentProps<{
+  productId: string
+}>> = ({ match }) => {
   const [productData, setProductData] = useState<ProductData>()
-
+  const productId = match.params.productId
   useEffect(() => {
     fetch(
-      'https://auros-api.netlify.com/.netlify/functions/api/product/b44bbc5f-b1b0-4e04-b207-3812597b726e'
+      `https://auros-api.netlify.com/.netlify/functions/api/product/${productId}`
     )
       .then(res => res.json())
       .then(res => setProductData(res))

@@ -88,7 +88,7 @@ const App: React.FC = () => {
         <StyledContent isMenuOpen={isMenuOpen}>
           <Header />
           <Switch>
-            <Route path="/product" component={ProductPage} />
+            <Route path="/product/:productId" component={ProductPage} />
 
             <Redirect exact from="/" to="/product" />
           </Switch>
