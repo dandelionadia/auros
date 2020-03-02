@@ -7,7 +7,7 @@ interface ProductReviewsProps {
 
 export const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
   return (
-    <>
+    <div>
       {reviews.map(review => (
         <Review
           name={review.name}
@@ -15,6 +15,6 @@ export const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
           reviewText={review.reviewText}
         />
       ))}
-    </>
+    </div>
   )
 }
