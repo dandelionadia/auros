@@ -2,6 +2,56 @@ import React from 'react'
 import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
+import { ProductTable } from '../pages/product/ProductTable'
+import { ProductReviews } from '../pages/product/ProductReviews'
+
+const dataInfo = [
+  {
+    title: 'Foo 1',
+    data: 'Lorem'
+  },
+  {
+    title: ' Foo 2',
+    data: 'Lorem lorem'
+  },
+  {
+    title: ' Foo 3 Lorem Lorem Lorem',
+    data: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
+  },
+  {
+    title: 'Foo 1',
+    data: 'Lorem'
+  },
+  {
+    title: ' Foo 2',
+    data: 'Lorem lorem'
+  },
+  {
+    title: ' Foo 3',
+    data: 'Lorem Lorem Lorem'
+  }
+]
+
+const dataReviews = [
+  {
+    name: 'Duck Lord',
+    data: '22.03.1990',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+  },
+  {
+    name: 'Cat Lord',
+    data: '22.03.1992',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
+  },
+  {
+    name: 'Dog Lord',
+    data: '22.03.1994',
+    reviewText:
+      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
+  }
+]
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -46,6 +96,10 @@ const StyledLI = styled.li`
 `
 
 const StyledP = styled.p`
+  color: ${({ theme }) => theme.colors.greyLight};
+  margin: 0 20px;
+  line-height: 28px;
+
   @media (min-width: ${Layout.breakpoints.lg.minWidth}) {
     margin-left: 120px;
     margin-right: 120px;
@@ -77,7 +131,10 @@ const Tabs = withRouter(({ match }) => {
               I'm description Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Quo sapiente tenetur cum, quis, quia veniam quod fugit
               eligendi cupiditate vero, sequi asperiores cumque eos ipsum
-              pariatur alias dolore saepe unde.
+              pariatur alias dolore saepe unde. I'm description Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Quo sapiente tenetur
+              cum, quis, quia veniam quod fugit eligendi cupiditate vero, sequi
+              asperiores cumque eos ipsum pariatur alias dolore saepe unde.
             </StyledP>
           )}
         />
@@ -85,10 +142,7 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/info`}
           render={() => (
             <StyledP>
-              I'm info Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Inventore dolorum similique officia ipsa magni, expedita
-              consequuntur pariatur perferendis ipsam at reprehenderit,
-              voluptate id, debitis amet facilis voluptatibus qui illo commodi.{' '}
+              <ProductTable data={dataInfo} />
             </StyledP>
           )}
         />
@@ -96,10 +150,7 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/review`}
           render={() => (
             <StyledP>
-              I'm review Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Quia inventore accusamus in suscipit minus praesentium
-              voluptate laboriosam exercitationem fugiat, perferendis illum. Et
-              ad dolore beatae consequuntur soluta animi amet ullam.
+              <ProductReviews reviews={dataReviews} />
             </StyledP>
           )}
         />
