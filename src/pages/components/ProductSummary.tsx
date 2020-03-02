@@ -70,9 +70,17 @@ const StyledLinkAddToWish = styled.a`
 
 interface ProductSummaryProps {
   customerReviews: number
+  title: string
+  price: number
+  description: string
 }
 
-const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
+const ProductSummary: React.FC<ProductSummaryProps> = ({
+  customerReviews,
+  title,
+  price,
+  description
+}) => {
   return (
     <Composition
       template={templateMobile}
@@ -114,7 +122,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
             />
           </Areas.Gallery>
           <Areas.Summary>
-            <Heading>UNA Chair</Heading>
+            <Heading>{title}</Heading>
             <Box flex marginBottom={1.1}>
               <Box marginRight={1}>
                 <Rating stars={3} />
@@ -122,24 +130,10 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
               <a href="#">({customerReviews} customer reviews)</a>
             </Box>
             <StyledP>
-              <StyledProdactPrice>$102.84</StyledProdactPrice>
+              <StyledProdactPrice>${price}</StyledProdactPrice>
             </StyledP>
-            <StyledDescription>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium in dolor quas maiores, non enim quos modi
-              necessitatibus cumque architecto quo odio adipisci repellendus
-              explicabo hic fugiat perferendis sunt. Facere.
-            </StyledDescription>
-            <StyledDescription>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium in dolor quas maiores, non enim quos modi
-              necessitatibus cumque architecto quo odio adipisci repellendus
-              explicabo hic fugiat perferendis sunt. Facere. Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Ratione fuga qui rem
-              repellat earum beatae quas, sit possimus aliquid quasi deleniti
-              veritatis. Ratione aperiam quaerat veniam at placeat laudantium
-              non.
-            </StyledDescription>
+            <StyledDescription>{description}</StyledDescription>
+            <StyledDescription>{description}</StyledDescription>
             <Composition gap={1} templateCols="auto 1fr">
               <StyledInput
                 type="number"

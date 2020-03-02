@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, Composition } from 'atomic-layout'
 import { ProductItem } from '../../molecules/ProductItem'
 import { Tabs } from '../../molecules/Tabs'
@@ -43,7 +43,30 @@ const data = [
   }
 ]
 
+interface ProductData {
+  id: string
+  title: string
+  description: string
+  price: number
+  images: string[]
+  relatedProducts: string[]
+}
+
 const ProductPage: React.FC = () => {
+  const [productData, setProductData] = useState<ProductData>()
+
+  useEffect(() => {
+    fetch(
+      'https://auros-api.netlify.com/.netlify/functions/api/product/b44bbc5f-b1b0-4e04-b207-3812597b726e'
+    )
+      .then(res => res.json())
+      .then(res => setProductData(res))
+  }, [])
+
+  if (!productData) {
+    return <p>loading...</p>
+  }
+
   return (
     <>
       <Box
@@ -52,7 +75,12 @@ const ProductPage: React.FC = () => {
         marginHorizontalMd={2}
         marginHorizontalLg={0}
       >
-        <ProductSummary customerReviews={3} />
+        <ProductSummary
+          customerReviews={3}
+          title={productData.title}
+          price={productData.price}
+          description={productData.description}
+        />
         <Tabs />
         <Composition
           alignItems="center"
