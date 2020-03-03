@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
+import { Link } from 'react-router-dom'
 import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
 
@@ -41,6 +42,7 @@ interface ProductProps {
   price: number
   name: string
   buttonText: string
+  id: string
 }
 
 const ProductItem: React.FC<ProductProps> = ({
@@ -48,7 +50,8 @@ const ProductItem: React.FC<ProductProps> = ({
   secondImage,
   price,
   name,
-  buttonText
+  buttonText,
+  id
 }) => {
   const [isHover, setIsHover] = useState(false)
 
@@ -61,9 +64,9 @@ const ProductItem: React.FC<ProductProps> = ({
       onMouseLeave={() => setIsHover(false)}
     >
       <Box as={StyledContainerImage}>
-        <a href="#">
+        <Link to={`/product/${id}`}>
           <StyledImage src={isHover ? secondImage : image} alt={name} />
-        </a>
+        </Link>
         {isHover && (
           <ProductButton>
             <p>+ {buttonText}</p>
@@ -72,7 +75,7 @@ const ProductItem: React.FC<ProductProps> = ({
       </Box>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
-          <a href="#">{name}</a>
+          <Link to={`/product/${id}`}>{name}</Link>
         </Text>
         <p>${price}</p>
       </Box>

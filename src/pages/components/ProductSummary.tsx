@@ -133,7 +133,6 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
               <StyledProdactPrice>${price}</StyledProdactPrice>
             </StyledP>
             <StyledDescription>{description}</StyledDescription>
-            <StyledDescription>{description}</StyledDescription>
             <Composition gap={1} templateCols="auto 1fr">
               <StyledInput
                 type="number"
