@@ -5,45 +5,6 @@ import { RecomendedProducts } from '../../molecules/RecomendedProducts'
 import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
 
-const data = [
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg',
-    name: 'Mega 2 Seater Sofa',
-    price: 160.71,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg',
-    name: 'Sentei Pruning Shears',
-    price: 141.36,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg',
-    name: 'Mega 2 Seater Sofa',
-    price: 160.71,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg',
-    name: 'Sentei Pruning Shears',
-    price: 141.36,
-    buttonText: 'add to card'
-  }
-]
-
 export interface ProductData {
   id: string
   title: string
@@ -51,6 +12,14 @@ export interface ProductData {
   price: number
   images: string[]
   relatedProducts: string[]
+  reviews: ProductReview[]
+}
+
+export interface ProductReview {
+  name: string
+  date: string
+  rating: number
+  text: string
 }
 
 const ProductPage: React.FC<RouteComponentProps<{
@@ -85,7 +54,7 @@ const ProductPage: React.FC<RouteComponentProps<{
           price={productData.price}
           description={productData.description}
         />
-        <Tabs />
+        <Tabs dataReview={productData.reviews} />
         <RecomendedProducts productIds={productData.relatedProducts} />
       </Box>
     </>

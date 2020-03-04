@@ -9,7 +9,7 @@ const Container = styled.div`
   border-bottom: 1px solid #eee;
 `
 
-const StyledData = styled.div`
+const StyledDate = styled.div`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.blackLight};
   opacity: 0.5;
@@ -22,19 +22,20 @@ const StyledReview = styled.p`
 
 interface ReviewProps {
   name: string
-  data: string
-  reviewText: string
+  date: string
+  rating: number
+  text: string
 }
 
-export const Review: React.FC<ReviewProps> = ({ name, data, reviewText }) => {
+export const Review: React.FC<ReviewProps> = ({ name, date, rating, text }) => {
   return (
     <Composition as={Container} gap={1} paddingVertical="20px">
       <Heading as="h3">{name}</Heading>
-      <StyledData>{data}</StyledData>
+      <StyledDate>{date}</StyledDate>
       <div>
-        <Rating stars={5} />
+        <Rating stars={rating} />
       </div>
-      <StyledReview>{reviewText}</StyledReview>
+      <StyledReview>{text}</StyledReview>
     </Composition>
   )
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Review } from '../../molecules/Review'
+import { ProductReview } from './ProductPage'
 
 interface ProductReviewsProps {
-  reviews: any[]
+  reviews: ProductReview[]
 }
 
 export const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
@@ -11,8 +12,9 @@ export const ProductReviews: React.FC<ProductReviewsProps> = ({ reviews }) => {
       {reviews.map(review => (
         <Review
           name={review.name}
-          data={review.data}
-          reviewText={review.reviewText}
+          date={review.date}
+          rating={review.rating}
+          text={review.text}
         />
       ))}
     </div>

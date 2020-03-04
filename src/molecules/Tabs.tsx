@@ -1,9 +1,10 @@
 import React from 'react'
-import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
+import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
+import { ProductReview } from '../pages/product/ProductPage'
 
 const dataInfo = [
   {
@@ -29,27 +30,6 @@ const dataInfo = [
   {
     title: ' Foo 3',
     data: 'Lorem Lorem Lorem'
-  }
-]
-
-const dataReviews = [
-  {
-    name: 'Duck Lord',
-    data: '22.03.1990',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
-  },
-  {
-    name: 'Cat Lord',
-    data: '22.03.1992',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
-  },
-  {
-    name: 'Dog Lord',
-    data: '22.03.1994',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
   }
 ]
 
@@ -106,7 +86,13 @@ const StyledP = styled.p`
   }
 `
 
-const Tabs = withRouter(({ match }) => {
+interface TabsPros {
+  dataReview: ProductReview[]
+}
+
+const Tabs: React.FC<TabsPros> = ({ dataReview }) => {
+  const match = useRouteMatch()
+
   return (
     <Box marginBottom={3}>
       <StyldUl>
@@ -150,13 +136,13 @@ const Tabs = withRouter(({ match }) => {
           path={`${match.url}/review`}
           render={() => (
             <StyledP>
-              <ProductReviews reviews={dataReviews} />
+              <ProductReviews reviews={dataReview} />
             </StyledP>
           )}
         />
       </Switch>
     </Box>
   )
-})
+}
 
 export { Tabs }
