@@ -68,7 +68,7 @@ const StyledLinkAddToWish = styled.a`
   border-bottom: 1px solid #222;
 `
 
-interface ProductSummaryProps {
+export interface ProductSummaryProps {
   customerReviews: number
   title: string
   price: number

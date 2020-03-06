@@ -54,7 +54,10 @@ const ProductPage: React.FC<RouteComponentProps<{
           price={productData.price}
           description={productData.description}
         />
-        <Tabs dataReview={productData.reviews} />
+        <Tabs
+          dataReview={productData.reviews}
+          description={productData.description}
+        />
         <RecomendedProducts productIds={productData.relatedProducts} />
       </Box>
     </>

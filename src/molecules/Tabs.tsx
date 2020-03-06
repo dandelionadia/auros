@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
-import { ProductReview } from '../pages/product/ProductPage'
+import { ProductReview, ProductData } from '../pages/product/ProductPage'
+import { Description } from './Description'
 
 const dataInfo = [
   {
@@ -88,9 +89,10 @@ const StyledP = styled.p`
 
 interface TabsPros {
   dataReview: ProductReview[]
+  description: string
 }
 
-const Tabs: React.FC<TabsPros> = ({ dataReview }) => {
+const Tabs: React.FC<TabsPros> = ({ dataReview, description }) => {
   const match = useRouteMatch()
 
   return (
@@ -114,13 +116,7 @@ const Tabs: React.FC<TabsPros> = ({ dataReview }) => {
           exact
           render={() => (
             <StyledP>
-              I'm description Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quo sapiente tenetur cum, quis, quia veniam quod fugit
-              eligendi cupiditate vero, sequi asperiores cumque eos ipsum
-              pariatur alias dolore saepe unde. I'm description Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Quo sapiente tenetur
-              cum, quis, quia veniam quod fugit eligendi cupiditate vero, sequi
-              asperiores cumque eos ipsum pariatur alias dolore saepe unde.
+              <Description dataDescription={description} />
             </StyledP>
           )}
         />
