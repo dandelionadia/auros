@@ -71,6 +71,7 @@ const StyledLinkAddToWish = styled.a`
 export interface ProductSummaryProps {
   customerReviews: number
   title: string
+  rating: number
   price: number
   description: string
 }
@@ -78,6 +79,7 @@ export interface ProductSummaryProps {
 const ProductSummary: React.FC<ProductSummaryProps> = ({
   customerReviews,
   title,
+  rating,
   price,
   description
 }) => {
@@ -125,7 +127,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
             <Heading>{title}</Heading>
             <Box flex marginBottom={1.1}>
               <Box marginRight={1}>
-                <Rating stars={3} />
+                <Rating stars={rating} />
               </Box>
               <a href="#">({customerReviews} customer reviews)</a>
             </Box>

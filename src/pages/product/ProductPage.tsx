@@ -9,6 +9,7 @@ export interface ProductData {
   id: string
   title: string
   description: string
+  rating: number
   price: number
   images: string[]
   relatedProducts: string[]
@@ -51,6 +52,7 @@ const ProductPage: React.FC<RouteComponentProps<{
         <ProductSummary
           customerReviews={3}
           title={productData.title}
+          rating={productData.rating}
           price={productData.price}
           description={productData.description}
         />
