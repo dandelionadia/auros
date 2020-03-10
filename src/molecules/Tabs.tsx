@@ -4,35 +4,8 @@ import styled from 'styled-components'
 import Layout, { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
-import { ProductReview, ProductData } from '../pages/product/ProductPage'
+import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
 import { Description } from './Description'
-
-const dataInfo = [
-  {
-    title: 'Foo 1',
-    data: 'Lorem'
-  },
-  {
-    title: ' Foo 2',
-    data: 'Lorem lorem'
-  },
-  {
-    title: ' Foo 3 Lorem Lorem Lorem',
-    data: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
-  },
-  {
-    title: 'Foo 1',
-    data: 'Lorem'
-  },
-  {
-    title: ' Foo 2',
-    data: 'Lorem lorem'
-  },
-  {
-    title: ' Foo 3',
-    data: 'Lorem Lorem Lorem'
-  }
-]
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -89,10 +62,15 @@ const StyledP = styled.p`
 
 interface TabsPros {
   dataReview: ProductReview[]
+  shopAttributes: ProductAttributes[]
   description: string
 }
 
-const Tabs: React.FC<TabsPros> = ({ dataReview, description }) => {
+const Tabs: React.FC<TabsPros> = ({
+  dataReview,
+  shopAttributes,
+  description
+}) => {
   const match = useRouteMatch()
 
   return (
@@ -124,7 +102,7 @@ const Tabs: React.FC<TabsPros> = ({ dataReview, description }) => {
           path={`${match.url}/info`}
           render={() => (
             <StyledP>
-              <ProductTable data={dataInfo} />
+              <ProductTable data={shopAttributes} />
             </StyledP>
           )}
         />

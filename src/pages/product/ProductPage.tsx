@@ -13,7 +13,13 @@ export interface ProductData {
   price: number
   images: string[]
   relatedProducts: string[]
+  shopAttributes: ProductAttributes[]
   reviews: ProductReview[]
+}
+
+export interface ProductAttributes {
+  title: string
+  data: number | string
 }
 
 export interface ProductReview {
@@ -58,6 +64,7 @@ const ProductPage: React.FC<RouteComponentProps<{
         />
         <Tabs
           dataReview={productData.reviews}
+          shopAttributes={productData.shopAttributes}
           description={productData.description}
         />
         <RecomendedProducts productIds={productData.relatedProducts} />
