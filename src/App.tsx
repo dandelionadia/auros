@@ -3,17 +3,13 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Only } from 'atomic-layout'
 import { Bar } from './molecules/Bar'
 import Layout from 'atomic-layout'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ProductPage } from './pages/product/ProductPage'
 import { MenuContext } from './MenuContext'
 import { Header } from './molecules/Header'
 import { Footer } from './molecules/Footer'
 import { NavMenuMob } from './molecules/NavMenuMob'
+import { HomePage } from './pages/home/HomePage'
 
 const BurgerMenu = styled.div<{ isOpen: boolean }>`
   background-color: #353535;
@@ -88,9 +84,8 @@ const App: React.FC = () => {
         <StyledContent isMenuOpen={isMenuOpen}>
           <Header />
           <Switch>
+            <Route exact path="/" component={HomePage} />
             <Route path="/product" component={ProductPage} />
-
-            <Redirect exact from="/" to="/product" />
           </Switch>
           <Footer />
         </StyledContent>
