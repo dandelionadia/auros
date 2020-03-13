@@ -49,12 +49,7 @@ const ProductPage: React.FC<RouteComponentProps<{
 
   return (
     <>
-      <Box
-        padding={1.3}
-        paddingMd={2.6}
-        marginHorizontalMd={2}
-        marginHorizontalLg={0}
-      >
+      <Box padding={1.3} paddingMd={2.6} marginHorizontalLgDown={2}>
         <ProductSummary
           customerReviews={3}
           title={productData.title}

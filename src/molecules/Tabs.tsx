@@ -93,7 +93,7 @@ const Tabs: React.FC<TabsPros> = ({
           exact
           render={() => (
             <StyledP>
-              <p>{description} </p>
+              <p>{description}</p>
             </StyledP>
           )}
         />
