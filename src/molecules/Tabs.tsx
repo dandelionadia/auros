@@ -5,7 +5,6 @@ import Layout, { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
 import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
-import { Description } from './Description'
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -94,7 +93,7 @@ const Tabs: React.FC<TabsPros> = ({
           exact
           render={() => (
             <StyledP>
-              <Description dataDescription={description} />
+              <p>{description} </p>
             </StyledP>
           )}
         />
