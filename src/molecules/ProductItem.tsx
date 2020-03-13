@@ -54,6 +54,7 @@ const ProductItem: React.FC<ProductProps> = ({
   id
 }) => {
   const [isHover, setIsHover] = useState(false)
+  const url = `/product/${id}`
 
   return (
     <Box
@@ -64,7 +65,7 @@ const ProductItem: React.FC<ProductProps> = ({
       onMouseLeave={() => setIsHover(false)}
     >
       <Box as={StyledContainerImage}>
-        <Link to={`/product/${id}`}>
+        <Link to={url}>
           <StyledImage src={isHover ? secondImage : image} alt={name} />
         </Link>
         {isHover && (
@@ -75,7 +76,7 @@ const ProductItem: React.FC<ProductProps> = ({
       </Box>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
-          <Link to={`/product/${id}`}>{name}</Link>
+          <Link to={url}>{name}</Link>
         </Text>
         <p>${price}</p>
       </Box>
