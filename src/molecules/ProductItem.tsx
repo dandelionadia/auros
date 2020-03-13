@@ -36,6 +36,10 @@ const ProductButton = styled(Button)`
   }
 `
 
+const StyledP = styled.p`
+  margin: 5px 0;
+`
+
 interface ProductProps {
   image: string
   secondImage: string
@@ -78,7 +82,7 @@ const ProductItem: React.FC<ProductProps> = ({
         <Text big>
           <Link to={url}>{name}</Link>
         </Text>
-        <p>${price}</p>
+        <StyledP>${price}</StyledP>
       </Box>
     </Box>
   )

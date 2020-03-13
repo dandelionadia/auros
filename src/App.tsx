@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
     margin: 0;
     overflow-x: hidden;
+    line-height: 28px;
   }
 
   a {

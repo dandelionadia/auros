@@ -19,7 +19,6 @@ const templateDesktop = `
 
 const StyledDescription = styled.p`
   color: #999;
-  line-height: 28px;
 `
 
 const StyledProdactPrice = styled.span`
@@ -135,7 +134,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
               <StyledProdactPrice>${price}</StyledProdactPrice>
             </StyledP>
             <StyledDescription>{description}</StyledDescription>
-            <Composition gap={1} templateCols="auto 1fr">
+            <Composition gap={1} templateCols="auto 1fr" marginVertical={2}>
               <StyledInput
                 type="number"
                 id="number"
@@ -143,7 +142,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 min="1"
                 max="10"
                 defaultValue="1"
-              ></StyledInput>
+              />
               <Button>≙ add to card</Button>
             </Composition>
             <Box as={StyledAddToWishList}>

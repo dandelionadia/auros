@@ -1,10 +1,11 @@
 import React from 'react'
 import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-import Layout, { Box } from 'atomic-layout'
+import { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
 import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
+import { Grid } from './Grid'
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -48,17 +49,6 @@ const StyledLI = styled.li`
   }
 `
 
-const StyledP = styled.p`
-  color: ${({ theme }) => theme.colors.greyLight};
-  margin: 0 20px;
-  line-height: 28px;
-
-  @media (min-width: ${Layout.breakpoints.lg.minWidth}) {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-`
-
 interface TabsPros {
   dataReview: ProductReview[]
   shopAttributes: ProductAttributes[]
@@ -92,25 +82,25 @@ const Tabs: React.FC<TabsPros> = ({
           path={match.url}
           exact
           render={() => (
-            <StyledP>
+            <Grid>
               <p>{description}</p>
-            </StyledP>
+            </Grid>
           )}
         />
         <Route
           path={`${match.url}/info`}
           render={() => (
-            <StyledP>
+            <Grid>
               <ProductTable data={shopAttributes} />
-            </StyledP>
+            </Grid>
           )}
         />
         <Route
           path={`${match.url}/review`}
           render={() => (
-            <StyledP>
+            <Grid>
               <ProductReviews reviews={dataReview} />
-            </StyledP>
+            </Grid>
           )}
         />
       </Switch>
