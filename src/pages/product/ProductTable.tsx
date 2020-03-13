@@ -17,7 +17,7 @@ export const ProductTable: React.FC<PropsProductTable> = ({ data }) => {
     <>
       <StyledTable>
         {data.map(item => (
-          <Table data={item} />
+          <Table rows={item} />
         ))}
       </StyledTable>
     </>

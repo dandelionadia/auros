@@ -22,14 +22,14 @@ const StyledTd = styled.td`
 `
 
 interface TableProps {
-  data: any
+  rows: any
 }
 
-export const Table: React.FC<TableProps> = ({ data }) => {
+export const Table: React.FC<TableProps> = ({ rows }) => {
   return (
     <StyledTr>
-      <StyledTh>{data.title}</StyledTh>
-      <StyledTd>{data.data}</StyledTd>
+      <StyledTh>{rows.title}</StyledTh>
+      <StyledTd>{rows.data}</StyledTd>
     </StyledTr>
   )
 }
