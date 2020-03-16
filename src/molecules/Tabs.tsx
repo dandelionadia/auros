@@ -77,33 +77,19 @@ const Tabs: React.FC<TabsPros> = ({
           <StyledLink to={`${match.url}/review`}>Review</StyledLink>
         </StyledLI>
       </StyldUl>
-      <Switch>
-        <Route
-          path={match.url}
-          exact
-          render={() => (
-            <Grid>
-              <p>{description}</p>
-            </Grid>
-          )}
-        />
-        <Route
-          path={`${match.url}/info`}
-          render={() => (
-            <Grid>
-              <ProductTable data={shopAttributes} />
-            </Grid>
-          )}
-        />
-        <Route
-          path={`${match.url}/review`}
-          render={() => (
-            <Grid>
-              <ProductReviews reviews={dataReview} />
-            </Grid>
-          )}
-        />
-      </Switch>
+      <Grid>
+        <Switch>
+          <Route path={match.url} exact render={() => <p>{description}</p>} />
+          <Route
+            path={`${match.url}/info`}
+            render={() => <ProductTable data={shopAttributes} />}
+          />
+          <Route
+            path={`${match.url}/review`}
+            render={() => <ProductReviews reviews={dataReview} />}
+          />
+        </Switch>
+      </Grid>
     </Box>
   )
 }
