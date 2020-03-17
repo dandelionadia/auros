@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Box } from 'atomic-layout'
 import { RecomendedProducts } from '../../molecules/RecomendedProducts'
 import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
+import { useQuery } from '../../hooks/useQuery'
 
 export interface ProductData {
   id: string
@@ -32,19 +33,16 @@ export interface ProductReview {
 const ProductPage: React.FC<RouteComponentProps<{
   productId: string
 }>> = ({ match }) => {
-  const [productData, setProductData] = useState<ProductData>()
   const productId = match.params.productId
 
-  useEffect(() => {
-    fetch(
-      `https://auros-api.netlify.com/.netlify/functions/api/product/${productId}`
-    )
-      .then(res => res.json())
-      .then(res => setProductData(res))
-  }, [productId])
+  const { loading, data } = useQuery<ProductData>(`/product/${productId}`)
 
-  if (!productData) {
-    return <p>loading...</p>
+  if (loading) {
+    return <p>Product is loading...</p>
+  }
+
+  if (!data) {
+    return <p>Error when fetching product</p>
   }
 
   return (
@@ -52,17 +50,17 @@ const ProductPage: React.FC<RouteComponentProps<{
       <Box padding={1.3} paddingMd={2.6} marginHorizontalLgDown={2}>
         <ProductSummary
           customerReviews={3}
-          title={productData.title}
-          rating={productData.rating}
-          price={productData.price}
-          description={productData.description}
+          title={data.title}
+          rating={data.rating}
+          price={data.price}
+          description={data.description}
         />
         <Tabs
-          dataReview={productData.reviews}
-          shopAttributes={productData.shopAttributes}
-          description={productData.description}
+          dataReview={data.reviews}
+          shopAttributes={data.shopAttributes}
+          description={data.description}
         />
-        <RecomendedProducts productIds={productData.relatedProducts} />
+        <RecomendedProducts productIds={data.relatedProducts} />
       </Box>
     </>
   )
