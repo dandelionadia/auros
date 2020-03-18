@@ -8,6 +8,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import { ProductPage } from './pages/product/ProductPage'
+import { CartPage } from './pages/cart/CartPage'
 
 Layout.configure({
   defaultUnit: 'rem'
@@ -45,8 +46,9 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route path="/product" component={ProductPage} />
+          <Route path="/cart" component={CartPage} />
 
-          <Redirect exact from="/" to="/product" />
+          <Redirect exact from="/" to="/cart" />
         </Switch>
       </Router>
     </>
