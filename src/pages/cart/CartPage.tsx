@@ -2,6 +2,7 @@ import React from 'react'
 import { Composition, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
+import { Heading } from '../../atoms/Heading'
 
 const templateMob = `
   cart cartTotals
@@ -14,16 +15,14 @@ const StyledCart = styled.div`
   text-align: center;
 `
 
-const StyledTotal = styled.div`
+const StyledProductSubtotal = styled.div`
   color: #222;
   font-weight: bold;
 `
 
-const StyledPrice = styled.div`
+const StyledProductPrice = styled.div`
   color: #888;
 `
-
-const ProductName = styled.div``
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -44,6 +43,37 @@ const StyledImage = styled.img`
   padding-left: 2rem;
 `
 
+const StyledCartTotals = styled.div`
+  background-color: #fafafa;
+  padding: 40px;
+  min-width: 250px;
+`
+
+const StyledButton = styled.div`
+  background-color: #eb7025;
+  border-color: #eb7025;
+  border-radius: 0px;
+  font-size: 16px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+`
+
+const StyledLink = styled.a`
+  color: #fff;
+`
+
+const StyledBoxPrice = styled.div`
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+`
+
+const StyledTotalPrice = styled.h2`
+  color: #222;
+  font-size: 24px;
+  margin: 0;
+`
+
 export const CartPage: React.FC = () => {
   return (
     <div>
@@ -62,12 +92,10 @@ export const CartPage: React.FC = () => {
                   <IoMdClose fill="#bbb" />
                   <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
                 </Box>
-                <ProductName>
-                  <span>111.2233.44</span>
-                </ProductName>
-                <StyledPrice>
+                <span>111.2233.44</span>
+                <StyledProductPrice>
                   <span>$199</span>
-                </StyledPrice>
+                </StyledProductPrice>
                 <StyledInput
                   type="number"
                   id="number"
@@ -76,13 +104,34 @@ export const CartPage: React.FC = () => {
                   max="10"
                   defaultValue="1"
                 />
-                <StyledTotal>
-                  <span>$199</span>
-                </StyledTotal>
+                <StyledProductSubtotal>
+                  <span>$199.99</span>
+                </StyledProductSubtotal>
               </Composition>
             </Areas.Cart>
             <Areas.CartTotals>
-              <p>Lorem ipsum dolor sit, adipisicing elit.</p>
+              <Box as={StyledCartTotals}>
+                <Heading as="h2">Cart totals</Heading>
+                <Composition
+                  templateCols="repeat(2,1fr)"
+                  paddingVertical="30px"
+                  as={StyledBoxPrice}
+                >
+                  <span>Subtotal:</span>
+                  <StyledProductSubtotal>$199.99</StyledProductSubtotal>
+                </Composition>
+                <Composition
+                  templateCols="repeat(2,1fr)"
+                  paddingVertical="30px"
+                  alignItems="center"
+                >
+                  <span>Total:</span>
+                  <StyledTotalPrice>$199.99</StyledTotalPrice>
+                </Composition>
+                <StyledButton>
+                  <StyledLink href="#">Proceed To Checkout</StyledLink>
+                </StyledButton>
+              </Box>
             </Areas.CartTotals>
           </>
         )}
