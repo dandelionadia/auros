@@ -33,8 +33,11 @@ export interface ProductReview {
 const ProductPage: React.FC<RouteComponentProps<{
   productId: string
 }>> = ({ match }) => {
-  const productId = match.params.productId
-
+  //match => it is Route word wich not about 'id' in the 'path'
+  const { productId } = match.params
+  // { loading, data } = useQuery === useQuery.loading, useQuery.data (get state in the useQuery for using it here when: if(!data)... )
+  // useQuery<ProductData> === useQuery is using interface <ProductData>
+  //useQuery<ProductData>(`/product/${productId}`) === called function with data
   const { loading, data } = useQuery<ProductData>(`/product/${productId}`)
 
   if (loading) {
