@@ -91,7 +91,11 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/product/:productId" component={ProductPage} />
 
-            <Redirect exact from="/" to="/product" />
+            <Redirect
+              exact
+              from="/"
+              to="/product/b44bbc5f-b1b0-4e04-b207-3812597b726e"
+            />
           </Switch>
           <Footer />
         </StyledContent>
