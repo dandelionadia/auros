@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
     margin: 0;
     overflow-x: hidden;
+    line-height: 28px;
   }
 
   a {
@@ -88,9 +89,13 @@ const App: React.FC = () => {
         <StyledContent isMenuOpen={isMenuOpen}>
           <Header />
           <Switch>
-            <Route path="/product" component={ProductPage} />
+            <Route path="/product/:productId" component={ProductPage} />
 
-            <Redirect exact from="/" to="/product" />
+            <Redirect
+              exact
+              from="/"
+              to="/product/b44bbc5f-b1b0-4e04-b207-3812597b726e"
+            />
           </Switch>
           <Footer />
         </StyledContent>

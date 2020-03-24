@@ -10,6 +10,7 @@ import { Bar } from './Bar'
 const ContainerHeader = styled.div`
   position: relative;
   z-index: 2;
+  line-height: normal;
 `
 
 const templateMobile = `

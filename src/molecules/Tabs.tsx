@@ -1,57 +1,11 @@
 import React from 'react'
-import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
+import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-import Layout, { Box } from 'atomic-layout'
+import { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
-
-const dataInfo = [
-  {
-    title: 'Foo 1',
-    data: 'Lorem'
-  },
-  {
-    title: ' Foo 2',
-    data: 'Lorem lorem'
-  },
-  {
-    title: ' Foo 3 Lorem Lorem Lorem',
-    data: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
-  },
-  {
-    title: 'Foo 1',
-    data: 'Lorem'
-  },
-  {
-    title: ' Foo 2',
-    data: 'Lorem lorem'
-  },
-  {
-    title: ' Foo 3',
-    data: 'Lorem Lorem Lorem'
-  }
-]
-
-const dataReviews = [
-  {
-    name: 'Duck Lord',
-    data: '22.03.1990',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
-  },
-  {
-    name: 'Cat Lord',
-    data: '22.03.1992',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
-  },
-  {
-    name: 'Dog Lord',
-    data: '22.03.1994',
-    reviewText:
-      'I am info Lorem ipsum, dolor sit amet consectetur adipisicing elit'
-  }
-]
+import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
+import { Grid } from './Grid'
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -95,18 +49,19 @@ const StyledLI = styled.li`
   }
 `
 
-const StyledP = styled.p`
-  color: ${({ theme }) => theme.colors.greyLight};
-  margin: 0 20px;
-  line-height: 28px;
+interface TabsPros {
+  dataReview: ProductReview[]
+  shopAttributes: ProductAttributes[]
+  description: string
+}
 
-  @media (min-width: ${Layout.breakpoints.lg.minWidth}) {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-`
+const Tabs: React.FC<TabsPros> = ({
+  dataReview,
+  shopAttributes,
+  description
+}) => {
+  const match = useRouteMatch()
 
-const Tabs = withRouter(({ match }) => {
   return (
     <Box marginBottom={3}>
       <StyldUl>
@@ -122,41 +77,21 @@ const Tabs = withRouter(({ match }) => {
           <StyledLink to={`${match.url}/review`}>Review</StyledLink>
         </StyledLI>
       </StyldUl>
-      <Switch>
-        <Route
-          path={match.url}
-          exact
-          render={() => (
-            <StyledP>
-              I'm description Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quo sapiente tenetur cum, quis, quia veniam quod fugit
-              eligendi cupiditate vero, sequi asperiores cumque eos ipsum
-              pariatur alias dolore saepe unde. I'm description Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Quo sapiente tenetur
-              cum, quis, quia veniam quod fugit eligendi cupiditate vero, sequi
-              asperiores cumque eos ipsum pariatur alias dolore saepe unde.
-            </StyledP>
-          )}
-        />
-        <Route
-          path={`${match.url}/info`}
-          render={() => (
-            <StyledP>
-              <ProductTable data={dataInfo} />
-            </StyledP>
-          )}
-        />
-        <Route
-          path={`${match.url}/review`}
-          render={() => (
-            <StyledP>
-              <ProductReviews reviews={dataReviews} />
-            </StyledP>
-          )}
-        />
-      </Switch>
+      <Grid>
+        <Switch>
+          <Route path={match.url} exact render={() => <p>{description}</p>} />
+          <Route
+            path={`${match.url}/info`}
+            render={() => <ProductTable data={shopAttributes} />}
+          />
+          <Route
+            path={`${match.url}/review`}
+            render={() => <ProductReviews reviews={dataReview} />}
+          />
+        </Switch>
+      </Grid>
     </Box>
   )
-})
+}
 
 export { Tabs }
