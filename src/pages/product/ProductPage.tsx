@@ -29,7 +29,7 @@ export interface ProductReview {
   rating: number
   text: string
 }
-
+//gets id from Rout App page and show a page with a product
 const ProductPage: React.FC<RouteComponentProps<{
   productId: string
 }>> = ({ match }) => {

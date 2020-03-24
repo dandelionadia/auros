@@ -31,6 +31,7 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
             price={item.price}
             name={item.title}
             buttonText="add to cart"
+            id={item.id}
           />
         ))}
       </Composition>
