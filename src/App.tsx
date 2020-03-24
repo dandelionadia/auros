@@ -57,6 +57,7 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
     margin: 0;
     overflow-x: hidden;
+    line-height: 28px;
   }
 
   a {
@@ -85,7 +86,7 @@ const App: React.FC = () => {
           <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/product" component={ProductPage} />
+            <Route path="/product/:productId" component={ProductPage} />
           </Switch>
           <Footer />
         </StyledContent>

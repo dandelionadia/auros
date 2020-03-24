@@ -32,6 +32,7 @@ const StyledFooter = styled.div`
   background-color: ${({ theme }) => theme.colors.greyDim};
   color: ${({ theme }) => theme.colors.greyLight};
   margin: 0;
+  line-height: 24px;
 
   @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
     text-align: center;

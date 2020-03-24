@@ -19,7 +19,6 @@ const templateDesktop = `
 
 const StyledDescription = styled.p`
   color: #999;
-  line-height: 28px;
 `
 
 const StyledProdactPrice = styled.span`
@@ -68,11 +67,21 @@ const StyledLinkAddToWish = styled.a`
   border-bottom: 1px solid #222;
 `
 
-interface ProductSummaryProps {
+export interface ProductSummaryProps {
   customerReviews: number
+  title: string
+  rating: number
+  price: number
+  description: string
 }
 
-const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
+const ProductSummary: React.FC<ProductSummaryProps> = ({
+  customerReviews,
+  title,
+  rating,
+  price,
+  description
+}) => {
   return (
     <Composition
       template={templateMobile}
@@ -114,33 +123,18 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
             />
           </Areas.Gallery>
           <Areas.Summary>
-            <Heading>UNA Chair</Heading>
+            <Heading>{title}</Heading>
             <Box flex marginBottom={1.1}>
               <Box marginRight={1}>
-                <Rating stars={3} />
+                <Rating stars={rating} />
               </Box>
               <a href="#">({customerReviews} customer reviews)</a>
             </Box>
             <StyledP>
-              <StyledProdactPrice>$102.84</StyledProdactPrice>
+              <StyledProdactPrice>${price}</StyledProdactPrice>
             </StyledP>
-            <StyledDescription>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium in dolor quas maiores, non enim quos modi
-              necessitatibus cumque architecto quo odio adipisci repellendus
-              explicabo hic fugiat perferendis sunt. Facere.
-            </StyledDescription>
-            <StyledDescription>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium in dolor quas maiores, non enim quos modi
-              necessitatibus cumque architecto quo odio adipisci repellendus
-              explicabo hic fugiat perferendis sunt. Facere. Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Ratione fuga qui rem
-              repellat earum beatae quas, sit possimus aliquid quasi deleniti
-              veritatis. Ratione aperiam quaerat veniam at placeat laudantium
-              non.
-            </StyledDescription>
-            <Composition gap={1} templateCols="auto 1fr">
+            <StyledDescription>{description}</StyledDescription>
+            <Composition gap={1} templateCols="auto 1fr" marginVertical={2}>
               <StyledInput
                 type="number"
                 id="number"
@@ -148,7 +142,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({ customerReviews }) => {
                 min="1"
                 max="10"
                 defaultValue="1"
-              ></StyledInput>
+              />
               <Button>≙ add to card</Button>
             </Composition>
             <Box as={StyledAddToWishList}>

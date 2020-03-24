@@ -1,75 +1,69 @@
 import React from 'react'
-import { Box, Composition } from 'atomic-layout'
-import { ProductItem } from '../../molecules/ProductItem'
+import { RouteComponentProps } from 'react-router'
+import { Box } from 'atomic-layout'
+import { RecomendedProducts } from '../../molecules/RecomendedProducts'
 import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
+import { useQuery } from '../../hooks/useQuery'
 
-const data = [
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg',
-    name: 'Mega 2 Seater Sofa',
-    price: 160.71,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg',
-    name: 'Sentei Pruning Shears',
-    price: 141.36,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-21-620x698.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-21-600x675.jpg',
-    name: 'Mega 2 Seater Sofa',
-    price: 160.71,
-    buttonText: 'add to card'
-  },
-  {
-    image:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg',
-    secondImage:
-      'https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg',
-    name: 'Sentei Pruning Shears',
-    price: 141.36,
-    buttonText: 'add to card'
+export interface ProductData {
+  id: string
+  title: string
+  description: string
+  rating: number
+  price: number
+  images: string[]
+  relatedProducts: string[]
+  shopAttributes: ProductAttributes[]
+  reviews: ProductReview[]
+}
+
+export interface ProductAttributes {
+  title: string
+  data: number | string
+}
+
+export interface ProductReview {
+  name: string
+  date: string
+  rating: number
+  text: string
+}
+
+const ProductPage: React.FC<RouteComponentProps<{
+  productId: string
+}>> = ({ match }) => {
+  //match => it is Route word wich not about 'id' in the 'path'
+  const { productId } = match.params
+  // { loading, data } = useQuery === useQuery.loading, useQuery.data (get state in the useQuery for using it here when: if(!data)... )
+  // useQuery<ProductData> === useQuery is using interface <ProductData>
+  //useQuery<ProductData>(`/product/${productId}`) === called function with data
+  const { loading, data } = useQuery<ProductData>(`/product/${productId}`)
+
+  if (loading) {
+    return <p>Product is loading...</p>
   }
-]
 
-const ProductPage: React.FC = () => {
+  if (!data) {
+    return <p>Error when fetching product</p>
+  }
+
   return (
     <>
-      <Box
-        padding={1.3}
-        paddingMd={2.6}
-        marginHorizontalMd={2}
-        marginHorizontalLg={0}
-      >
-        <ProductSummary customerReviews={3} />
-        <Tabs />
-        <Composition
-          alignItems="center"
-          templateCols="1fr"
-          templateColsMd="repeat(2, 1fr)"
-          templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
-        >
-          {data.map(item => (
-            <ProductItem
-              image={item.image}
-              secondImage={item.secondImage}
-              price={item.price}
-              name={item.name}
-              buttonText={item.buttonText}
-            />
-          ))}
-        </Composition>
+      <Box padding={1.3} paddingMd={2.6} marginHorizontalLgDown={2}>
+        <ProductSummary
+          customerReviews={3}
+          title={data.title}
+          rating={data.rating}
+          price={data.price}
+          description={data.description}
+        />
+        <Tabs
+          dataReview={data.reviews}
+          shopAttributes={data.shopAttributes}
+          description={data.description}
+        />
+        <RecomendedProducts productIds={data.relatedProducts} />
       </Box>
     </>
   )
