@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Box } from 'atomic-layout'
-
+import { Link } from 'react-router-dom'
 import { IoIosArrowDown } from 'react-icons/io'
 import styled from 'styled-components'
 
@@ -19,7 +19,8 @@ const StyledContainerLi = styled.div`
     box-shadow: inset 0 -1px rgba(0, 0, 0, 0);
   }
 `
-const Link = styled.a`
+
+const MenuItem = styled.span`
   width: 100%;
   display: block;
   color: #fff;
@@ -65,7 +66,8 @@ const StyledSubMenuLi = styled.li`
 
 export interface Menu {
   name: string
-  subMenu: SubMenuProps[]
+  link?: string
+  subMenu?: SubMenuProps[]
 }
 
 export interface SubMenuProps {
@@ -73,7 +75,7 @@ export interface SubMenuProps {
   link: string
 }
 
-export const SubMenu: React.FC<Menu> = ({ name, subMenu }) => {
+export const SubMenu: React.FC<Menu> = ({ name, link, subMenu }) => {
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false)
 
   const isOpenSubmenu = () => {
@@ -83,16 +85,27 @@ export const SubMenu: React.FC<Menu> = ({ name, subMenu }) => {
   return (
     <StyledLi>
       <Box as={StyledContainerLi}>
-        <Link href="#">{name}</Link>
-        <Icon onClick={isOpenSubmenu}>
-          <IoIosArrowDown />
-        </Icon>
+        {link ? (
+          <MenuItem as={Link} to={link}>
+            {name}
+          </MenuItem>
+        ) : (
+          <MenuItem>{name}</MenuItem>
+        )}
+        {subMenu && (
+          <Icon onClick={isOpenSubmenu}>
+            {' '}
+            <IoIosArrowDown />
+          </Icon>
+        )}
       </Box>
       {isOpenSubMenu && subMenu && (
         <Ul>
           {subMenu.map((itemSubMenu, index) => (
             <StyledSubMenuLi key={index}>
-              <Link href="#">{itemSubMenu.name}</Link>
+              <MenuItem as={Link} to={itemSubMenu.link}>
+                {itemSubMenu.name}
+              </MenuItem>
             </StyledSubMenuLi>
           ))}
         </Ul>

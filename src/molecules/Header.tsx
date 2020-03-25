@@ -57,16 +57,7 @@ export const Header: React.FC = () => {
               data={[
                 {
                   name: 'Home',
-                  subMenu: [
-                    {
-                      name: 'lorem lorem',
-                      link: '#'
-                    },
-                    {
-                      name: 'lorem',
-                      link: '#'
-                    }
-                  ]
+                  link: '/'
                 },
                 {
                   name: 'Shop',

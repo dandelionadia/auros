@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
+import { Link } from 'react-router-dom'
 import { IoIosArrowDown } from 'react-icons/io'
 
 const StyledList = styled.ul`
@@ -77,7 +78,8 @@ interface HeaderProps {
 
 interface HeaderMenu {
   name: string
-  subMenu: HeaderSubMenu[]
+  link?: string
+  subMenu?: HeaderSubMenu[]
 }
 
 interface HeaderSubMenu {
@@ -91,8 +93,14 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
       {data.map(item => (
         <StyledLi>
           <StyledContainerLi>
-            <Box as={ContentLi}>{item.name}</Box>
-            <IoIosArrowDown />
+            <Box as={ContentLi}>
+              {item.link ? (
+                <Link to={item.link}>{item.name}</Link>
+              ) : (
+                <span>{item.name}</span>
+              )}
+            </Box>
+            {item.subMenu && <IoIosArrowDown />}
           </StyledContainerLi>
           {item.subMenu && (
             <StyledUlSubMenu>

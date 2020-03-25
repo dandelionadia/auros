@@ -104,16 +104,7 @@ const App: React.FC = () => {
             data={[
               {
                 name: 'Home',
-                subMenu: [
-                  {
-                    name: 'Lorem Home',
-                    link: '#'
-                  },
-                  {
-                    name: 'Morem',
-                    link: '#'
-                  }
-                ]
+                link: '/'
               },
               {
                 name: 'Shop',

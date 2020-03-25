@@ -18,7 +18,12 @@ export const NavMenuMob: React.FC<Props> = ({ data }) => {
     <Box>
       <StyledUl>
         {data.map((item, index) => (
-          <SubMenu name={item.name} subMenu={item.subMenu} key={index} />
+          <SubMenu
+            name={item.name}
+            link={item.link}
+            subMenu={item.subMenu}
+            key={index}
+          />
         ))}
       </StyledUl>
     </Box>
