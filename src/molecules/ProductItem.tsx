@@ -58,7 +58,7 @@ const ProductItem: React.FC<ProductProps> = ({
   id
 }) => {
   const [isHover, setIsHover] = useState(false)
-  //link wich going to the App
+  //link which goes to the App
   const url = `/product/${id}`
 
   return (
@@ -70,7 +70,7 @@ const ProductItem: React.FC<ProductProps> = ({
       onMouseLeave={() => setIsHover(false)}
     >
       <StyledContainerImage>
-        {/* when onClick change link to the our url */}
+        {/* on click change link to the our url */}
         <Link to={url}>
           <StyledImage src={isHover ? secondImage : image} alt={name} />
         </Link>

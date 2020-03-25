@@ -86,7 +86,7 @@ const App: React.FC = () => {
           <Header />
           <Switch>
             <Route exact path="/" component={HomePage} />
-            {/* get link from ProductItem, put it thu the path and go to the productPage*/}
+            {/* get link from ProductItem, put it the path and go to the productPage*/}
             <Route path="/product/:productId" component={ProductPage} />
           </Switch>
           <Footer />
