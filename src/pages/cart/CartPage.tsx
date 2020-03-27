@@ -1,10 +1,15 @@
 import React from 'react'
-import { Composition, Box } from 'atomic-layout'
+import Layout, { Composition, Box, Only } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
 import { Heading } from '../../atoms/Heading'
 
-const templateMob = `
+const templateTablet = `
+cart
+cartTotals
+/ 1fr
+`
+const templateLg = `
   cart cartTotals
   / 1fr auto
 `
@@ -18,10 +23,19 @@ const StyledCart = styled.div`
 const StyledProductSubtotal = styled.div`
   color: #222;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 `
 
 const StyledProductPrice = styled.div`
   color: #888;
+  display: flex;
+  justify-content: space-between;
+`
+
+const StyledContainerInput = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 const StyledInput = styled.input`
@@ -74,37 +88,63 @@ const StyledTotalPrice = styled.h2`
   margin: 0;
 `
 
+const StyledProductTitles = styled.span`
+  color: #666;
+  font-weight: bold;
+`
+
 export const CartPage: React.FC = () => {
   return (
     <div>
-      <Composition template={templateMob} gap={2} marginHorizontal={8}>
+      <Composition template={templateTablet} templateLg={templateLg} gap={2}>
         {Areas => (
           <>
             <Areas.Cart>
               <Composition
                 as={StyledCart}
                 paddingVertical={2}
-                templateCols="1fr repeat(4,1fr)"
+                templateColsMd="1fr repeat(4,1fr)"
                 gap={2}
                 alignItems="center"
               >
-                <Box flex flexDirection="row" alignItems="center">
+                <Box
+                  flex
+                  flexDirection="row"
+                  alignItemsMd="center"
+                  justifyContentSmDown="center"
+                >
                   <IoMdClose fill="#bbb" />
                   <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
                 </Box>
-                <span>111.2233.44</span>
+                <Box flex flexDirection="row" justifyContent="space-between">
+                  <Only to="md">
+                    <StyledProductTitles>Product: </StyledProductTitles>
+                  </Only>
+                  <span>Janus Table Lamp </span>
+                </Box>
                 <StyledProductPrice>
+                  <Only to="md">
+                    <StyledProductTitles>Price: </StyledProductTitles>
+                  </Only>
                   <span>$199</span>
                 </StyledProductPrice>
-                <StyledInput
-                  type="number"
-                  id="number"
-                  name="tentacles"
-                  min="1"
-                  max="10"
-                  defaultValue="1"
-                />
+                <StyledContainerInput>
+                  <Only to="md">
+                    <StyledProductTitles>Quantity: </StyledProductTitles>
+                  </Only>
+                  <StyledInput
+                    type="number"
+                    id="number"
+                    name="tentacles"
+                    min="1"
+                    max="10"
+                    defaultValue="1"
+                  />
+                </StyledContainerInput>
                 <StyledProductSubtotal>
+                  <Only to="md">
+                    <StyledProductTitles>Total: </StyledProductTitles>
+                  </Only>
                   <span>$199.99</span>
                 </StyledProductSubtotal>
               </Composition>
@@ -124,6 +164,8 @@ export const CartPage: React.FC = () => {
                   templateCols="repeat(2,1fr)"
                   paddingVertical="30px"
                   alignItems="center"
+                  flex
+                  justifyContent="space-between"
                 >
                   <span>Total:</span>
                   <StyledTotalPrice>$199.99</StyledTotalPrice>
