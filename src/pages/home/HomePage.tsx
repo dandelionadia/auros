@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Composition } from 'atomic-layout'
 import { RouteComponentProps } from 'react-router'
 import { ProductItem } from '../../molecules/ProductItem'
+import { Grid } from '../../atoms/Grid'
 
 export const HomePage: React.FC<RouteComponentProps> = () => {
   const [homeData, setHomeData] = useState<any[]>()
@@ -17,12 +18,13 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
   }
 
   return (
-    <>
+    <Grid>
       <Composition
         alignItems="center"
         templateCols="1fr"
         templateColsMd="repeat(2, 1fr)"
         templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
+        gap={3}
       >
         {homeData.map(item => (
           <ProductItem
@@ -35,6 +37,6 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
           />
         ))}
       </Composition>
-    </>
+    </Grid>
   )
 }
