@@ -3,7 +3,12 @@ import { Box } from 'atomic-layout'
 
 export const Grid: React.FC = ({ children }) => {
   return (
-    <Box padding={1.3} paddingMd={2.6} marginHorizontalLgDown={2}>
+    <Box
+      paddingVertical={1.3}
+      paddingVerticalMd={2.6}
+      marginHorizontal={2.6}
+      marginHorizontalLg={8}
+    >
       {children}
     </Box>
   )

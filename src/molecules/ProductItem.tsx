@@ -64,7 +64,6 @@ const ProductItem: React.FC<ProductProps> = ({
   return (
     <Box
       as={StyledContainerProduct}
-      // paddingBottom="30px"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >

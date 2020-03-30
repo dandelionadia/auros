@@ -24,6 +24,7 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
         templateCols="1fr"
         templateColsMd="repeat(2, 1fr)"
         templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
+        gap={3}
       >
         {homeData.map(item => (
           <ProductItem
