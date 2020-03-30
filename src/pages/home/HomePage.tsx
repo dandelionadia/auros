@@ -20,10 +20,12 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
   return (
     <Grid>
       <Composition
-        alignItems="center"
+        alignItems="flex-start"
         templateCols="1fr"
-        templateColsMd="repeat(2, 1fr)"
-        templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
+        templateColsSm="repeat(2, 1fr)"
+        templateColsMd="repeat(3, 1fr)"
+        templateColsLg="repeat(4, 1fr)"
+        templateColsXl="repeat(auto-fit, minmax(80px, 1fr))"
         gap={3}
       >
         {homeData.map(item => (

@@ -3,6 +3,7 @@ import Layout, { Composition, Box, Only } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
 import { Heading } from '../../atoms/Heading'
+import { Grid } from '../../atoms/Grid'
 
 const templateTablet = `
 cart
@@ -55,12 +56,15 @@ const StyledImage = styled.img`
   max-width: 100px;
   height: auto;
   padding-left: 2rem;
+  @media (min-width: ${Layout.breakpoints.lg.minWidth}) and (max-width: ${Layout
+      .breakpoints.lg.maxWidth}) {
+    width: 65px;
+  }
 `
 
 const StyledCartTotals = styled.div`
   background-color: #fafafa;
   padding: 40px;
-  min-width: 250px;
 `
 
 const StyledButton = styled.div`
@@ -95,7 +99,7 @@ const StyledProductTitles = styled.span`
 
 export const CartPage: React.FC = () => {
   return (
-    <div>
+    <Grid>
       <Composition template={templateTablet} templateLg={templateLg} gap={2}>
         {Areas => (
           <>
@@ -106,6 +110,7 @@ export const CartPage: React.FC = () => {
                 templateColsMd="1fr repeat(4,1fr)"
                 gap={2}
                 alignItems="center"
+                justifyItemsMd="center"
               >
                 <Box
                   flex
@@ -150,7 +155,7 @@ export const CartPage: React.FC = () => {
               </Composition>
             </Areas.Cart>
             <Areas.CartTotals>
-              <Box as={StyledCartTotals}>
+              <Box as={StyledCartTotals} widthLg="200px" widthXl="250px">
                 <Heading as="h2">Cart totals</Heading>
                 <Composition
                   templateCols="repeat(2,1fr)"
@@ -178,6 +183,6 @@ export const CartPage: React.FC = () => {
           </>
         )}
       </Composition>
-    </div>
+    </Grid>
   )
 }
