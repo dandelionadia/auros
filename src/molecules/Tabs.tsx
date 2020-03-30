@@ -1,7 +1,11 @@
 import React from 'react'
-import { NavLink, Switch, withRouter, Route } from 'react-router-dom'
+import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
+import { ProductTable } from '../pages/product/ProductTable'
+import { ProductReviews } from '../pages/product/ProductReviews'
+import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
+import { Grid } from './Grid'
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -45,7 +49,19 @@ const StyledLI = styled.li`
   }
 `
 
-const Tabs = withRouter(({ match }) => {
+interface TabsPros {
+  dataReview: ProductReview[]
+  shopAttributes: ProductAttributes[]
+  description: string
+}
+
+const Tabs: React.FC<TabsPros> = ({
+  dataReview,
+  shopAttributes,
+  description
+}) => {
+  const match = useRouteMatch()
+
   return (
     <Box marginBottom={3}>
       <StyldUl>
@@ -61,44 +77,21 @@ const Tabs = withRouter(({ match }) => {
           <StyledLink to={`${match.url}/review`}>Review</StyledLink>
         </StyledLI>
       </StyldUl>
-      <Switch>
-        <Route
-          path={match.url}
-          exact
-          render={() => (
-            <p>
-              I'm description Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quo sapiente tenetur cum, quis, quia veniam quod fugit
-              eligendi cupiditate vero, sequi asperiores cumque eos ipsum
-              pariatur alias dolore saepe unde.
-            </p>
-          )}
-        />
-        <Route
-          path={`${match.url}/info`}
-          render={() => (
-            <p>
-              I'm info Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Inventore dolorum similique officia ipsa magni, expedita
-              consequuntur pariatur perferendis ipsam at reprehenderit,
-              voluptate id, debitis amet facilis voluptatibus qui illo commodi.{' '}
-            </p>
-          )}
-        />
-        <Route
-          path={`${match.url}/review`}
-          render={() => (
-            <p>
-              I'm review Lorem ipsum dolor, sit amet consectetur adipisicing
-              elit. Quia inventore accusamus in suscipit minus praesentium
-              voluptate laboriosam exercitationem fugiat, perferendis illum. Et
-              ad dolore beatae consequuntur soluta animi amet ullam.
-            </p>
-          )}
-        />
-      </Switch>
+      <Grid>
+        <Switch>
+          <Route path={match.url} exact render={() => <p>{description}</p>} />
+          <Route
+            path={`${match.url}/info`}
+            render={() => <ProductTable data={shopAttributes} />}
+          />
+          <Route
+            path={`${match.url}/review`}
+            render={() => <ProductReviews reviews={dataReview} />}
+          />
+        </Switch>
+      </Grid>
     </Box>
   )
-})
+}
 
 export { Tabs }

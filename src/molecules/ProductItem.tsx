@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
+import { Link } from 'react-router-dom'
 import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
 
 const StyledContainerProduct = styled.div`
-  max-width: 500px;
   height: auto;
 `
 const StyledProductDescription = styled.div`
@@ -13,6 +13,10 @@ const StyledProductDescription = styled.div`
 `
 const StyledContainerImage = styled.div`
   position: relative;
+`
+
+const StyledImage = styled.img`
+  margin: 0 auto;
 `
 
 const ProductButton = styled(Button)`
@@ -32,12 +36,17 @@ const ProductButton = styled(Button)`
   }
 `
 
+const StyledP = styled.p`
+  margin: 5px 0;
+`
+
 interface ProductProps {
   image: string
   secondImage: string
   price: number
   name: string
   buttonText: string
+  id: string
 }
 
 const ProductItem: React.FC<ProductProps> = ({
@@ -45,33 +54,35 @@ const ProductItem: React.FC<ProductProps> = ({
   secondImage,
   price,
   name,
-  buttonText
+  buttonText,
+  id
 }) => {
   const [isHover, setIsHover] = useState(false)
+  //link which goes to the App
+  const url = `/product/${id}`
 
   return (
     <Box
       as={StyledContainerProduct}
-      paddingHorizontal="20px"
-      paddingBottom="30px"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      <Box as={StyledContainerImage}>
-        <a href="#">
-          <img src={isHover ? secondImage : image} alt={name} />
-        </a>
+      <StyledContainerImage>
+        {/* on click change link to the our url */}
+        <Link to={url}>
+          <StyledImage src={isHover ? secondImage : image} alt={name} />
+        </Link>
         {isHover && (
           <ProductButton>
             <p>+ {buttonText}</p>
           </ProductButton>
         )}
-      </Box>
+      </StyledContainerImage>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
-          <a href="#">{name}</a>
+          <Link to={url}>{name}</Link>
         </Text>
-        <p>${price}</p>
+        <StyledP>${price}</StyledP>
       </Box>
     </Box>
   )
