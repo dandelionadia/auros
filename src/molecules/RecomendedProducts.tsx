@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Composition } from 'atomic-layout'
 import { ProductItem } from './ProductItem'
 import { ProductData } from '../pages/product/ProductPage'
@@ -25,6 +25,9 @@ export const RecomendedProducts: React.FC<{
       templateCols="1fr"
       templateColsMd="repeat(2, 1fr)"
       templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
+      gap={2}
+      gapMd={3}
+      paddingVerticalLg={4}
     >
       {data.map(item => (
         <ProductItem
