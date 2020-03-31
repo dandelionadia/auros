@@ -6,6 +6,7 @@ import { Burger } from '../atoms/Burger'
 import { NavMenu } from './NavMenu'
 import { Logo } from '../atoms/Logo'
 import { Bar } from './Bar'
+import routes from '../routes'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -45,7 +46,7 @@ export const Header: React.FC = () => {
       {Areas => (
         <>
           <Areas.Logo justifyMdOnly="center">
-            <Link to="/">
+            <Link to={routes.home}>
               <Logo src="https://demo2.wpopal.com/auros/wp-content/uploads/2019/02/Logo.svg" />
             </Link>
           </Areas.Logo>

@@ -10,6 +10,7 @@ import { Header } from './molecules/Header'
 import { Footer } from './molecules/Footer'
 import { NavMenuMob } from './molecules/NavMenuMob'
 import { HomePage } from './pages/home/HomePage'
+import routes from './routes'
 
 const BurgerMenu = styled.div<{ isOpen: boolean }>`
   background-color: #353535;
@@ -85,9 +86,9 @@ const App: React.FC = () => {
         <StyledContent isMenuOpen={isMenuOpen}>
           <Header />
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path={routes.home} component={HomePage} />
             {/* get link from ProductItem, put it the path and go to the productPage*/}
-            <Route path="/product/:productId" component={ProductPage} />
+            <Route path={routes.productDetail} component={ProductPage} />
           </Switch>
           <Footer />
         </StyledContent>
