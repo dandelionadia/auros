@@ -66,16 +66,16 @@ const StyledSubMenuLi = styled.li`
 
 export interface Menu {
   name: string
-  link?: string
+  url?: string
   subMenu?: SubMenuProps[]
 }
 
 export interface SubMenuProps {
   name: string
-  link: string
+  url: string
 }
 
-export const SubMenu: React.FC<Menu> = ({ name, link, subMenu }) => {
+export const SubMenu: React.FC<Menu> = ({ name, url, subMenu }) => {
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false)
 
   const isOpenSubmenu = () => {
@@ -85,8 +85,8 @@ export const SubMenu: React.FC<Menu> = ({ name, link, subMenu }) => {
   return (
     <StyledLi>
       <Box as={StyledContainerLi}>
-        {link ? (
-          <MenuItem as={Link} to={link}>
+        {url ? (
+          <MenuItem as={Link} to={url}>
             {name}
           </MenuItem>
         ) : (
@@ -103,7 +103,7 @@ export const SubMenu: React.FC<Menu> = ({ name, link, subMenu }) => {
         <Ul>
           {subMenu.map((itemSubMenu, index) => (
             <StyledSubMenuLi key={index}>
-              <MenuItem as={Link} to={itemSubMenu.link}>
+              <MenuItem as={Link} to={itemSubMenu.url}>
                 {itemSubMenu.name}
               </MenuItem>
             </StyledSubMenuLi>

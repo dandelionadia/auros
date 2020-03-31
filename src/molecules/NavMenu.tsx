@@ -78,13 +78,13 @@ interface HeaderProps {
 
 interface HeaderMenu {
   name: string
-  link?: string
+  url?: string
   subMenu?: HeaderSubMenu[]
 }
 
 interface HeaderSubMenu {
   name: string
-  link: string
+  url: string
 }
 
 export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
@@ -94,8 +94,8 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
         <StyledLi>
           <StyledContainerLi>
             <Box as={ContentLi}>
-              {item.link ? (
-                <Link to={item.link}>{item.name}</Link>
+              {item.url ? (
+                <Link to={item.url}>{item.name}</Link>
               ) : (
                 <span>{item.name}</span>
               )}
@@ -106,7 +106,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
             <StyledUlSubMenu>
               {item.subMenu.map(subMenuItem => (
                 <StyledSubMenuLi>
-                  <a href={subMenuItem.link}>{subMenuItem.name}</a>
+                  <a href={subMenuItem.url}>{subMenuItem.name}</a>
                 </StyledSubMenuLi>
               ))}
             </StyledUlSubMenu>

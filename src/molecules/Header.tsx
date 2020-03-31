@@ -57,18 +57,18 @@ export const Header: React.FC = () => {
               data={[
                 {
                   name: 'Home',
-                  link: '/'
+                  url: '/'
                 },
                 {
                   name: 'Shop',
                   subMenu: [
                     {
                       name: 'fooo',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: 'foo',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 },
@@ -77,11 +77,11 @@ export const Header: React.FC = () => {
                   subMenu: [
                     {
                       name: ' lorem 3',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: 'lorem 4',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 },
@@ -90,11 +90,11 @@ export const Header: React.FC = () => {
                   subMenu: [
                     {
                       name: 'lorem lorem',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: ' lorem 4',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 }

@@ -20,7 +20,7 @@ export const NavMenuMob: React.FC<Props> = ({ data }) => {
         {data.map((item, index) => (
           <SubMenu
             name={item.name}
-            link={item.link}
+            url={item.url}
             subMenu={item.subMenu}
             key={index}
           />
