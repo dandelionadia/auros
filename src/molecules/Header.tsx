@@ -58,7 +58,7 @@ export const Header: React.FC = () => {
               data={[
                 {
                   name: 'Home',
-                  url: '/'
+                  url: routes.home
                 },
                 {
                   name: 'Shop',
