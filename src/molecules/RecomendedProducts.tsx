@@ -21,10 +21,10 @@ export const RecomendedProducts: React.FC<{
 
   return (
     <Composition
-      alignItems="center"
+      alignItems="flex-start"
       templateCols="1fr"
-      templateColsMd="repeat(2, 1fr)"
-      templateColsLg="repeat(auto-fit, minmax(80px, 1fr))"
+      templateColsSm="repeat(2, 1fr)"
+      templateColsMd="repeat(4, 1fr)"
       gap={2}
       gapMd={3}
       paddingVerticalLg={4}

@@ -5,6 +5,7 @@ import { Bar } from './molecules/Bar'
 import Layout from 'atomic-layout'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ProductPage } from './pages/product/ProductPage'
+import { CartPage } from './pages/cart/CartPage'
 import { MenuContext } from './MenuContext'
 import { Header } from './molecules/Header'
 import { Footer } from './molecules/Footer'
@@ -87,6 +88,7 @@ const App: React.FC = () => {
           <Header />
           <Switch>
             <Route exact path={routes.home} component={HomePage} />
+            <Route path="/cart" component={CartPage} />
             {/* get link from ProductItem, put it the path and go to the productPage*/}
             <Route path={routes.productDetail} component={ProductPage} />
           </Switch>
