@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout, { Box, useResponsiveComponent } from 'atomic-layout'
 import { IoIosSearch, IoMdPerson, IoMdCart } from 'react-icons/io'
+import { Link } from 'react-router-dom'
+import routes from '../routes'
 
 const StyledBar = styled.div`
   @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
@@ -28,7 +30,9 @@ export const Bar: React.FC = () => {
       <Box marginHorizontal="20px">
         <PersonIcon size="35" sizeMd="22" />
       </Box>
-      <CartIcon size="35" sizeMd="22" />
+      <Link to={routes.cart}>
+        <CartIcon size="35" sizeMd="22" />
+      </Link>
     </Box>
   )
 }

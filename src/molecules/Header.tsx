@@ -6,6 +6,7 @@ import { Burger } from '../atoms/Burger'
 import { NavMenu } from './NavMenu'
 import { Logo } from '../atoms/Logo'
 import { Bar } from './Bar'
+import routes from '../routes'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -45,7 +46,7 @@ export const Header: React.FC = () => {
       {Areas => (
         <>
           <Areas.Logo justifyMdOnly="center">
-            <Link to="/">
+            <Link to={routes.home}>
               <Logo src="https://demo2.wpopal.com/auros/wp-content/uploads/2019/02/Logo.svg" />
             </Link>
           </Areas.Logo>
@@ -57,27 +58,18 @@ export const Header: React.FC = () => {
               data={[
                 {
                   name: 'Home',
-                  subMenu: [
-                    {
-                      name: 'lorem lorem',
-                      link: '#'
-                    },
-                    {
-                      name: 'lorem',
-                      link: '#'
-                    }
-                  ]
+                  url: routes.home
                 },
                 {
                   name: 'Shop',
                   subMenu: [
                     {
                       name: 'fooo',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: 'foo',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 },
@@ -86,11 +78,11 @@ export const Header: React.FC = () => {
                   subMenu: [
                     {
                       name: ' lorem 3',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: 'lorem 4',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 },
@@ -99,11 +91,11 @@ export const Header: React.FC = () => {
                   subMenu: [
                     {
                       name: 'lorem lorem',
-                      link: '#'
+                      url: '#'
                     },
                     {
                       name: ' lorem 4',
-                      link: '#'
+                      url: '#'
                     }
                   ]
                 }
