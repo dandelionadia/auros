@@ -7,7 +7,7 @@ import { Heading } from '../../atoms/Heading'
 import { Grid } from '../../atoms/Grid'
 
 const templateTablet = `
-cart
+cartItems
 cartTotals
 `
 const templateLg = `
@@ -152,7 +152,7 @@ export const CartPage: React.FC = () => {
         <Composition template={templateTablet} templateLg={templateLg} gap={2}>
           {Areas => (
             <>
-              <Areas.Cart>
+              <Areas.CartItems>
                 <Composition
                   as={StyledCart}
                   paddingVertical={2}
@@ -202,7 +202,7 @@ export const CartPage: React.FC = () => {
                     <span>$199.99</span>
                   </StyledProductSubtotal>
                 </Composition>
-              </Areas.Cart>
+              </Areas.CartItems>
               <Areas.CartTotals>
                 <Box as={StyledCartTotals} widthLg="200px" widthXl="250px">
                   <Heading as="h2">Cart totals</Heading>
