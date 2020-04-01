@@ -11,7 +11,7 @@ cartItems
 cartTotals
 `
 const templateLg = `
-  cart cartTotals
+cartItems cartTotals
   / 1fr auto
 `
 
