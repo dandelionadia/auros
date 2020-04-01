@@ -2,10 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Layout, { Composition, Box, Only } from 'atomic-layout'
 import styled from 'styled-components'
-import { IoMdClose } from 'react-icons/io'
+import { IoMdClose, IoIosArrowForward } from 'react-icons/io'
 import { Heading } from '../../atoms/Heading'
 import { Grid } from '../../atoms/Grid'
-import { IoIosArrowForward } from 'react-icons/io'
 
 const templateTablet = `
 cart
