@@ -10,7 +10,6 @@ import { IoIosArrowForward } from 'react-icons/io'
 const templateTablet = `
 cart
 cartTotals
-/ 1fr
 `
 const templateLg = `
   cart cartTotals
