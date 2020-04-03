@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 import routes from '../routes'
 
 const StyledBar = styled.div`
+  a {
+    color: inherit;
+  }
+
   @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
     background-color: #262626;
     color: #f3f3f3;
@@ -15,7 +19,7 @@ const StyledBar = styled.div`
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.09);
     bottom: 0;
     left: 0;
-    padding: 10px;
+    box-sizing: border-box;
   }
 `
 
@@ -25,14 +29,14 @@ const CartIcon = useResponsiveComponent(IoMdCart)
 
 export const Bar: React.FC = () => {
   return (
-    <Box flex justifyContent="space-around" as={StyledBar}>
-      <SearchIcon size="35" sizeMd="22" />
-      <Box marginHorizontal="20px">
+    <Box as={StyledBar} flex justifyContent="space-around" alignItems="center">
+      <Box as={SearchIcon} size="35" sizeMd="22" padding={1.5} />
+      <Box flex padding={1.5}>
         <PersonIcon size="35" sizeMd="22" />
       </Box>
-      <Link to={routes.cart}>
+      <Box as={Link} to={routes.cart} flex padding={1.5}>
         <CartIcon size="35" sizeMd="22" />
-      </Link>
+      </Box>
     </Box>
   )
 }
