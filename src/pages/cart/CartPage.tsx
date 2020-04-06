@@ -80,10 +80,19 @@ const StyledButton = styled.div`
   padding: 15px;
   text-align: center;
   font-weight: bold;
+
+  :hover {
+    background-color: #c95813;
+    border-color: #c95813;
+  }
 `
 
 const StyledLink = styled.a`
   color: #fff;
+
+  :hover {
+    color: #fff;
+  }
 `
 
 const StyledBoxPrice = styled.div`
@@ -150,7 +159,7 @@ export const CartPage: React.FC = () => {
       </StyledTitleBar>
       <Grid>
         <Composition template={templateTablet} templateLg={templateLg} gap={2}>
-          {Areas => (
+          {(Areas) => (
             <>
               <Areas.CartItems>
                 <Composition
