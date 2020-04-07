@@ -133,6 +133,9 @@ const StyledContainerNewsletter = styled.div`
       .breakpoints.md.maxWidth}) {
     text-align: center;
   }
+  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+    margin-bottom: -20px;
+  }
 `
 
 const StyledLinkSocial = styled.a`
