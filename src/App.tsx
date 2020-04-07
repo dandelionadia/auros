@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Only } from 'atomic-layout'
+import { Only, useResponsiveQuery } from 'atomic-layout'
 import { Bar } from './molecules/Bar'
 import Layout from 'atomic-layout'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -79,6 +79,13 @@ const GlobalStyle = createGlobalStyle`
 
 const App: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const isLgScreen = useResponsiveQuery({ from: 'md' })
+
+  useEffect(() => {
+    if (isLgScreen) {
+      setMenuOpen(false)
+    }
+  }, [isLgScreen])
 
   return (
     <MenuContext.Provider value={{ isMenuOpen, setMenuOpen }}>
