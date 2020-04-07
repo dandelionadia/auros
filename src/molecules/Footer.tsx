@@ -7,7 +7,7 @@ import {
   IoLogoFacebook,
   IoLogoTwitter,
   IoLogoInstagram,
-  IoLogoVk
+  IoLogoVk,
 } from 'react-icons/io'
 
 const templateMobile = `
@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
       flex
       justifyContentSmDown="center"
     >
-      {Areas => (
+      {(Areas) => (
         <>
           <Areas.Contacts>
             <StyledContainer>
@@ -212,7 +212,7 @@ export const Footer: React.FC = () => {
               <p>Stay Updated on all that’s new add noteworthy</p>
             </Box>
             <Composition
-              gap={1}
+              gapCol={1}
               templateCols="1fr"
               templateColsMd="1fr auto"
               marginVertical={2}
