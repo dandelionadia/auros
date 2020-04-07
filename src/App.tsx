@@ -32,7 +32,7 @@ const StyledContent = styled.div<{ isMenuOpen: boolean }>`
 `
 
 const StyledMaskContent = styled.div`
-  width: 100vh;
+  width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
@@ -42,7 +42,7 @@ const StyledMaskContent = styled.div`
 `
 
 Layout.configure({
-  defaultUnit: 'rem'
+  defaultUnit: 'rem',
 })
 
 const GlobalStyle = createGlobalStyle`
@@ -99,47 +99,47 @@ const App: React.FC = () => {
             data={[
               {
                 name: 'Home',
-                url: routes.home
+                url: routes.home,
               },
               {
                 name: 'Shop',
                 subMenu: [
                   {
                     name: 'Shop Full Width',
-                    url: '#'
+                    url: '#',
                   },
                   {
                     name: 'Poo',
-                    url: '#'
-                  }
-                ]
+                    url: '#',
+                  },
+                ],
               },
               {
                 name: 'Shop',
                 subMenu: [
                   {
                     name: ' Morem 3',
-                    url: '#'
+                    url: '#',
                   },
                   {
                     name: 'Torem 4',
-                    url: '#'
-                  }
-                ]
+                    url: '#',
+                  },
+                ],
               },
               {
                 name: 'Shop',
                 subMenu: [
                   {
                     name: 'Morem Dorem',
-                    url: '#'
+                    url: '#',
                   },
                   {
                     name: ' Aorem 4',
-                    url: '#'
-                  }
-                ]
-              }
+                    url: '#',
+                  },
+                ],
+              },
             ]}
           />
         </BurgerMenu>
