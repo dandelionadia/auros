@@ -7,7 +7,6 @@ import { Button } from '../../atoms/Button'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../../store/store'
 
 const templateMobile = `
 	gallery
@@ -82,10 +81,10 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   title,
   rating,
   price,
-  description
+  description,
 }) => {
   const dispatch = useDispatch()
-  const cartItems = useSelector(state => (state as any).items)
+  const cartItems = useSelector((state) => (state as any).items)
 
   return (
     <Composition
@@ -95,35 +94,35 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
       gapMd={4}
       marginBottom={4}
     >
-      {Areas => (
+      {(Areas) => (
         <>
           <Areas.Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
             <Carousel
               images={[
                 {
                   thumbnailImage: 'http://satyr.io/150x150/1',
-                  fullImage: 'http://satyr.io/750x750/1'
+                  fullImage: 'http://satyr.io/750x750/1',
                 },
                 {
                   thumbnailImage: 'http://satyr.io/150x150/2',
-                  fullImage: 'http://satyr.io/750x750/2'
+                  fullImage: 'http://satyr.io/750x750/2',
                 },
                 {
                   thumbnailImage: 'http://satyr.io/150x150/3',
-                  fullImage: 'http://satyr.io/750x750/3'
+                  fullImage: 'http://satyr.io/750x750/3',
                 },
                 {
                   thumbnailImage: 'http://satyr.io/150x150/4',
-                  fullImage: 'http://satyr.io/750x750/4'
+                  fullImage: 'http://satyr.io/750x750/4',
                 },
                 {
                   thumbnailImage: 'http://satyr.io/150x150/5',
-                  fullImage: 'http://satyr.io/750x750/5'
+                  fullImage: 'http://satyr.io/750x750/5',
                 },
                 {
                   thumbnailImage: 'http://satyr.io/150x150/6',
-                  fullImage: 'http://satyr.io/750x750/6'
-                }
+                  fullImage: 'http://satyr.io/750x750/6',
+                },
               ]}
             />
           </Areas.Gallery>
@@ -148,9 +147,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 max="10"
                 defaultValue="1"
               ></StyledInput>
-              <Button onClick={() => dispatch(addToCart(1))}>
-                ≙ add to card
-              </Button>
+              <Button>≙ add to card</Button>
               <p>You have {cartItems.length} items</p>
             </Composition>
             <Box as={StyledAddToWishList}>
