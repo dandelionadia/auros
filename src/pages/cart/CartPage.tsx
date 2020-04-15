@@ -6,14 +6,14 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { Heading } from '../../atoms/Heading'
 import { Grid } from '../../atoms/Grid'
 import { CartItemsList } from './components/CartItemsList'
-import { useStore, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const templateTablet = `
-cartItems
-cartTotals
+  cartItems
+  cartTotals
 `
 const templateLg = `
-cartItems cartTotals
+  cartItems cartTotals
   / 1fr auto
 `
 
