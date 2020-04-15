@@ -16,17 +16,17 @@ export const useQuery = <DataType = any>(
   //state by default
   const [state, setState] = useState<UseQueryReturn<DataType>>({
     data: null,
-    loading: false
+    loading: false,
   })
 
   useEffect(() => {
     //changes state
     setState({ loading: true, data: null })
 
-    fetch(`https://auros-api.netlify.com/.netlify/functions/api${url}`)
-      .then(res => res.json())
+    fetch(`https://auros-api.netlify.app/.netlify/functions/api${url}`)
+      .then((res) => res.json())
       //when we will gt data => chanching state
-      .then(res => setState({ data: res, loading: false }))
+      .then((res) => setState({ data: res, loading: false }))
       ///when it is not data => change state
       .catch(() => setState({ data: null, loading: false }))
   }, [url])
