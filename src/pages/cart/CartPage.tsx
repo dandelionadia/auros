@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Layout, { Composition, Box } from 'atomic-layout'
+import { Composition, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoIosArrowForward } from 'react-icons/io'
-import { Heading } from '../../atoms/Heading'
 import { Grid } from '../../atoms/Grid'
-import { CartItemsList } from './components/CartItemsList'
+import { CartItemsList, getTotalPrice } from './components/CartItemsList'
 import { useSelector } from 'react-redux'
+import { CartSummary } from './components/CartSummary'
+import { AppState } from '../../store/store'
 
 const templateTablet = `
   cartItems
@@ -15,56 +16,6 @@ const templateTablet = `
 const templateLg = `
   cartItems cartTotals
   / 1fr auto
-`
-
-const StyledProductSubtotal = styled.div`
-  color: #222;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-`
-
-const StyledCartTotals = styled.div`
-  background-color: #fafafa;
-  padding: 40px;
-
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
-    margin-bottom: 15px;
-  }
-`
-
-const StyledButton = styled.div`
-  background-color: #eb7025;
-  border-color: #eb7025;
-  border-radius: 0px;
-  font-size: 16px;
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
-
-  :hover {
-    background-color: #c95813;
-    border-color: #c95813;
-  }
-`
-
-const StyledLink = styled.a`
-  color: #fff;
-
-  :hover {
-    color: #fff;
-  }
-`
-
-const StyledBoxPrice = styled.div`
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-`
-
-const StyledTotalPrice = styled.h2`
-  color: #222;
-  font-size: 24px;
-  margin: 0;
 `
 
 const StyledTitleBar = styled.div`
@@ -100,6 +51,11 @@ const StyledSpan = styled.span`
 
 export const CartPage: React.FC = () => {
   const cart = useSelector<any, any>((state) => state.cart)
+  const cartTotal = useSelector<AppState, any>((state) => {
+    return state.cart.items.reduce<number>((acc, item) => {
+      return acc + getTotalPrice(item)
+    }, 0)
+  })
 
   return (
     <>
@@ -123,30 +79,7 @@ export const CartPage: React.FC = () => {
                 <CartItemsList items={cart.items} />
               </Areas.CartItems>
               <Areas.CartTotals>
-                <Box as={StyledCartTotals} widthLg="200px" widthXl="250px">
-                  <Heading as="h2">Cart totals</Heading>
-                  <Composition
-                    templateCols="repeat(2,1fr)"
-                    paddingVertical="30px"
-                    as={StyledBoxPrice}
-                  >
-                    <span>Subtotal:</span>
-                    <StyledProductSubtotal>$199.99</StyledProductSubtotal>
-                  </Composition>
-                  <Composition
-                    templateCols="repeat(2,1fr)"
-                    paddingVertical="30px"
-                    alignItems="center"
-                    flex
-                    justifyContent="space-between"
-                  >
-                    <span>Total:</span>
-                    <StyledTotalPrice>$199.99</StyledTotalPrice>
-                  </Composition>
-                  <StyledButton>
-                    <StyledLink href="#">Proceed To Checkout</StyledLink>
-                  </StyledButton>
-                </Box>
+                <CartSummary subtotalPrice={cartTotal} totalPrice={cartTotal} />
               </Areas.CartTotals>
             </>
           )}

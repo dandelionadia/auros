@@ -60,8 +60,9 @@ interface CartItemsListProps {
   items: CartItem[]
 }
 
-const getTotalPrice = (item: CartItem) =>
-  (item.price * item.quantity).toFixed(2)
+export const getTotalPrice = (item: CartItem) => {
+  return Number((item.price * item.quantity).toFixed(2))
+}
 
 export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
   return (
