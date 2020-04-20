@@ -8,9 +8,9 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
   const [homeData, setHomeData] = useState<any[]>()
 
   useEffect(() => {
-    fetch(`https://auros-api.netlify.com/.netlify/functions/api/products`)
-      .then(res => res.json())
-      .then(res => setHomeData(res))
+    fetch(`https://auros-api.netlify.app/.netlify/functions/api/products`)
+      .then((res) => res.json())
+      .then((res) => setHomeData(res))
   }, [])
 
   if (!homeData) {
@@ -28,7 +28,7 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
         templateColsXl="repeat(auto-fit, minmax(80px, 1fr))"
         gap={3}
       >
-        {homeData.map(item => (
+        {homeData.map((item) => (
           <ProductItem
             image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
             secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg"
