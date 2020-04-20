@@ -7,6 +7,7 @@ import { Button } from '../../atoms/Button'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
 import { useDispatch, useSelector } from 'react-redux'
+import { AppState } from '../../store/store'
 
 const templateMobile = `
 	gallery
@@ -74,6 +75,7 @@ export interface ProductSummaryProps {
   rating: number
   price: number
   description: string
+  onAddToCartClick?: () => void
 }
 
 const ProductSummary: React.FC<ProductSummaryProps> = ({
@@ -82,9 +84,9 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   rating,
   price,
   description,
+  onAddToCartClick,
 }) => {
-  const dispatch = useDispatch()
-  const cartItems = useSelector((state) => (state as any).items)
+  const cartItems = useSelector<AppState, any>((state) => state.cart.items)
 
   return (
     <Composition
@@ -147,7 +149,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 max="10"
                 defaultValue="1"
               ></StyledInput>
-              <Button>≙ add to card</Button>
+              <Button onClick={onAddToCartClick}>≙ add to card</Button>
               <p>You have {cartItems.length} items</p>
             </Composition>
             <Box as={StyledAddToWishList}>

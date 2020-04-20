@@ -17,11 +17,5 @@ export const initialState: CartState = {
       price: 20.2,
       quantity: 1,
     },
-    {
-      id: '2',
-      title: 'Name Too',
-      price: 2560.2,
-      quantity: 3,
-    },
   ],
 }

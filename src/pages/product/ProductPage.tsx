@@ -5,6 +5,8 @@ import { Tabs } from '../../molecules/Tabs'
 import { ProductSummary } from '../components/ProductSummary'
 import { useQuery } from '../../hooks/useQuery'
 import { Grid } from '../../atoms/Grid'
+import { addToCart } from '../../store/reducers/cart/cart.actions'
+import { useDispatch } from 'react-redux'
 
 export interface ProductData {
   id: string
@@ -33,6 +35,8 @@ export interface ProductReview {
 const ProductPage: React.FC<RouteComponentProps<{
   productId: string
 }>> = ({ match }) => {
+  const dispatch = useDispatch()
+
   //match => it is Route word wich not about 'id' in the 'path'
   const { productId } = match.params
   // { loading, data } = useQuery === useQuery.loading, useQuery.data (get state in the useQuery for using it here when: if(!data)... )
@@ -48,6 +52,10 @@ const ProductPage: React.FC<RouteComponentProps<{
     return <p>Error when fetching product</p>
   }
 
+  const handleClick = () => {
+    dispatch(addToCart(productId, data.title, data.price))
+  }
+
   return (
     <Grid>
       <ProductSummary
@@ -56,6 +64,7 @@ const ProductPage: React.FC<RouteComponentProps<{
         rating={data.rating}
         price={data.price}
         description={data.description}
+        onAddToCartClick={handleClick}
       />
       <Tabs
         dataReview={data.reviews}
