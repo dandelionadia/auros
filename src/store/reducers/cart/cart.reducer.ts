@@ -7,7 +7,7 @@ export const cartReducer = (state: CartState = initialState, action: any) => {
       id: action.id,
       title: action.title,
       price: action.price,
-      quantity: 1,
+      quantity: action.quantity,
     })
 
     return {

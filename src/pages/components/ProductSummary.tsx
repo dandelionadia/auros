@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
@@ -75,7 +75,7 @@ export interface ProductSummaryProps {
   rating: number
   price: number
   description: string
-  onAddToCartClick?: () => void
+  onAddToCartClick: (quantity: number) => void
 }
 
 const ProductSummary: React.FC<ProductSummaryProps> = ({
@@ -87,6 +87,8 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   onAddToCartClick,
 }) => {
   const cartItems = useSelector<AppState, any>((state) => state.cart.items)
+
+  const [productQuantity, setProductQuantity] = useState(1)
 
   return (
     <Composition
@@ -143,13 +145,15 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
             <Composition gap={1} templateCols="auto 1fr" marginVertical={2}>
               <StyledInput
                 type="number"
-                id="number"
-                name="tentacles"
+                name="quantity"
                 min="1"
                 max="10"
-                defaultValue="1"
-              ></StyledInput>
-              <Button onClick={onAddToCartClick}>≙ add to card</Button>
+                value={productQuantity}
+                onChange={(e) => setProductQuantity(Number(e.target.value))}
+              />
+              <Button onClick={() => onAddToCartClick(productQuantity)}>
+                ≙ add to card
+              </Button>
               <p>You have {cartItems.length} items</p>
             </Composition>
             <Box as={StyledAddToWishList}>
