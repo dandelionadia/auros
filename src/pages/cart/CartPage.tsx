@@ -52,9 +52,11 @@ const StyledSpan = styled.span`
 export const CartPage: React.FC = () => {
   const cart = useSelector<any, any>((state) => state.cart)
   const cartTotal = useSelector<AppState, any>((state) => {
-    return state.cart.items.reduce<number>((acc, item) => {
+    const total = state.cart.items.reduce<number>((acc, item) => {
       return acc + getTotalPrice(item)
     }, 0)
+
+    return total.toFixed(2)
   })
 
   return (

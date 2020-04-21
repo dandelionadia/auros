@@ -1,9 +1,8 @@
 import { CartState, initialState } from './cart.state'
 import { ADD_TO_CART } from './types'
 
-export const cartReducer = (state: CartState, action: any) => {
+export const cartReducer = (state: CartState = initialState, action: any) => {
   if (action.type === ADD_TO_CART) {
-    console.log('success')
     const nextItems = state.items.concat({
       id: action.id,
       title: action.title,
@@ -16,5 +15,5 @@ export const cartReducer = (state: CartState, action: any) => {
     }
   }
 
-  return initialState
+  return state
 }

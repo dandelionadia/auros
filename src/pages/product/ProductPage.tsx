@@ -52,7 +52,7 @@ const ProductPage: React.FC<RouteComponentProps<{
     return <p>Error when fetching product</p>
   }
 
-  const handleClick = () => {
+  const handleAddToCart = () => {
     dispatch(addToCart(productId, data.title, data.price))
   }
 
@@ -64,7 +64,7 @@ const ProductPage: React.FC<RouteComponentProps<{
         rating={data.rating}
         price={data.price}
         description={data.description}
-        onAddToCartClick={handleClick}
+        onAddToCartClick={handleAddToCart}
       />
       <Tabs
         dataReview={data.reviews}
