@@ -4,7 +4,7 @@ export const addToCart = (
   id: string,
   title: string,
   price: number,
-  quantity: number
+  quantity: number = 1
 ) => {
   return {
     type: ADD_TO_CART,

@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
+import { addToCart } from '../store/reducers/cart/cart.actions'
 
 const StyledContainerProduct = styled.div`
   height: auto;
@@ -55,8 +57,14 @@ const ProductItem: React.FC<ProductProps> = ({
   price,
   name,
   buttonText,
-  id
+  id,
 }) => {
+  const dispatch = useDispatch()
+  const handleAddToCart = () => {
+    console.log('success')
+    dispatch(addToCart(id, name, price))
+  }
+
   const [isHover, setIsHover] = useState(false)
   //link which goes to the App
   const url = `/product/${id}`
@@ -73,7 +81,7 @@ const ProductItem: React.FC<ProductProps> = ({
           <StyledImage src={isHover ? secondImage : image} alt={name} />
         </Link>
         {isHover && (
-          <ProductButton>
+          <ProductButton onClick={() => handleAddToCart()}>
             <p>+ {buttonText}</p>
           </ProductButton>
         )}
