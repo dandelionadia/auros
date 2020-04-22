@@ -1,5 +1,5 @@
 import { CartState, initialState, CartItem } from './cart.state'
-import { ADD_TO_CART } from './types'
+import { ADD_TO_CART, DELETE_FROM_CART } from './types'
 
 export const cartReducer = (state: CartState = initialState, action: any) => {
   if (action.type === ADD_TO_CART) {
@@ -25,6 +25,16 @@ export const cartReducer = (state: CartState = initialState, action: any) => {
       title: action.title,
       price: action.price,
       quantity: action.quantity,
+    })
+
+    return {
+      items: nextItems,
+    }
+  }
+
+  if (action.type === DELETE_FROM_CART) {
+    const nextItems = state.items.filter((item) => {
+      return item.id !== action.id
     })
 
     return {

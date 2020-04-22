@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from './types'
+import { ADD_TO_CART, DELETE_FROM_CART } from './types'
 
 export const addToCart = (
   id: string,
@@ -12,5 +12,12 @@ export const addToCart = (
     title,
     price,
     quantity,
+  }
+}
+
+export const deleteFromCart = (id: string) => {
+  return {
+    type: DELETE_FROM_CART,
+    id,
   }
 }

@@ -1,8 +1,10 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { CartItem } from '../../../store/reducers/cart/cart.state'
 import Layout, { Composition, Box, Only } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
+import { useDispatch } from 'react-redux'
+import { deleteFromCart } from '../../../store/reducers/cart/cart.actions'
 
 const StyledCart = styled.div`
   border-bottom: 1px solid #eeeeee;
@@ -65,6 +67,11 @@ export const getTotalPrice = (item: CartItem) => {
 }
 
 export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
+  const dispatch = useDispatch()
+  const handleDeletProduct = (itemToBeDeleted: string) => {
+    dispatch(deleteFromCart(itemToBeDeleted))
+  }
+
   return (
     <div>
       {items.map((item) => (
@@ -82,7 +89,10 @@ export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
             alignItemsMd="center"
             justifyContentSmDown="center"
           >
-            <IoMdClose fill="#bbb" />
+            <IoMdClose
+              fill="#bbb"
+              onClick={() => handleDeletProduct(item.id)}
+            />
             <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
           </Box>
           <Box flex flexDirection="row" justifyContent="space-between">
