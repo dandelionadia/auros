@@ -3,6 +3,7 @@ import { CartItem } from '../../../store/reducers/cart/cart.state'
 import Layout, { Composition, Box, Only } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { deleteFromCart } from '../../../store/reducers/cart/cart.actions'
 
@@ -93,13 +94,17 @@ export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
               fill="#bbb"
               onClick={() => handleDeletProduct(item.id)}
             />
-            <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
+            <Link to={`/product/${item.id}`}>
+              <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
+            </Link>
           </Box>
           <Box flex flexDirection="row" justifyContent="space-between">
             <Only to="md">
               <StyledProductTitles>Product: </StyledProductTitles>
             </Only>
-            <span>{item.title}</span>
+            <span>
+              <Link to={`/product/${item.id}`}>{item.title}</Link>
+            </span>
           </Box>
           <StyledProductPrice>
             <Only to="md">
