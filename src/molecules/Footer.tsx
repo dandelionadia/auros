@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout, { Box, Composition } from 'atomic-layout'
+import { Box, Composition, query } from 'atomic-layout'
 import styled from 'styled-components'
 import { Logo } from '../atoms/Logo'
 import { Heading } from '../atoms/Heading'
@@ -34,7 +34,7 @@ const StyledFooter = styled.div`
   margin: 0;
   line-height: 24px;
 
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'md' })} {
     text-align: center;
   }
 `
@@ -50,7 +50,7 @@ const StyledImage = styled.img`
   display: flex;
   justify-self: center;
 
-  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+  @media ${query({ from: 'md' })} {
     justify-self: end;
   }
 `
@@ -84,7 +84,7 @@ const StyledEmail = styled.span`
 const StyledContainer = styled.div`
   margin-bottom: 45px;
 
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'md' })} {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@ const StyledInput = styled.input`
   text-align: center;
   width: 100%;
 
-  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+  @media ${query({ from: 'md' })} {
     text-align: left;
   }
 `
@@ -123,17 +123,16 @@ const StyledBtnSubmit = styled.button`
     border-color: ${({ theme }) => theme.colors.orange};
   }
 
-  @media (min-width: ${Layout.breakpoints.md.minWidth}) {
+  @media ${query({ from: 'md' })} {
     min-width: 130px;
   }
 `
 
 const StyledContainerNewsletter = styled.div`
-  @media (min-width: ${Layout.breakpoints.md.minWidth}) and (max-width: ${Layout
-      .breakpoints.md.maxWidth}) {
+  @media ${query({ for: 'md' })} {
     text-align: center;
   }
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'sm' })} {
     margin-bottom: -20px;
   }
 `

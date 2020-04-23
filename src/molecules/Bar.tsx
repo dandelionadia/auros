@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout, { Box, useResponsiveComponent } from 'atomic-layout'
+import { Box, makeResponsive, query } from 'atomic-layout'
 import { IoIosSearch, IoMdPerson, IoMdCart } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import routes from '../routes'
@@ -10,7 +10,7 @@ const StyledBar = styled.div`
     color: inherit;
   }
 
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'md' })} {
     background-color: #262626;
     color: #f3f3f3;
     width: 100%;
@@ -23,9 +23,9 @@ const StyledBar = styled.div`
   }
 `
 
-const SearchIcon = useResponsiveComponent(IoIosSearch)
-const PersonIcon = useResponsiveComponent(IoMdPerson)
-const CartIcon = useResponsiveComponent(IoMdCart)
+const SearchIcon = makeResponsive(IoIosSearch)
+const PersonIcon = makeResponsive(IoMdPerson)
+const CartIcon = makeResponsive(IoMdCart)
 
 export const Bar: React.FC = () => {
   return (
