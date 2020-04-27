@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Layout, { Composition, Box, Only } from 'atomic-layout'
+import { Composition, Box, Only, query } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoMdClose, IoIosArrowForward } from 'react-icons/io'
 import { Heading } from '../../atoms/Heading'
@@ -57,8 +57,7 @@ const StyledImage = styled.img`
   height: auto;
   padding-left: 2rem;
 
-  @media (min-width: ${Layout.breakpoints.lg.minWidth}) and (max-width: ${Layout
-      .breakpoints.lg.maxWidth}) {
+  @media ${query({ for: 'lg' })} {
     width: 65px;
   }
 `
@@ -67,7 +66,7 @@ const StyledCartTotals = styled.div`
   background-color: #fafafa;
   padding: 40px;
 
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'md' })} {
     margin-bottom: 15px;
   }
 `
@@ -80,10 +79,19 @@ const StyledButton = styled.div`
   padding: 15px;
   text-align: center;
   font-weight: bold;
+
+  :hover {
+    background-color: #c95813;
+    border-color: #c95813;
+  }
 `
 
 const StyledLink = styled.a`
   color: #fff;
+
+  :hover {
+    color: #fff;
+  }
 `
 
 const StyledBoxPrice = styled.div`
@@ -150,7 +158,7 @@ export const CartPage: React.FC = () => {
       </StyledTitleBar>
       <Grid>
         <Composition template={templateTablet} templateLg={templateLg} gap={2}>
-          {Areas => (
+          {(Areas) => (
             <>
               <Areas.CartItems>
                 <Composition

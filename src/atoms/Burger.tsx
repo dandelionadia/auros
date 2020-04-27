@@ -15,6 +15,7 @@ const StyledBtn = styled.button<{ isMenuOpen: boolean }>`
   border: none;
   background-color: #fff;
   transition: all 1s ease-out;
+  padding: 10px;
 
   ${({ isMenuOpen }) =>
     isMenuOpen &&
