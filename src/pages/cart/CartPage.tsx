@@ -4,10 +4,11 @@ import { Composition, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { IoIosArrowForward } from 'react-icons/io'
 import { Grid } from '../../atoms/Grid'
-import { CartItemsList, getTotalPrice } from './components/CartItemsList'
+import { CartItemsList } from './components/CartItemsList'
 import { useSelector } from 'react-redux'
 import { CartSummary } from './components/CartSummary'
 import { AppState } from '../../store/store'
+import { getTotalPrice } from './components/CartItem'
 
 const templateTablet = `
   cartItems
