@@ -32,10 +32,6 @@ const ProductButton = styled(Button)`
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-
-  :hover {
-    background-color: ${({ theme }) => theme.colors.black};
-  }
 `
 
 const StyledP = styled.p`
