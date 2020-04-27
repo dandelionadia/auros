@@ -58,6 +58,12 @@ const StyledProductSubtotal = styled.div`
   justify-content: space-between;
 `
 
+const StyledIconDelet = styled.div`
+  :hover {
+    fill: ${({ theme }) => theme.colors.black};
+  }
+`
+
 interface CartItemsListProps {
   items: CartItem[]
 }
@@ -89,7 +95,8 @@ export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
             alignItemsMd="center"
             justifyContentSmDown="center"
           >
-            <IoMdClose
+            <StyledIconDelet
+              as={IoMdClose}
               fill="#bbb"
               onClick={() => handleDeletProduct(item.id)}
             />
