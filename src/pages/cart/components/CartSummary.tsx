@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout, { Composition, Box } from 'atomic-layout'
+import Layout, { Composition, Box, query } from 'atomic-layout'
 import { Heading } from '../../../atoms/Heading'
 
 const StyledProductSubtotal = styled.div`
@@ -14,7 +14,7 @@ const StyledCartTotals = styled.div`
   background-color: #fafafa;
   padding: 40px;
 
-  @media (max-width: ${Layout.breakpoints.sm.maxWidth}) {
+  @media ${query({ to: 'md' })} {
     margin-bottom: 15px;
   }
 `
