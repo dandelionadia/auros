@@ -30,8 +30,8 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
       >
         {homeData.map((item) => (
           <ProductItem
-            image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
-            secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg"
+            image={item.images[0]}
+            secondImage={item.images[1]}
             price={item.price}
             name={item.title}
             buttonText="add to cart"
