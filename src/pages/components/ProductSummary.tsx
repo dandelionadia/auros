@@ -74,6 +74,7 @@ export interface ProductSummaryProps {
   title: string
   rating: number
   price: number
+  images: string[]
   description: string
   onAddToCartClick: (quantity: number) => void
 }
@@ -83,6 +84,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   title,
   rating,
   price,
+  images,
   description,
   onAddToCartClick,
 }) => {
@@ -102,32 +104,10 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
         <>
           <Areas.Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
             <Carousel
-              images={[
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/1',
-                  fullImage: 'http://satyr.io/750x750/1',
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/2',
-                  fullImage: 'http://satyr.io/750x750/2',
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/3',
-                  fullImage: 'http://satyr.io/750x750/3',
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/4',
-                  fullImage: 'http://satyr.io/750x750/4',
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/5',
-                  fullImage: 'http://satyr.io/750x750/5',
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/6',
-                  fullImage: 'http://satyr.io/750x750/6',
-                },
-              ]}
+              images={images.map((image) => ({
+                thumbnailImage: image,
+                fullImage: image,
+              }))}
             />
           </Areas.Gallery>
           <Areas.Summary>

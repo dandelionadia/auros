@@ -63,6 +63,7 @@ const ProductPage: React.FC<RouteComponentProps<{
         title={data.title}
         rating={data.rating}
         price={data.price}
+        images={data.images}
         description={data.description}
         onAddToCartClick={handleAddToCart}
       />
