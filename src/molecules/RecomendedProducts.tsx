@@ -29,11 +29,12 @@ export const RecomendedProducts: React.FC<{
       gapMd={3}
       paddingVerticalLg={4}
     >
-      {data.map(item => (
+      {data.map((item) => (
         <ProductItem
+          key={item.id}
           id={item.id}
-          image="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-28-600x675.jpg"
-          secondImage="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/2-28-600x675.jpg"
+          image={item.images[0]}
+          secondImage={item.images[1]}
           price={item.price}
           name={item.title}
           buttonText="add to cart"
