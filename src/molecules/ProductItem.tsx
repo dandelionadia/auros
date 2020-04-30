@@ -39,8 +39,7 @@ const StyledP = styled.p`
 `
 
 interface ProductProps {
-  image: string
-  secondImage: string
+  images: string[]
   price: number
   name: string
   buttonText: string
@@ -48,8 +47,7 @@ interface ProductProps {
 }
 
 const ProductItem: React.FC<ProductProps> = ({
-  image,
-  secondImage,
+  images,
   price,
   name,
   buttonText,
@@ -58,7 +56,7 @@ const ProductItem: React.FC<ProductProps> = ({
   const dispatch = useDispatch()
   const handleAddToCart = () => {
     console.log('success')
-    dispatch(addToCart(id, name, price))
+    dispatch(addToCart(id, name, price, 1, images[0]))
   }
 
   const [isHover, setIsHover] = useState(false)
@@ -74,7 +72,7 @@ const ProductItem: React.FC<ProductProps> = ({
       <StyledContainerImage>
         {/* on click change link to the our url */}
         <Link to={url}>
-          <StyledImage src={isHover ? secondImage : image} alt={name} />
+          <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
         {isHover && (
           <ProductButton onClick={() => handleAddToCart()}>

@@ -6,7 +6,7 @@ import {
   changeItemQuantity,
   deleteFromCart,
 } from '../../../store/reducers/cart/cart.actions'
-import { CartLisrItem } from '../components/CartItem'
+import { CartListItem } from '../components/CartItem'
 
 interface CartItemsListProps {
   items: CartItem[]
@@ -26,7 +26,7 @@ export const CartItemsList: React.FC<CartItemsListProps> = ({ items }) => {
   return (
     <div>
       {items.map((item) => (
-        <CartLisrItem
+        <CartListItem
           key={item.id}
           item={item}
           onDelete={handleDeleteProduct}

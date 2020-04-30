@@ -61,7 +61,7 @@ const StyledIconDelet = styled.div`
     fill: ${({ theme }) => theme.colors.black};
   }
 `
-interface CartLisrItemProps {
+interface CartListItemProps {
   onQuantityChange: (id: string, quantity: number) => void
   onDelete: (id: string) => void
   item: CartItem
@@ -71,7 +71,7 @@ export const getTotalPrice = (item: CartItem) => {
   return Number((item.price * item.quantity).toFixed(2))
 }
 
-export const CartLisrItem: React.FC<CartLisrItemProps> = ({
+export const CartListItem: React.FC<CartListItemProps> = ({
   item,
   onDelete,
   onQuantityChange,
@@ -97,7 +97,7 @@ export const CartLisrItem: React.FC<CartLisrItemProps> = ({
           onClick={() => onDelete(item.id)}
         />
         <Link to={`/product/${item.id}`}>
-          <StyledImage src="https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/1-1-600x675.jpg" />
+          <StyledImage src={item.image} />
         </Link>
       </Box>
       <Box flex flexDirection="row" justifyContent="space-between">

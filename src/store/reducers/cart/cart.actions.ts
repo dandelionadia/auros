@@ -8,7 +8,8 @@ export const addToCart = (
   id: string,
   title: string,
   price: number,
-  quantity: number = 1
+  quantity: number = 1,
+  image: string
 ) => {
   return {
     type: ADD_TO_CART,
@@ -16,6 +17,7 @@ export const addToCart = (
     title,
     price,
     quantity,
+    image,
   }
 }
 

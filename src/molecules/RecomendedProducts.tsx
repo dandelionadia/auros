@@ -33,8 +33,7 @@ export const RecomendedProducts: React.FC<{
         <ProductItem
           key={item.id}
           id={item.id}
-          image={item.images[0]}
-          secondImage={item.images[1]}
+          images={item.images}
           price={item.price}
           name={item.title}
           buttonText="add to cart"

@@ -7,6 +7,7 @@ export interface CartItem {
   title: string
   price: number
   quantity: number
+  image: string
 }
 
 export const initialState: CartState = {
@@ -16,6 +17,7 @@ export const initialState: CartState = {
       title: 'Foo',
       price: 20.2,
       quantity: 1,
+      image: 'a.png',
     },
   ],
 }

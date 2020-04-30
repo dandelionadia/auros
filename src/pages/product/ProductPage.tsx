@@ -53,7 +53,9 @@ const ProductPage: React.FC<RouteComponentProps<{
   }
 
   const handleAddToCart = (quantity: number) => {
-    dispatch(addToCart(productId, data.title, data.price, quantity))
+    dispatch(
+      addToCart(productId, data.title, data.price, quantity, data.images[0])
+    )
   }
 
   return (

@@ -29,6 +29,7 @@ export const cartReducer = (state: CartState = initialState, action: any) => {
       title: action.title,
       price: action.price,
       quantity: action.quantity,
+      image: action.image,
     })
 
     return {
