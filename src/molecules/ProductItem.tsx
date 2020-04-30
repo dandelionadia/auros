@@ -7,20 +7,6 @@ import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
 import { addToCart } from '../store/reducers/cart/cart.actions'
 
-const StyledContainerProduct = styled.div`
-  height: auto;
-`
-const StyledProductDescription = styled.div`
-  text-align: center;
-`
-const StyledContainerImage = styled.div`
-  position: relative;
-`
-
-const StyledImage = styled.img`
-  margin: 0 auto;
-`
-
 const ProductButton = styled(Button)`
   font-size: 13px;
   font-weight: 600;
@@ -32,6 +18,27 @@ const ProductButton = styled(Button)`
   display: flex;
   justify-content: center;
   text-transform: uppercase;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in-out;
+`
+
+const StyledContainerProduct = styled.div`
+  height: auto;
+
+  :hover ${ProductButton} {
+    transform: translateY(0);
+  }
+`
+const StyledProductDescription = styled.div`
+  text-align: center;
+`
+const StyledContainerImage = styled.div`
+  position: relative;
+  overflow: hidden;
+`
+
+const StyledImage = styled.img`
+  margin: 0 auto;
 `
 
 const StyledP = styled.p`
@@ -74,11 +81,9 @@ const ProductItem: React.FC<ProductProps> = ({
         <Link to={url}>
           <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        {isHover && (
-          <ProductButton onClick={() => handleAddToCart()}>
-            <p>+ {buttonText}</p>
-          </ProductButton>
-        )}
+        <ProductButton onClick={() => handleAddToCart()}>
+          <p>+ {buttonText}</p>
+        </ProductButton>
       </StyledContainerImage>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>
