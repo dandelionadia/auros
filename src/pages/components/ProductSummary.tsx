@@ -55,11 +55,11 @@ const StyledLink = styled.a`
 `
 
 const Name = styled.span`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
 `
 
 const StyledAddToWishList = styled.div`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-weight: 600;
   margin-top: 1.2rem;
   text-transform: capitalize;

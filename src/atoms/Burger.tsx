@@ -4,7 +4,7 @@ import { Box } from 'atomic-layout'
 import { MenuContext } from '../MenuContext'
 
 const StyledLine = styled.div`
-  background-color: #000;
+  background-color: ${({ theme }) => theme.colors.black};
   width: 20px;
   height: 1px;
   margin-bottom: 5px;
@@ -13,7 +13,7 @@ const StyledLine = styled.div`
 
 const StyledBtn = styled.button<{ isMenuOpen: boolean }>`
   border: none;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   transition: all 1s ease-out;
   padding: 10px;
 

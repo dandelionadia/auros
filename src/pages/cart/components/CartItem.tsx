@@ -46,12 +46,12 @@ const StyledImage = styled.img`
 `
 
 const StyledProductTitles = styled.span`
-  color: #666;
+  color: ${({ theme }) => theme.colors.greyLight};
   font-weight: bold;
 `
 
 const StyledProductSubtotal = styled.div`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-weight: bold;
   display: flex;
   justify-content: space-between;

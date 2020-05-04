@@ -17,7 +17,7 @@ const StyledContainerLi = styled.div`
 `
 
 const StyledUlSubMenu = styled.ul`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 5px 19px 1px rgba(0, 0, 0, 0.09);
   list-style: none;
   border-radius: 2px;
@@ -30,7 +30,7 @@ const StyledUlSubMenu = styled.ul`
 `
 
 const StyledLi = styled.li`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-weight: 600;
   padding: 8px 15px;
   position: relative;
@@ -90,7 +90,7 @@ interface HeaderSubMenu {
 export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
   return (
     <StyledList>
-      {data.map(item => (
+      {data.map((item) => (
         <StyledLi>
           <StyledContainerLi>
             <Box as={ContentLi}>
@@ -104,7 +104,7 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
           </StyledContainerLi>
           {item.subMenu && (
             <StyledUlSubMenu>
-              {item.subMenu.map(subMenuItem => (
+              {item.subMenu.map((subMenuItem) => (
                 <StyledSubMenuLi>
                   <a href={subMenuItem.url}>{subMenuItem.name}</a>
                 </StyledSubMenuLi>

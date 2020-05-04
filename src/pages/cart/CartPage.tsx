@@ -5,6 +5,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { Composition, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { Grid } from '../../atoms/Grid'
+import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { CartItemsList } from './components/CartItemsList'
 import { CartSummary } from './components/CartSummary'
 import { AppState } from '../../store/store'
@@ -20,7 +21,7 @@ const templateLg = `
 `
 
 const StyledTitleBar = styled.div`
-  background-color: '#fff';
+  background-color: ${({ theme }) => theme.colors.greyDim};
   background-image: url('https://demo2.wpopal.com/auros/wp-content/uploads/2018/10/breadcrumb.jpg');
   background-repeat: no-repeat;
   background-position: center center;
@@ -33,7 +34,7 @@ const StyledTitleBar = styled.div`
 `
 
 const StyledTitle = styled.span`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-size: 40px;
   font-weight: bold;
 `
@@ -45,7 +46,7 @@ const StyledLinkHome = styled.div`
 `
 
 const StyledSpan = styled.span`
-  color: #000;
+  color: ${({ theme }) => theme.colors.black};
   font-size: 13px;
   padding-left: 10px;
 `
@@ -75,18 +76,27 @@ export const CartPage: React.FC = () => {
         </Box>
       </StyledTitleBar>
       <Grid>
-        <Composition template={templateTablet} templateLg={templateLg} gap={2}>
-          {(Areas) => (
-            <>
-              <Areas.CartItems>
-                <CartItemsList items={cart.items} />
-              </Areas.CartItems>
-              <Areas.CartTotals>
-                <CartSummary subtotalPrice={cartTotal} totalPrice={cartTotal} />
-              </Areas.CartTotals>
-            </>
-          )}
-        </Composition>
+        <ContainerVertical>
+          <Composition
+            template={templateTablet}
+            templateLg={templateLg}
+            gap={2}
+          >
+            {(Areas) => (
+              <>
+                <Areas.CartItems>
+                  <CartItemsList items={cart.items} />
+                </Areas.CartItems>
+                <Areas.CartTotals>
+                  <CartSummary
+                    subtotalPrice={cartTotal}
+                    totalPrice={cartTotal}
+                  />
+                </Areas.CartTotals>
+              </>
+            )}
+          </Composition>
+        </ContainerVertical>
       </Grid>
     </>
   )

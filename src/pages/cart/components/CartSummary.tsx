@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout, { Composition, Box, query } from 'atomic-layout'
+import { Composition, Box, query } from 'atomic-layout'
 import { Heading } from '../../../atoms/Heading'
 
 const StyledProductSubtotal = styled.div`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-weight: bold;
   display: flex;
   justify-content: space-between;
@@ -20,8 +20,8 @@ const StyledCartTotals = styled.div`
 `
 
 const StyledButton = styled.div`
-  background-color: #eb7025;
-  border-color: #eb7025;
+  background-color: ${({ theme }) => theme.colors.orange};
+  border-color: ${({ theme }) => theme.colors.orange};
   border-radius: 0px;
   font-size: 16px;
   padding: 15px;
@@ -35,10 +35,10 @@ const StyledButton = styled.div`
 `
 
 const StyledLink = styled.a`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
 
   :hover {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `
 
@@ -48,7 +48,7 @@ const StyledBoxPrice = styled.div`
 `
 
 const StyledTotalPrice = styled.h2`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-size: 24px;
   margin: 0;
 `
