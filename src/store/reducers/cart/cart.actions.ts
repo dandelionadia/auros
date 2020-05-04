@@ -1,8 +1,4 @@
-import {
-  ADD_TO_CART,
-  DELETE_FROM_CART,
-  CHANGE_QUANTITY_IN_THE_CART,
-} from './types'
+import { ADD_TO_CART, DELETE_FROM_CART, CHANGE_ITEM_QUANTITY } from './types'
 
 export const addToCart = (
   id: string,
@@ -30,7 +26,7 @@ export const deleteFromCart = (id: string) => {
 
 export const changeItemQuantity = (id: string, quantity: number) => {
   return {
-    type: CHANGE_QUANTITY_IN_THE_CART,
+    type: CHANGE_ITEM_QUANTITY,
     id,
     quantity,
   }

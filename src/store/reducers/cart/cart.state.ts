@@ -11,13 +11,5 @@ export interface CartItem {
 }
 
 export const initialState: CartState = {
-  items: [
-    {
-      id: '1',
-      title: 'Foo',
-      price: 20.2,
-      quantity: 1,
-      image: 'a.png',
-    },
-  ],
+  items: [],
 }

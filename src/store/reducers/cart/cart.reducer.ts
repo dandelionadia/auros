@@ -1,9 +1,5 @@
-import { CartState, initialState, CartItem } from './cart.state'
-import {
-  ADD_TO_CART,
-  DELETE_FROM_CART,
-  CHANGE_QUANTITY_IN_THE_CART,
-} from './types'
+import { CartState, initialState } from './cart.state'
+import { ADD_TO_CART, DELETE_FROM_CART, CHANGE_ITEM_QUANTITY } from './types'
 
 export const cartReducer = (state: CartState = initialState, action: any) => {
   if (action.type === ADD_TO_CART) {
@@ -47,7 +43,7 @@ export const cartReducer = (state: CartState = initialState, action: any) => {
     }
   }
 
-  if (action.type === CHANGE_QUANTITY_IN_THE_CART) {
+  if (action.type === CHANGE_ITEM_QUANTITY) {
     const existingIndex = state.items.findIndex((item) => {
       return item.id === action.id
     })
