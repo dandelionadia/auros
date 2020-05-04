@@ -28,6 +28,7 @@ const StyledInput = styled.input`
   text-align: center;
   font-size: 1rem;
   height: fit-content;
+
   ::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button {
     opacity: 1;

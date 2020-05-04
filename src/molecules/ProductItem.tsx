@@ -62,7 +62,6 @@ const ProductItem: React.FC<ProductProps> = ({
 }) => {
   const dispatch = useDispatch()
   const handleAddToCart = () => {
-    console.log('success')
     dispatch(addToCart(id, name, price, 1, images[0]))
   }
 
@@ -81,7 +80,7 @@ const ProductItem: React.FC<ProductProps> = ({
         <Link to={url}>
           <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        <ProductButton onClick={() => handleAddToCart()}>
+        <ProductButton onClick={handleAddToCart}>
           <p>+ {buttonText}</p>
         </ProductButton>
       </StyledContainerImage>
