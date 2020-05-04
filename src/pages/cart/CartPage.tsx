@@ -80,7 +80,7 @@ export const CartPage: React.FC = () => {
           <Composition
             template={templateTablet}
             templateLg={templateLg}
-            gap={2}
+            gap={4}
           >
             {(Areas) => (
               <>
