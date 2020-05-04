@@ -4,10 +4,7 @@ import { Composition, Box } from 'atomic-layout'
 import styled from 'styled-components'
 import { ProductItem } from '../../molecules/ProductItem'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
-
-const StyledBox = styled.div`
-  box-sizing: border-box;
-`
+import { Grid } from '../../atoms/Grid'
 
 export const HomePage: React.FC<RouteComponentProps> = () => {
   const [homeData, setHomeData] = useState<any[]>()
@@ -23,15 +20,7 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
   }
 
   return (
-    <Box
-      as={StyledBox}
-      width="100%"
-      maxWidthSm="540px"
-      maxWidthMd="1400px"
-      marginHorizontal="auto"
-      paddingHorizontal={2.6}
-      paddingHorizontalLg={8}
-    >
+    <Grid fluid>
       <ContainerVertical>
         <Composition
           alignItems="flex-start"
@@ -53,6 +42,6 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
           ))}
         </Composition>
       </ContainerVertical>
-    </Box>
+    </Grid>
   )
 }

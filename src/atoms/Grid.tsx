@@ -6,13 +6,20 @@ const StyledBox = styled.div`
   box-sizing: border-box;
 `
 
-export const Grid: React.FC = ({ children }) => {
+interface GridProps {
+  fluid?: boolean
+}
+
+export const Grid: React.FC<GridProps> = ({ children, fluid }) => {
+  const maxWidths = fluid
+    ? { maxWidth: '1400px' }
+    : { maxWidthSm: '540px', maxWidthMd: '1200px' }
+
   return (
     <Box
       as={StyledBox}
       width="100%"
-      maxWidthSm="540px"
-      maxWidthMd="1200px"
+      {...maxWidths}
       marginHorizontal="auto"
       paddingHorizontal={2.6}
       paddingHorizontalLg={8}

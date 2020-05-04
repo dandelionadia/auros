@@ -75,7 +75,7 @@ export const CartPage: React.FC = () => {
           </Box>
         </Box>
       </StyledTitleBar>
-      <Grid>
+      <Grid fluid>
         <ContainerVertical>
           <Composition
             template={templateTablet}
