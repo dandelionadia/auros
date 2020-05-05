@@ -38,7 +38,6 @@ const StyledInput = styled.input`
 const StyledImage = styled.img`
   max-width: 100px;
   height: auto;
-  padding-left: 2rem;
 
   @media ${query({ for: 'lg' })} {
     width: 65px;
@@ -57,7 +56,8 @@ const StyledProductSubtotal = styled.div`
   justify-content: space-between;
 `
 
-const StyledIconDelet = styled.div`
+const StyledIconDelete = styled.div`
+  padding-right: 2rem;
   :hover {
     fill: ${({ theme }) => theme.colors.black};
   }
@@ -92,9 +92,10 @@ export const CartListItem: React.FC<CartListItemProps> = ({
         alignItemsMd="center"
         justifyContentSmDown="center"
       >
-        <StyledIconDelet
+        <StyledIconDelete
           as={IoMdClose}
           fill="#bbb"
+          size="25px"
           onClick={() => onDelete(item.id)}
         />
         <Link to={`/product/${item.id}`}>
