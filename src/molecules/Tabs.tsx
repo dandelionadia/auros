@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom'
 import styled from 'styled-components'
-import { Box } from 'atomic-layout'
+import { Box, query } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
 import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
@@ -37,7 +37,8 @@ const StyldUl = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 55px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 `
 
 const StyledLI = styled.li`
@@ -45,6 +46,10 @@ const StyledLI = styled.li`
 
   :not(:last-child) {
     margin-right: 45px;
+
+    @media ${query({ to: 'sm' })} {
+      margin-right: 20px;
+    }
   }
 `
 
