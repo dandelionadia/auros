@@ -2,22 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
-
-const StyledContainerProduct = styled.div`
-  height: auto;
-`
-const StyledProductDescription = styled.div`
-  text-align: center;
-`
-const StyledContainerImage = styled.div`
-  position: relative;
-`
-
-const StyledImage = styled.img`
-  margin: 0 auto;
-`
+import { addToCart } from '../store/reducers/cart/cart.actions'
 
 const ProductButton = styled(Button)`
   font-size: 13px;
@@ -30,10 +18,27 @@ const ProductButton = styled(Button)`
   display: flex;
   justify-content: center;
   text-transform: uppercase;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in-out;
+`
 
-  :hover {
-    background-color: ${({ theme }) => theme.colors.black};
+const StyledContainerProduct = styled.div`
+  height: auto;
+
+  :hover ${ProductButton} {
+    transform: translateY(0);
   }
+`
+const StyledProductDescription = styled.div`
+  text-align: center;
+`
+const StyledContainerImage = styled.div`
+  position: relative;
+  overflow: hidden;
+`
+
+const StyledImage = styled.img`
+  margin: 0 auto;
 `
 
 const StyledP = styled.p`
@@ -41,8 +46,7 @@ const StyledP = styled.p`
 `
 
 interface ProductProps {
-  image: string
-  secondImage: string
+  images: string[]
   price: number
   name: string
   buttonText: string
@@ -50,13 +54,17 @@ interface ProductProps {
 }
 
 const ProductItem: React.FC<ProductProps> = ({
-  image,
-  secondImage,
+  images,
   price,
   name,
   buttonText,
-  id
+  id,
 }) => {
+  const dispatch = useDispatch()
+  const handleAddToCart = () => {
+    dispatch(addToCart(id, name, price, 1, images[0]))
+  }
+
   const [isHover, setIsHover] = useState(false)
   //link which goes to the App
   const url = `/product/${id}`
@@ -70,13 +78,11 @@ const ProductItem: React.FC<ProductProps> = ({
       <StyledContainerImage>
         {/* on click change link to the our url */}
         <Link to={url}>
-          <StyledImage src={isHover ? secondImage : image} alt={name} />
+          <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        {isHover && (
-          <ProductButton>
-            <p>+ {buttonText}</p>
-          </ProductButton>
-        )}
+        <ProductButton onClick={handleAddToCart}>
+          <p>+ {buttonText}</p>
+        </ProductButton>
       </StyledContainerImage>
       <Box as={StyledProductDescription} paddingVertical="25px">
         <Text big>

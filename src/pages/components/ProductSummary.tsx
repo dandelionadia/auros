@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
@@ -7,7 +7,7 @@ import { Button } from '../../atoms/Button'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart } from '../../store/store'
+import { AppState } from '../../store/store'
 
 const templateMobile = `
 	gallery
@@ -55,11 +55,11 @@ const StyledLink = styled.a`
 `
 
 const Name = styled.span`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
 `
 
 const StyledAddToWishList = styled.div`
-  color: #222;
+  color: ${({ theme }) => theme.colors.blackLight};
   font-weight: 600;
   margin-top: 1.2rem;
   text-transform: capitalize;
@@ -74,7 +74,9 @@ export interface ProductSummaryProps {
   title: string
   rating: number
   price: number
+  images: string[]
   description: string
+  onAddToCartClick: (quantity: number) => void
 }
 
 const ProductSummary: React.FC<ProductSummaryProps> = ({
@@ -82,10 +84,13 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   title,
   rating,
   price,
-  description
+  images,
+  description,
+  onAddToCartClick,
 }) => {
-  const dispatch = useDispatch()
-  const cartItems = useSelector(state => (state as any).items)
+  const cartItems = useSelector<AppState, any>((state) => state.cart.items)
+
+  const [productQuantity, setProductQuantity] = useState(1)
 
   return (
     <Composition
@@ -95,36 +100,14 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
       gapMd={4}
       marginBottom={4}
     >
-      {Areas => (
+      {(Areas) => (
         <>
           <Areas.Gallery maxWidthSmOnly="400px" marginHorizontalSmOnly="auto">
             <Carousel
-              images={[
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/1',
-                  fullImage: 'http://satyr.io/750x750/1'
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/2',
-                  fullImage: 'http://satyr.io/750x750/2'
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/3',
-                  fullImage: 'http://satyr.io/750x750/3'
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/4',
-                  fullImage: 'http://satyr.io/750x750/4'
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/5',
-                  fullImage: 'http://satyr.io/750x750/5'
-                },
-                {
-                  thumbnailImage: 'http://satyr.io/150x150/6',
-                  fullImage: 'http://satyr.io/750x750/6'
-                }
-              ]}
+              images={images.map((image) => ({
+                thumbnailImage: image,
+                fullImage: image,
+              }))}
             />
           </Areas.Gallery>
           <Areas.Summary>
@@ -142,13 +125,13 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
             <Composition gap={1} templateCols="auto 1fr" marginVertical={2}>
               <StyledInput
                 type="number"
-                id="number"
-                name="tentacles"
+                name="quantity"
                 min="1"
                 max="10"
-                defaultValue="1"
-              ></StyledInput>
-              <Button onClick={() => dispatch(addToCart(1))}>
+                value={productQuantity}
+                onChange={(e) => setProductQuantity(Number(e.target.value))}
+              />
+              <Button onClick={() => onAddToCartClick(productQuantity)}>
                 ≙ add to card
               </Button>
               <p>You have {cartItems.length} items</p>

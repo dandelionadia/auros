@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
       paddingVerticalLg="40px"
       alignItems="center"
     >
-      {Areas => (
+      {(Areas) => (
         <>
           <Areas.Logo justifyMdOnly="center">
             <Link to={routes.home}>
@@ -58,47 +58,47 @@ export const Header: React.FC = () => {
               data={[
                 {
                   name: 'Home',
-                  url: routes.home
+                  url: routes.home,
                 },
                 {
                   name: 'Shop',
                   subMenu: [
                     {
                       name: 'fooo',
-                      url: '#'
+                      url: '#',
                     },
                     {
                       name: 'foo',
-                      url: '#'
-                    }
-                  ]
+                      url: '#',
+                    },
+                  ],
                 },
                 {
                   name: 'Shop',
                   subMenu: [
                     {
                       name: ' lorem 3',
-                      url: '#'
+                      url: '#',
                     },
                     {
                       name: 'lorem 4',
-                      url: '#'
-                    }
-                  ]
+                      url: '#',
+                    },
+                  ],
                 },
                 {
                   name: 'Shop',
                   subMenu: [
                     {
                       name: 'lorem lorem',
-                      url: '#'
+                      url: '#',
                     },
                     {
                       name: ' lorem 4',
-                      url: '#'
-                    }
-                  ]
-                }
+                      url: '#',
+                    },
+                  ],
+                },
               ]}
             />
           </Areas.Menu>

@@ -23,7 +23,7 @@ const StyledContainerLi = styled.div`
 const MenuItem = styled.span`
   width: 100%;
   display: block;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 15px;
   line-height: 28px;
   padding: 10.5px 45px 10.5px 18px;
@@ -33,7 +33,7 @@ const MenuItem = styled.span`
 `
 
 const Icon = styled.div`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   right: 0;
   top: 0;
   bottom: 0;

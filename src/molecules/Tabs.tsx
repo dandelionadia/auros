@@ -5,7 +5,6 @@ import { Box } from 'atomic-layout'
 import { ProductTable } from '../pages/product/ProductTable'
 import { ProductReviews } from '../pages/product/ProductReviews'
 import { ProductReview, ProductAttributes } from '../pages/product/ProductPage'
-import { Grid } from './Grid'
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.greyLight};
@@ -58,7 +57,7 @@ interface TabsPros {
 const Tabs: React.FC<TabsPros> = ({
   dataReview,
   shopAttributes,
-  description
+  description,
 }) => {
   const match = useRouteMatch()
 
@@ -77,7 +76,11 @@ const Tabs: React.FC<TabsPros> = ({
           <StyledLink to={`${match.url}/review`}>Review</StyledLink>
         </StyledLI>
       </StyldUl>
-      <Grid>
+      <Box
+        paddingHorizontal={0}
+        paddingHorizontalMd={1.5}
+        paddingHorizontalLg={8.6}
+      >
         <Switch>
           <Route path={match.url} exact render={() => <p>{description}</p>} />
           <Route
@@ -89,7 +92,7 @@ const Tabs: React.FC<TabsPros> = ({
             render={() => <ProductReviews reviews={dataReview} />}
           />
         </Switch>
-      </Grid>
+      </Box>
     </Box>
   )
 }
