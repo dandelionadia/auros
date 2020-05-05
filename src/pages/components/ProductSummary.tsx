@@ -132,7 +132,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 onChange={(e) => setProductQuantity(Number(e.target.value))}
               />
               <Button onClick={() => onAddToCartClick(productQuantity)}>
-                ≙ add to card
+                ≙ add to cart
               </Button>
               <p>You have {cartItems.length} items</p>
             </Composition>
