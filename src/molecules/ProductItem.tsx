@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Box } from 'atomic-layout'
+import { Box, query } from 'atomic-layout'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Text } from '../atoms/Text'
@@ -14,19 +14,24 @@ const ProductButton = styled(Button)`
   margin: 0;
   bottom: 0;
   left: 0;
-  position: absolute;
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-  transform: translateY(100%);
-  transition: transform 0.2s ease-in-out;
+
+  @media ${query({ from: 'sm' })} {
+    position: absolute;
+    transform: translateY(100%);
+    transition: transform 0.2s ease-in-out;
+  }
 `
 
 const StyledContainerProduct = styled.div`
   height: auto;
 
-  :hover ${ProductButton} {
-    transform: translateY(0);
+  @media ${query({ from: 'sm' })} {
+    :hover ${ProductButton} {
+      transform: translateY(0);
+    }
   }
 `
 const StyledProductDescription = styled.div`
