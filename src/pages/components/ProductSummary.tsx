@@ -134,7 +134,9 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
               <Button onClick={() => onAddToCartClick(productQuantity)}>
                 ≙ add to cart
               </Button>
-              <p>You have {cartItems.length} items</p>
+              <Box as="p" col="1 / span 2">
+                You have {cartItems.length} items
+              </Box>
             </Composition>
             <Box as={StyledAddToWishList}>
               <span>
