@@ -18,7 +18,7 @@ export const LoadingIcon: React.FC<LoadIngIconProps> = ({ className }) => {
         cx="50%"
         cy="50%"
         stroke="#fff"
-        stroke-width="2"
+        stroke-width="3"
         fill="none"
       />
     </svg>
