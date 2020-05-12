@@ -1,14 +1,25 @@
 import React from 'react'
 
-export const SuccessIcon = () => {
+interface SuccessIconProps {
+  className?: string
+}
+
+export const SuccessIcon: React.FC<SuccessIconProps> = ({ className }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px">
-      <g fill="none" stroke="#8EC343" strokeWidth="2">
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="72px"
+      height="72px"
+    >
+      <g fill="none">
         <path
-          className="path"
-          d="M17.417,37.778l9.93,9.909l25.444-25.393"
-          stroke="#000"
-          strokeWidth="4"
+          d=" M 13 24
+                  c 0 0, 0 0, 8 8
+                  c 0 0, 0 0, 17 -17
+                  "
+          stroke="#fff"
+          stroke-width="3"
         ></path>
       </g>
     </svg>
