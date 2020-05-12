@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { query } from 'atomic-layout'
 
 export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.black};

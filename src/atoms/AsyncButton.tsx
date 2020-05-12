@@ -18,8 +18,8 @@ const StyledSuccessIcon = styled(SuccessIcon)`
 
 const StyledLoadingIcon = styled(LoadingIcon)`
   transform-origin: center;
-  stroke-dasharray: 90;
-  stroke-dashoffset: 180;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 120;
   animation: move 2s infinite linear;
 
   @keyframes move {
@@ -33,17 +33,18 @@ const StyledLoadingIcon = styled(LoadingIcon)`
   }
 `
 
+export type AsyncButtonState = 'idle' | 'loading' | 'done'
+
 interface AsyncButtonProps {
-  state?: 'idle' | 'loading' | 'done'
+  state?: AsyncButtonState
 }
 
-export const AsyncButton: React.FC<AsyncButtonProps> = ({
-  children,
-  state = 'idle',
-}) => {
+export const AsyncButton: React.FC<
+  AsyncButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ children, state = 'idle', ...props }) => {
   return (
-    <Button>
-      {children}
+    <Button {...props}>
+      {state === 'idle' && children}
       {state === 'done' && <StyledSuccessIcon />}
       {state === 'loading' && <StyledLoadingIcon />}
     </Button>

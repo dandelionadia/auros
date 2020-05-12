@@ -9,12 +9,12 @@ export const LoadingIcon: React.FC<LoadIngIconProps> = ({ className }) => {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="50"
-      viewBox="0 0 50 50"
+      width="41"
+      height="41"
+      viewBox="0 0 40 40"
     >
       <circle
-        r="15"
+        r="10"
         cx="50%"
         cy="50%"
         stroke="#fff"

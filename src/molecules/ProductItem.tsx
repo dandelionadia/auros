@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Box, query } from 'atomic-layout'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Text } from '../atoms/Text'
 import { Button } from '../atoms/Button'
 import { addToCart } from '../store/reducers/cart/cart.actions'
+import { AsyncButton, AsyncButtonState } from '../atoms/AsyncButton'
 
-const ProductButton = styled(Button)`
+const ProductButton = styled(AsyncButton)`
   font-size: 13px;
   font-weight: 600;
   padding: 1rem;
@@ -65,9 +66,19 @@ const ProductItem: React.FC<ProductProps> = ({
   buttonText,
   id,
 }) => {
+  // 1. state (idle/loading/done)
+  const [asynButtonState, setAsynButtonState] = useState<AsyncButtonState>()
   const dispatch = useDispatch()
+
   const handleAddToCart = () => {
+    // 2. set state "loading"
+    setAsynButtonState('loading')
     dispatch(addToCart(id, name, price, 1, images[0]))
+    // @ts-ignore
+    // .then(() => {
+    //   // set state to 'done'
+    //   setAsynButtonState('done')
+    // })
   }
 
   const [isHover, setIsHover] = useState(false)
@@ -85,7 +96,7 @@ const ProductItem: React.FC<ProductProps> = ({
         <Link to={url}>
           <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        <ProductButton onClick={handleAddToCart}>
+        <ProductButton onClick={handleAddToCart} state={asynButtonState}>
           <p>+ {buttonText}</p>
         </ProductButton>
       </StyledContainerImage>
