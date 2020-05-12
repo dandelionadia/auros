@@ -9,8 +9,8 @@ export const SuccessIcon: React.FC<SuccessIconProps> = ({ className }) => {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="72px"
-      height="72px"
+      width="50px"
+      height="50px"
     >
       <g fill="none">
         <path
