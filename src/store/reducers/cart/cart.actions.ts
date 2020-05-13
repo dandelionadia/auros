@@ -7,10 +7,10 @@ export const addToCart = (
   quantity: number = 1,
   image: string
 ) => {
-  return () => {
+  return (dispatch: any) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({
+        dispatch({
           type: ADD_TO_CART,
           id,
           title,
@@ -18,6 +18,8 @@ export const addToCart = (
           quantity,
           image,
         })
+
+        resolve()
       }, 1000)
     })
   }
