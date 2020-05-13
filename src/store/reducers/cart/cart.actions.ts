@@ -7,13 +7,19 @@ export const addToCart = (
   quantity: number = 1,
   image: string
 ) => {
-  return {
-    type: ADD_TO_CART,
-    id,
-    title,
-    price,
-    quantity,
-    image,
+  return () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          type: ADD_TO_CART,
+          id,
+          title,
+          price,
+          quantity,
+          image,
+        })
+      }, 1000)
+    })
   }
 }
 

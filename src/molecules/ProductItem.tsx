@@ -67,18 +67,20 @@ const ProductItem: React.FC<ProductProps> = ({
   id,
 }) => {
   // 1. state (idle/loading/done)
-  const [asynButtonState, setAsynButtonState] = useState<AsyncButtonState>()
+  const [asyncButtonState, setAsyncButtonState] = useState<AsyncButtonState>()
   const dispatch = useDispatch()
 
   const handleAddToCart = () => {
     // 2. set state "loading"
-    setAsynButtonState('loading')
+    setAsyncButtonState('loading')
     dispatch(addToCart(id, name, price, 1, images[0]))
-    // @ts-ignore
-    // .then(() => {
-    //   // set state to 'done'
-    //   setAsynButtonState('done')
-    // })
+      // @ts-ignore
+      .then(() => {
+        setAsyncButtonState('done')
+        setTimeout(() => {
+          setAsyncButtonState('idle')
+        }, 2000)
+      })
   }
 
   const [isHover, setIsHover] = useState(false)
@@ -96,7 +98,7 @@ const ProductItem: React.FC<ProductProps> = ({
         <Link to={url}>
           <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        <ProductButton onClick={handleAddToCart} state={asynButtonState}>
+        <ProductButton onClick={handleAddToCart} state={asyncButtonState}>
           <p>+ {buttonText}</p>
         </ProductButton>
       </StyledContainerImage>
