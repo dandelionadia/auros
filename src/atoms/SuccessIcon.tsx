@@ -19,7 +19,7 @@ export const SuccessIcon: React.FC<SuccessIconProps> = ({ className }) => {
                   c 0 0, 0 0, 17 -17
                   "
           stroke="#fff"
-          stroke-width="3"
+          strokeWidth="3"
         ></path>
       </g>
     </svg>
