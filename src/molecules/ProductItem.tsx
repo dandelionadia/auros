@@ -4,7 +4,6 @@ import { Box, query } from 'atomic-layout'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Text } from '../atoms/Text'
-import { Button } from '../atoms/Button'
 import { addToCart } from '../store/reducers/cart/cart.actions'
 import { AsyncButton, AsyncButtonState } from '../atoms/AsyncButton'
 

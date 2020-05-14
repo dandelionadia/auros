@@ -6,7 +6,7 @@ import { Heading } from '../../atoms/Heading'
 import { Button } from '../../atoms/Button'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { AppState } from '../../store/store'
 
 const templateMobile = `
