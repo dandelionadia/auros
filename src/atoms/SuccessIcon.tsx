@@ -9,12 +9,12 @@ export const SuccessIcon: React.FC<SuccessIconProps> = ({ className }) => {
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
-      width="50px"
-      height="50px"
+      width="30px"
+      height="41px"
     >
       <g fill="none">
         <path
-          d=" M 13 24
+          d=" M 2 20
                   c 0 0, 0 0, 8 8
                   c 0 0, 0 0, 17 -17
                   "
