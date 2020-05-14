@@ -28,7 +28,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images }) => {
       >
         {images.map((image, index) => (
           <img
-            alt="productImg"
+            alt=""
             key={index}
             src={image.thumbnailImage}
             onClick={() => clickTab(index)}
