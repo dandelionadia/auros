@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { Button } from './Button'
 import { SuccessIcon } from './SuccessIcon'
@@ -42,11 +42,16 @@ interface AsyncButtonProps {
 export const AsyncButton: React.FC<
   AsyncButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ children, state = 'idle', ...props }) => {
-  return (
-    <Button {...props}>
-      {state === 'idle' && children}
-      {state === 'done' && <StyledSuccessIcon />}
-      {state === 'loading' && <StyledLoadingIcon />}
-    </Button>
-  )
+  const icon = useMemo(() => {
+    switch (state) {
+      case 'done':
+        return <StyledSuccessIcon />
+      case 'loading':
+        return <StyledLoadingIcon />
+      default:
+        return children
+    }
+  }, [state])
+
+  return <Button {...props}>{icon}</Button>
 }
