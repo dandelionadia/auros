@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { Composition, Box } from 'atomic-layout'
-import styled from 'styled-components'
+import { Composition } from 'atomic-layout'
 import { ProductItem } from '../../molecules/ProductItem'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { Grid } from '../../atoms/Grid'

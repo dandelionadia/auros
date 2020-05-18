@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { RecomendedProducts } from '../../molecules/RecomendedProducts'
 import { Tabs } from '../../molecules/Tabs'
@@ -8,6 +8,7 @@ import { Grid } from '../../atoms/Grid'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { addToCart } from '../../store/reducers/cart/cart.actions'
 import { useDispatch } from 'react-redux'
+import { AsyncButtonState } from '../../atoms/AsyncButton'
 
 export interface ProductData {
   id: string
@@ -36,6 +37,7 @@ export interface ProductReview {
 const ProductPage: React.FC<RouteComponentProps<{
   productId: string
 }>> = ({ match }) => {
+  const [asyncButtonState, setAsyncButtonState] = useState<AsyncButtonState>()
   const dispatch = useDispatch()
 
   //match => it is Route word wich not about 'id' in the 'path'
@@ -54,9 +56,16 @@ const ProductPage: React.FC<RouteComponentProps<{
   }
 
   const handleAddToCart = (quantity: number) => {
+    setAsyncButtonState('loading')
     dispatch(
       addToCart(productId, data.title, data.price, quantity, data.images[0])
-    )
+      // @ts-ignore
+    ).then(() => {
+      setAsyncButtonState('done')
+      setTimeout(() => {
+        setAsyncButtonState('idle')
+      }, 2000)
+    })
   }
 
   return (
@@ -70,6 +79,7 @@ const ProductPage: React.FC<RouteComponentProps<{
           images={data.images}
           description={data.description}
           onAddToCartClick={handleAddToCart}
+          state={asyncButtonState}
         />
         <Tabs
           dataReview={data.reviews}

@@ -3,11 +3,12 @@ import { Box, Composition } from 'atomic-layout'
 import styled from 'styled-components'
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { Heading } from '../../atoms/Heading'
-import { Button } from '../../atoms/Button'
+import { AsyncButton } from '../../atoms/AsyncButton'
 import { Rating } from '../../molecules/Rating'
 import { Carousel } from '../../molecules/Carousel'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { AppState } from '../../store/store'
+import { AsyncButtonState } from '../../atoms/AsyncButton'
 
 const templateMobile = `
 	gallery
@@ -77,6 +78,7 @@ export interface ProductSummaryProps {
   images: string[]
   description: string
   onAddToCartClick: (quantity: number) => void
+  state?: AsyncButtonState
 }
 
 const ProductSummary: React.FC<ProductSummaryProps> = ({
@@ -87,6 +89,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
   images,
   description,
   onAddToCartClick,
+  state,
 }) => {
   const cartItems = useSelector<AppState, any>((state) => state.cart.items)
 
@@ -131,10 +134,15 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 value={productQuantity}
                 onChange={(e) => setProductQuantity(Number(e.target.value))}
               />
-              <Button onClick={() => onAddToCartClick(productQuantity)}>
-                ≙ add to card
-              </Button>
-              <p>You have {cartItems.length} items</p>
+              <AsyncButton
+                onClick={() => onAddToCartClick(productQuantity)}
+                state={state}
+              >
+                ≙ add to cart
+              </AsyncButton>
+              <Box as="p" col="1 / span 2">
+                You have {cartItems.length} items
+              </Box>
             </Composition>
             <Box as={StyledAddToWishList}>
               <span>

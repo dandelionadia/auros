@@ -15,6 +15,7 @@ const StyledCartTotals = styled.div`
   padding: 40px;
 
   @media ${query({ to: 'md' })} {
+    padding: 20px;
     margin-bottom: 15px;
   }
 `

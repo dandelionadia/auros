@@ -1,32 +1,37 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Box } from 'atomic-layout'
+import { Box, query } from 'atomic-layout'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Text } from '../atoms/Text'
-import { Button } from '../atoms/Button'
 import { addToCart } from '../store/reducers/cart/cart.actions'
+import { AsyncButton, AsyncButtonState } from '../atoms/AsyncButton'
 
-const ProductButton = styled(Button)`
+const ProductButton = styled(AsyncButton)`
   font-size: 13px;
   font-weight: 600;
   padding: 1rem;
   margin: 0;
   bottom: 0;
   left: 0;
-  position: absolute;
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-  transform: translateY(100%);
-  transition: transform 0.2s ease-in-out;
+
+  @media ${query({ from: 'sm' })} {
+    position: absolute;
+    transform: translateY(100%);
+    transition: transform 0.2s ease-in-out;
+  }
 `
 
 const StyledContainerProduct = styled.div`
   height: auto;
 
-  :hover ${ProductButton} {
-    transform: translateY(0);
+  @media ${query({ from: 'sm' })} {
+    :hover ${ProductButton} {
+      transform: translateY(0);
+    }
   }
 `
 const StyledProductDescription = styled.div`
@@ -60,9 +65,21 @@ const ProductItem: React.FC<ProductProps> = ({
   buttonText,
   id,
 }) => {
+  // 1. state (idle/loading/done)
+  const [asyncButtonState, setAsyncButtonState] = useState<AsyncButtonState>()
   const dispatch = useDispatch()
+
   const handleAddToCart = () => {
+    // 2. set state "loading"
+    setAsyncButtonState('loading')
     dispatch(addToCart(id, name, price, 1, images[0]))
+      // @ts-ignore
+      .then(() => {
+        setAsyncButtonState('done')
+        setTimeout(() => {
+          setAsyncButtonState('idle')
+        }, 2000)
+      })
   }
 
   const [isHover, setIsHover] = useState(false)
@@ -80,7 +97,7 @@ const ProductItem: React.FC<ProductProps> = ({
         <Link to={url}>
           <StyledImage src={isHover ? images[1] : images[0]} alt={name} />
         </Link>
-        <ProductButton onClick={handleAddToCart}>
+        <ProductButton onClick={handleAddToCart} state={asyncButtonState}>
           <p>+ {buttonText}</p>
         </ProductButton>
       </StyledContainerImage>

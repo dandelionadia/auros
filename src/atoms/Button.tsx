@@ -6,7 +6,7 @@ export const Button = styled.button`
   font-weight: 400;
   font-size: 16px;
   text-transform: capitalize;
-  padding: 16px;
+  padding: 16px 10px;
   border: 0;
   width: 100%;
 
