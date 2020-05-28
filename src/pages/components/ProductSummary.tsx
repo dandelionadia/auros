@@ -35,7 +35,6 @@ const StyledP = styled.p`
 
 const StyledInput = styled.input`
   color: ${({ theme }) => theme.colors.greyLight};
-  /* margin: 15px 0; */
   width: 60px;
   text-align: center;
   font-size: 1.5rem;
@@ -138,7 +137,7 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
                 onClick={() => onAddToCartClick(productQuantity)}
                 state={state}
               >
-                ≙ add to cart
+                <p>≙ add to cart</p>
               </AsyncButton>
               <Box as="p" col="1 / span 2">
                 You have {cartItems.length} items
