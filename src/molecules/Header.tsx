@@ -99,6 +99,10 @@ export const Header: React.FC = () => {
                     },
                   ],
                 },
+                {
+                  name: 'Contact',
+                  url: routes.contact,
+                },
               ]}
             />
           </Areas.Menu>
