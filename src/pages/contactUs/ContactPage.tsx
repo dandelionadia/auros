@@ -5,6 +5,25 @@ import { TitleBar } from '../components/TitleBar'
 import { Grid } from '../../atoms/Grid'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { TitleBlock } from './components/TitleBlock'
+import { Contact } from './components/Contact'
+
+const data = [
+  {
+    id: Date.now(),
+    title: 'Add:',
+    content: '2593 Timbercrest Road, Chisana, Alaska Badalas United State',
+  },
+  {
+    id: Date.now(),
+    title: 'Phone:',
+    content: '(+91)7-723-4608',
+  },
+  {
+    id: Date.now(),
+    title: 'Mail:',
+    content: 'Aurosfurniture@domain.vn',
+  },
+]
 
 const templateMobile = `
   titleInfo
@@ -28,20 +47,37 @@ export const ContactPage: React.FC = () => {
           <Composition
             template={templateMobile}
             templateMd={templateTablet}
-            gap={2}
+            gap={1}
             gapMd={5}
-            gapLg={10}
+            gapLg={6}
+            marginVerticalLg={2}
           >
             {(Areas) => (
               <>
                 <Areas.TitleInfo>
                   <TitleBlock title="Infomation" />
                 </Areas.TitleInfo>
-                <Areas.ContactInfo>info</Areas.ContactInfo>
+                <Areas.ContactInfo marginBottom={2}>
+                  <Composition
+                    templateCols="auto 1fr"
+                    gapRow={0.5}
+                    gapCol={3}
+                    alignItems="start"
+                    marginLeftSmOnly="20px"
+                  >
+                    {data.map((item) => (
+                      <Contact
+                        key={item.id}
+                        title={item.title}
+                        content={item.content}
+                      />
+                    ))}
+                  </Composition>
+                </Areas.ContactInfo>
                 <Areas.TitleForm>
                   <TitleBlock title="Drop us a line" />
                 </Areas.TitleForm>
-                <Areas.ContactForm>form</Areas.ContactForm>
+                <Areas.ContactForm marginBottom={2}>form</Areas.ContactForm>
               </>
             )}
           </Composition>
