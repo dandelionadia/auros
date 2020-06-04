@@ -22,7 +22,6 @@ const Heading = styled.h1<HeadingProps>`
     css`
       font-size: 16px;
       font-weight: 600;
-      line-height: 28px;
       margin: 0;
     `}
 

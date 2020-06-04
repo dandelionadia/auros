@@ -6,6 +6,7 @@ import { Grid } from '../../atoms/Grid'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { TitleBlock } from './components/TitleBlock'
 import { Contact } from './components/Contact'
+import { Form } from './components/Form'
 
 const data = [
   {
@@ -48,8 +49,7 @@ export const ContactPage: React.FC = () => {
             template={templateMobile}
             templateMd={templateTablet}
             gap={1}
-            gapMd={5}
-            gapLg={6}
+            gapMd={4}
             marginVerticalLg={2}
           >
             {(Areas) => (
@@ -63,7 +63,7 @@ export const ContactPage: React.FC = () => {
                     gapRow={0.5}
                     gapCol={3}
                     alignItems="start"
-                    marginLeftSmOnly="20px"
+                    marginLeftSmDown="20px"
                   >
                     {data.map((item) => (
                       <Contact
@@ -77,7 +77,9 @@ export const ContactPage: React.FC = () => {
                 <Areas.TitleForm>
                   <TitleBlock title="Drop us a line" />
                 </Areas.TitleForm>
-                <Areas.ContactForm marginBottom={2}>form</Areas.ContactForm>
+                <Areas.ContactForm marginBottom={2}>
+                  <Form />
+                </Areas.ContactForm>
               </>
             )}
           </Composition>

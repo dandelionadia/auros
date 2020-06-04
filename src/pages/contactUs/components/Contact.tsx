@@ -1,6 +1,6 @@
 import React from 'react'
-import { Composition } from 'atomic-layout'
 import { Heading } from '../../../atoms/Heading'
+import { Label } from '../atoms/Label'
 
 interface PropsContact {
   title: string
@@ -10,7 +10,7 @@ interface PropsContact {
 export const Contact: React.FC<PropsContact> = ({ title, content }) => {
   return (
     <>
-      <Heading as="h4">{title}</Heading>
+      <Label as="span">{title}</Label>
       <span>{content}</span>
     </>
   )
