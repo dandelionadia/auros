@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Composition, Box, query } from 'atomic-layout'
 
 import { Label } from '../atoms/Label'
+import { Button } from '../../../atoms/Button'
 
 const StyledInput = styled.input`
   background-color: rgba(255, 255, 255, 0.01);
@@ -22,6 +23,21 @@ const StyledTextarea = styled.textarea`
   padding: 15px 0;
   width: 100%;
   height: 120px;
+`
+
+const StyledButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colors.blackLight};
+  border: 2px solid ${({ theme }) => theme.colors.blackLight};
+  font-size: 14px;
+  margin: 30px 0;
+  width: auto;
+  padding: 18px 28px;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.blackLight};
+    border: 2px solid ${({ theme }) => theme.colors.blackLight};
+  }
 `
 
 const StyledSubscribe = styled.span`
@@ -64,9 +80,10 @@ export const Form: React.FC = () => {
         </StyledTextarea>
       </Box>
       <Box as={ContainerCheckbox}>
-        <input type="checkbox" id="myCheck" />
-        <StyledSubscribe id="text">Also Subscribe Us</StyledSubscribe>
+        <input type="checkbox" id="story" />
+        <StyledSubscribe id="story">Also Subscribe Us</StyledSubscribe>
       </Box>
+      <StyledButton id="story">Send Message</StyledButton>
     </Composition>
   )
 }
