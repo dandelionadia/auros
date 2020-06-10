@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   border-style: solid;
   border-width: 0 0 1px;
   border-color: ${({ theme }) => theme.colors.blackLight};
-  padding: 15px 0 5px;
+  padding: 15px 0 10px;
   width: 100%;
 `
 
@@ -19,9 +19,19 @@ const StyledTextarea = styled.textarea`
   border-style: solid;
   border-width: 0 0 1px;
   border-color: ${({ theme }) => theme.colors.blackLight};
-  padding: 15px 0 5px;
+  padding: 15px 0;
   width: 100%;
   height: 120px;
+`
+
+const StyledSubscribe = styled.span`
+  color: ${({ theme }) => theme.colors.blackLight};
+  margin-left: 5px;
+`
+
+const ContainerCheckbox = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 export const Form: React.FC = () => {
@@ -52,6 +62,10 @@ export const Form: React.FC = () => {
         <StyledTextarea id="story" name="story">
           Enter text here...
         </StyledTextarea>
+      </Box>
+      <Box as={ContainerCheckbox}>
+        <input type="checkbox" id="myCheck" />
+        <StyledSubscribe id="text">Also Subscribe Us</StyledSubscribe>
       </Box>
     </Composition>
   )
