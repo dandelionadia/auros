@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Composition, Box, query } from 'atomic-layout'
+import { Composition, Box } from 'atomic-layout'
+import { GoogleApiWrapper } from 'google-maps-react'
 
 import { Label } from '../atoms/Label'
 import { Button } from '../../../atoms/Button'

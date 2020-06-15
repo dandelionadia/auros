@@ -14,6 +14,8 @@ import { NavMenuMob } from './molecules/NavMenuMob'
 import { HomePage } from './pages/home/HomePage'
 import { ContactPage } from './pages/contactUs/ContactPage'
 import routes from './routes'
+import { Page501 } from './pages/page501/Page501'
+import { menuItems } from './menu'
 
 const BurgerMenu = styled.div<{ isOpen: boolean }>`
   background-color: #353535;
@@ -97,61 +99,16 @@ const App: React.FC = () => {
           <Header />
           <Switch>
             <Route exact path={routes.home} component={HomePage} />
-            <Route exact path={routes.contact} component={ContactPage} />
+            <Route path={routes.contact} component={ContactPage} />
             <Route path="/cart" component={CartPage} />
             {/* get link from ProductItem, put it the path and go to the productPage*/}
             <Route path={routes.productDetail} component={ProductPage} />
+            <Route path="*" component={Page501} />
           </Switch>
           <Footer />
         </StyledContent>
         <BurgerMenu isOpen={isMenuOpen}>
-          <NavMenuMob
-            data={[
-              {
-                name: 'Home',
-                url: routes.home,
-              },
-              {
-                name: 'Shop',
-                subMenu: [
-                  {
-                    name: 'Shop Full Width',
-                    url: '#',
-                  },
-                  {
-                    name: 'Poo',
-                    url: '#',
-                  },
-                ],
-              },
-              {
-                name: 'Shop',
-                subMenu: [
-                  {
-                    name: ' Morem 3',
-                    url: '#',
-                  },
-                  {
-                    name: 'Torem 4',
-                    url: '#',
-                  },
-                ],
-              },
-              {
-                name: 'Shop',
-                subMenu: [
-                  {
-                    name: 'Morem Dorem',
-                    url: '#',
-                  },
-                  {
-                    name: ' Aorem 4',
-                    url: '#',
-                  },
-                ],
-              },
-            ]}
-          />
+          <NavMenuMob data={menuItems} />
         </BurgerMenu>
         {isMenuOpen && <StyledMaskContent onClick={() => setMenuOpen(false)} />}
         <Only to="md">

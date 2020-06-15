@@ -7,6 +7,7 @@ import { NavMenu } from './NavMenu'
 import { Logo } from '../atoms/Logo'
 import { Bar } from './Bar'
 import routes from '../routes'
+import { menuItems } from '../menu'
 
 const ContainerHeader = styled.div`
   position: relative;
@@ -54,57 +55,7 @@ export const Header: React.FC = () => {
             <Burger />
           </Areas.Burger>
           <Areas.Menu justifyLg="center">
-            <NavMenu
-              data={[
-                {
-                  name: 'Home',
-                  url: routes.home,
-                },
-                {
-                  name: 'Shop',
-                  subMenu: [
-                    {
-                      name: 'fooo',
-                      url: '#',
-                    },
-                    {
-                      name: 'foo',
-                      url: '#',
-                    },
-                  ],
-                },
-                {
-                  name: 'Shop',
-                  subMenu: [
-                    {
-                      name: ' lorem 3',
-                      url: '#',
-                    },
-                    {
-                      name: 'lorem 4',
-                      url: '#',
-                    },
-                  ],
-                },
-                {
-                  name: 'Shop',
-                  subMenu: [
-                    {
-                      name: 'lorem lorem',
-                      url: '#',
-                    },
-                    {
-                      name: ' lorem 4',
-                      url: '#',
-                    },
-                  ],
-                },
-                {
-                  name: 'Contact',
-                  url: routes.contact,
-                },
-              ]}
-            />
+            <NavMenu data={menuItems} />
           </Areas.Menu>
           <Areas.Bar>
             <Bar />
