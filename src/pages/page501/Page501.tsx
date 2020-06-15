@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
 
-import catPictureUrl from '../../images/cat_page_not_ready.svg'
+import catPictureUrl from '../../images/cat_svg.svg'
 import { Heading } from '../../atoms/Heading'
 import { ContainerVertical } from '../../atoms/ContainerVertical'
 import { Grid } from '../../atoms/Grid'

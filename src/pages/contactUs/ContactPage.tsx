@@ -1,6 +1,5 @@
 import React from 'react'
 import { Composition } from 'atomic-layout'
-import styled from 'styled-components'
 
 import { TitleBar } from '../components/TitleBar'
 import { Grid } from '../../atoms/Grid'
