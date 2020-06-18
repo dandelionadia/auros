@@ -82,8 +82,6 @@ export const Form: React.FC = () => {
       message: messageValue,
       subscribed,
     }
-
-    console.warn(values)
   }
 
   return (

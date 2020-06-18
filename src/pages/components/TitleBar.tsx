@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { IoIosArrowForward } from 'react-icons/io'
 import styled from 'styled-components'
 import { Box } from 'atomic-layout'
+import routes from '../../routes'
 
 const StyledTitleBar = styled.div`
   background-color: ${({ theme }) => theme.colors.greyDim};
@@ -36,20 +37,20 @@ const StyledSpan = styled.span`
 `
 
 interface propsTitleBar {
-  titlePage: string
+  title: string
 }
 
-export const TitleBar: React.FC<propsTitleBar> = ({ titlePage }) => {
+export const TitleBar: React.FC<propsTitleBar> = ({ title }) => {
   return (
     <StyledTitleBar>
       <Box paddingVertical="20px" paddingHorizontal="40px">
-        <StyledTitle>{titlePage}</StyledTitle>
+        <StyledTitle>{title}</StyledTitle>
         <Box flex justifyContent="center" alignItems="center">
-          <StyledLinkHome as={Link} to="/">
+          <StyledLinkHome as={Link} to={routes.home}>
             Home
           </StyledLinkHome>
           <Box as={IoIosArrowForward} marginTop="2px" size="10px" />
-          <StyledSpan>{titlePage}</StyledSpan>
+          <StyledSpan>{title}</StyledSpan>
         </Box>
       </Box>
     </StyledTitleBar>

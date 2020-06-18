@@ -42,7 +42,7 @@ const templateTablet = `
 export const ContactPage: React.FC = () => {
   return (
     <>
-      <TitleBar titlePage="Contact Us" />
+      <TitleBar title="Contact Us" />
       <Grid fluid>
         <ContainerVertical>
           <Composition

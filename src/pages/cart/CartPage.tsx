@@ -31,7 +31,7 @@ export const CartPage: React.FC = () => {
 
   return (
     <>
-      <TitleBar titlePage="Cart" />
+      <TitleBar title="Cart" />
       <Grid fluid>
         <ContainerVertical>
           <Composition
