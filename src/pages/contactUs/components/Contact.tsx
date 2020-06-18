@@ -1,5 +1,4 @@
 import React from 'react'
-import { Heading } from '../../../atoms/Heading'
 import { Label } from '../atoms/Label'
 
 interface PropsContact {
