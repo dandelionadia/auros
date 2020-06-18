@@ -11,17 +11,17 @@ import { Form } from './components/Form'
 const data = [
   {
     id: Date.now(),
-    title: 'Add:',
+    title: 'Address',
     content: '2593 Timbercrest Road, Chisana, Alaska Badalas United State',
   },
   {
     id: Date.now(),
-    title: 'Phone:',
+    title: 'Phone',
     content: '(+91)7-723-4608',
   },
   {
     id: Date.now(),
-    title: 'Mail:',
+    title: 'Mail',
     content: 'Aurosfurniture@domain.vn',
   },
 ]

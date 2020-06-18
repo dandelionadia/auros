@@ -10,7 +10,7 @@ interface PropsContact {
 export const Contact: React.FC<PropsContact> = ({ title, content }) => {
   return (
     <>
-      <Label as="span">{title}</Label>
+      <Label as="span">{title}:</Label>
       <span>{content}</span>
     </>
   )
