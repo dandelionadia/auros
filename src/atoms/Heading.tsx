@@ -11,20 +11,21 @@ const Heading = styled.h1<HeadingProps>`
   margin-top: 15px;
   margin-bottom: 27px;
 
-  ${props =>
+  ${(props) =>
     props.as === `h2` &&
     css`
       font-size: 1.7rem; /* 24px */
     `}
 
-  ${props =>
+  ${(props) =>
     props.as === `h4` &&
     css`
       font-size: 16px;
+      font-weight: 600;
       margin: 0;
     `}
 
-    ${props =>
+    ${(props) =>
       props.as === `h3` &&
       css`
         font-size: 18px;
