@@ -88,13 +88,6 @@ export const Form: React.FC = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault()
     setSubmitted(true)
-
-    const values = {
-      name: nameValue,
-      email: emailValue,
-      message: messageValue,
-      subscribed,
-    }
   }
 
   return (

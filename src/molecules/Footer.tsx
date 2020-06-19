@@ -9,6 +9,8 @@ import {
   IoLogoInstagram,
   IoLogoVk,
 } from 'react-icons/io'
+import { Link } from 'react-router-dom'
+import routes from '../routes'
 
 const templateMobile = `
 	contacts
@@ -176,7 +178,7 @@ export const Footer: React.FC = () => {
                 <Box as="p" marginTop={0}>
                   (+91)0-000-1111
                 </Box>
-                <a href="#">
+                <a href="mailto:Aurosfurniture@domain.vn">
                   <StyledEmail>Aurosfurniture@domain.vn</StyledEmail>
                 </a>
               </div>
@@ -257,9 +259,9 @@ export const Footer: React.FC = () => {
               <Box flex justifyContentSmDown="center">
                 <p>
                   Copyright © 2019
-                  <a href="#">
+                  <Link to={routes.page501}>
                     <strong> Auros</strong>
-                  </a>
+                  </Link>
                   . All rights reserved.
                 </p>
               </Box>

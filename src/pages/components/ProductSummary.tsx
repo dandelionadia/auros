@@ -9,6 +9,8 @@ import { Carousel } from '../../molecules/Carousel'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../store/store'
 import { AsyncButtonState } from '../../atoms/AsyncButton'
+import routes from '../../routes'
+import { Link } from 'react-router-dom'
 
 const templateMobile = `
 	gallery
@@ -118,7 +120,9 @@ const ProductSummary: React.FC<ProductSummaryProps> = ({
               <Box marginRight={1}>
                 <Rating stars={rating} />
               </Box>
-              <a href="#">({customerReviews} customer reviews)</a>
+              <Link to={routes.page501}>
+                ({customerReviews} customer reviews)
+              </Link>
             </Box>
             <StyledP>
               <StyledProdactPrice>${price}</StyledProdactPrice>
