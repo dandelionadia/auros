@@ -90,8 +90,8 @@ interface HeaderSubMenu {
 export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
   return (
     <StyledList>
-      {data.map((item) => (
-        <StyledLi>
+      {data.map((item, index) => (
+        <StyledLi key={index}>
           <StyledContainerLi>
             <Box as={ContentLi}>
               {item.url ? (
@@ -104,8 +104,8 @@ export const NavMenu: React.FC<HeaderProps> = ({ data }) => {
           </StyledContainerLi>
           {item.subMenu && (
             <StyledUlSubMenu>
-              {item.subMenu.map((subMenuItem) => (
-                <StyledSubMenuLi>
+              {item.subMenu.map((subMenuItem, index) => (
+                <StyledSubMenuLi key={index}>
                   <a href={subMenuItem.url}>{subMenuItem.name}</a>
                 </StyledSubMenuLi>
               ))}

@@ -32,6 +32,7 @@ export const HomePage: React.FC<RouteComponentProps> = () => {
         >
           {homeData.map((item) => (
             <ProductItem
+              key={item.id}
               images={item.images}
               price={item.price}
               name={item.title}
