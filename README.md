@@ -4,9 +4,7 @@ Runs the app:
 
 Online overview the page:
 
-[link to auros](aurosclone.netlify.app)
-
-#### `aurosclone.netlify.app`
+[online preview](aurosclone.netlify.app)
 
 Used technologies:
 
